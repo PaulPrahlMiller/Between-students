@@ -1,3 +1,3 @@
 exports.welcome = (req, res) => {
-  res.json({ message: "Hello from the API" });
+  res.json({ message: 'Hello from the API' });
 };
