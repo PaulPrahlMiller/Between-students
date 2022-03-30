@@ -25,6 +25,7 @@
 8. Run the following commands from the project root directory:
 
    `npm install`
+
    `npm run install-client`
 
 ## Run the application
