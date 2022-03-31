@@ -1,6 +1,7 @@
 # Fullstack Development Project
 
 ## Initial set-up
+# Make sure you install Node.js the latest version (16.14.2), download it from node.js official website.
 
 1. Fork this repository to create a version on your own github account
 
@@ -27,6 +28,22 @@
    `npm install`
 
    `npm run install-client`
+
+## Useful git commands
+
+Pull upstream changes
+1. Make sure you are on the appropriate branch.
+
+   git checkout master (or your main branch)
+
+2. Fetch content from upstream master branch.
+
+   git fetch upstream
+
+3. Merge upstream with the appropriate local branch
+
+   git merge upstream/master
+   
 
 ## Run the application
 
