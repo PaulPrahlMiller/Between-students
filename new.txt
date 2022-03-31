@@ -1,1 +1,3 @@
 some changes to try out git merge to main.
+
+first try git merge new_dev went directly merged into main repo main..
