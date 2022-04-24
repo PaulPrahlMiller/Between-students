@@ -1,6 +1,7 @@
 # Fullstack Development Project
 
 ## Initial set-up
+
 # Make sure you install Node.js the latest version (16.14.2), download it from node.js official website.
 
 1. Fork this repository to create a version on your own github account
@@ -32,6 +33,7 @@
 ## Useful git commands
 
 Pull upstream changes
+
 1. Make sure you are on the appropriate branch.
 
    git checkout master (or your main branch)
@@ -43,7 +45,6 @@ Pull upstream changes
 3. Merge upstream with the appropriate local branch
 
    git merge upstream/master
-   
 
 ## Run the application
 
@@ -56,3 +57,5 @@ From the project root directory run the following command:
 Some things that may be helpful for us.
 
 - A github [workflow](https://medium.com/@androidmatheny/using-git-and-github-on-group-projects-d636be2cdd4d) for teams.
+
+- Using reducer dispatch to update state [guide](https://reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down)

@@ -1,24 +1,17 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import Welcome from './components/welcome/Welcome';
+import AuthState from './context/auth/AuthState';
+import ProductState from './context/product/ProductState';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    const fetchFromApi = () => {
-      fetch('/api')
-        .then((res) => res.json())
-        .then((data) => setMessage(data.message));
-    };
-    fetchFromApi();
-  }, [message]);
-
   return (
-    <div className='App'>
-      <h1 style={{ textAlign: 'center' }}>Fullstack MERN application</h1>
-      <Welcome message={message} />
-    </div>
+    <AuthState>
+      <ProductState>
+        <div className='App'>
+          <h1 style={{ textAlign: 'center' }}>Fullstack MERN application</h1>
+        </div>
+      </ProductState>
+    </AuthState>
   );
 }
 
