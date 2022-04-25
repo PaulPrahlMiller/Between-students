@@ -10,4 +10,3 @@ exports.users =(req, res)=>{
   res.json({ message: 'Now you are looking for users' });
 }
 
-
