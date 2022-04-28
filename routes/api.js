@@ -1,5 +1,10 @@
+'use strict';
 const router = require('express').Router();
 const apiController = require('./apiController.js');
+
+const { upload } = require('../middleware/upload');
+const { singleFileUpload } = require('../controllers/upload');
+const Product = require('../models/Product');
 
 router.get('/', apiController.welcome);
 router.get('/products', apiController.getProducts)
@@ -10,5 +15,6 @@ router.post('/login', apiController.login)
 router.get('/myDetails', apiController.myDetails)
 router.post('/addProduct', apiController.addProduct)
 router.delete('/removeProduct', apiController.removeProduct)
+
 
 module.exports = router;
