@@ -1,3 +1,4 @@
+const { date } = require('@hapi/joi');
 const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema({
@@ -13,15 +14,26 @@ const userSchema = new Schema({
     max: 32,
     required: true
   },
+  address: {
+    type: String,
+    min: 2,
+    max: 60,
+    required: true
+  },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
     min: 6,
     max: 255,
     required: true
+  },
+  date_registration: {
+    type: Date,
+    default: Date.now
   }
 });
 

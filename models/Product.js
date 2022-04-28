@@ -1,4 +1,3 @@
-const { default: mongoose } = require('mongoose');
 const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
@@ -8,7 +7,7 @@ const productSchema = new Schema({
     max: 32,
     required: true
   },
-  catagory:{
+  category:{
     type: String,
     min: 2,
     max: 32,
@@ -20,20 +19,29 @@ const productSchema = new Schema({
     max: 32,
     required: true
   },
-  order_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  expriration_date: {
+  cost: {
     type: String,
+    min: 2,
+    max: 32,
     required: true
   },
   description: {
     type: String,
     min: 6,
-    max: 255,
-    required: true
+    max: 255
+  },
+  date_upload: {
+    type: Date,
+    default: Date.now
   }
-});
+})
 
 module.exports = model('Product', productSchema);
+
+/**
+ ,
+  order_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  }
+ */
