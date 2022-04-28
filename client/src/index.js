@@ -6,7 +6,7 @@ import ProductState from './context/product/ProductState';
 import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UserAccount from './components/UserAccount';
+import UserAccount from './pages/UserAccount';
 import Login from './components/auth/Login';
 import UnknownRoute from './pages/UnknownRoute';
 import './index.css';
