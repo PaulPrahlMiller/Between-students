@@ -1,11 +1,19 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const imagesSchema = new Schema({
+const imageSchema = new Schema({
   product_id: {
     type: String,
     min: 2,
     max: 32,
     required: true
+  },
+  name:{
+    type: String,
+    required:true
+  },
+  image:{
+    type:Buffer,
+    contentType:String
   },
   content:{
     type: String,
@@ -15,7 +23,7 @@ const imagesSchema = new Schema({
   }
 });
 
-module.exports = model('Image', imagesSchema);
+export default model('Image', imageSchema);
 
 /**
  ,
