@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
-import useProducts from '../hooks/useProducts';
-import { getProducts, addProduct } from '../context/product/ProductState';
+import useProducts from '../../hooks/useProducts';
+import { getProducts, addProduct } from '../../context/product/ProductState';
 import Product from './Product';
 
 const Products = () => {
@@ -32,24 +32,15 @@ const Products = () => {
         <Fragment>
           {categoryProducts !== null // If categoryProducts !== null, it will contain an array of products filtered by category
             ? categoryProducts.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                />
+                <Product key={product.id} product={product} />
               ))
             : filteredProducts !== null // If filteredProducts !== null, it will contain an array of products filtered by search term
             ? filteredProducts.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                />
+                <Product key={product.id} product={product} />
               ))
             : // If no filters are active, all products will be rendered
               products.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                />
+                <Product key={product.id} product={product} />
               ))}
         </Fragment>
       ) : (
