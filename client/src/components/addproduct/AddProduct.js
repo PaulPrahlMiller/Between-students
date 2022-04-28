@@ -20,15 +20,19 @@ const AddProduct = () => {
     formData.append('description', description);
     formData.append('productImage', fileName);
 
-    setTitle('');
-    setDescription('');
+    // setTitle('');
+    // setDescription('');
+    // setFileName('');
 
-    const response = await fetch('http://localhost:5000/api/test', {
+    const response = await fetch('http://localhost:5000/api/add', {
       method: 'POST',
       body: formData
     });
     if (response) {
       console.log(response);
+    }
+    {
+      console.log('uploaded');
     }
   };
 
