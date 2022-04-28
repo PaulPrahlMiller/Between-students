@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import Welcome from './components/welcome/Welcome';
-import AddProduct from './components/addproduct/AddProduct';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='App'>
-      Hello to MERN APP <br />
-      {/* <h1 style={{ textAlign: 'center' }}>Fullstack MERN application</h1>
-      <Welcome message={message} /> */}
-      <AddProduct></AddProduct>
+    <div className='app'>
+      <div className='main-content'>
+        <Navbar />
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 }
