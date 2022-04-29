@@ -1,5 +1,5 @@
 const { default: mongoose } = require('mongoose');
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 const productSchema = new Schema({
   title: {

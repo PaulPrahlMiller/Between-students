@@ -20,9 +20,8 @@ const AddProduct = () => {
     formData.append('description', description);
     formData.append('productImage', fileName);
 
-    // setTitle('');
-    // setDescription('');
-    // setFileName('');
+    setTitle('');
+    setDescription('');
 
     const response = await fetch('http://localhost:5000/api/add', {
       method: 'POST',
@@ -40,12 +39,10 @@ const AddProduct = () => {
     //<AddProductContainer>
     <div className='container'>
       <h1>Add new item for sell</h1>
-      <form
-        onSubmit={changeOnClick}
-        encType='multipart/form-data'
-      >
+      <form onSubmit={changeOnClick} encType='multipart/form-data'>
         <div className='form-group'>
           <label htmlFor='title'>
+            Title:
             <input
               type='text'
               value={title}
@@ -53,11 +50,11 @@ const AddProduct = () => {
               className='form-control'
               placeholder='Title'
             />
-            Title:
           </label>
         </div>
         <div className='form-group'>
           <label htmlFor='description'>
+            Desccription:
             <input
               type='text'
               value={description}
@@ -65,7 +62,6 @@ const AddProduct = () => {
               className='form-control'
               placeholder='Description'
             />
-            Desccription:
           </label>
         </div>
         <div className='form-group'>
@@ -79,10 +75,7 @@ const AddProduct = () => {
             />
           </label>
         </div>
-        <button
-          type='submit'
-          className='btn btn-primary'
-        >
+        <button type='submit' className='btn btn-primary'>
           Post Item
         </button>
       </form>
