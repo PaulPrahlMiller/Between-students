@@ -1,8 +1,25 @@
-const { default: mongoose } = require('mongoose');
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
-  title: {
+  product_name: {
+    type: String,
+    min: 2,
+    max: 32,
+    required: true
+  },
+  category: {
+    type: String,
+    min: 2,
+    max: 32,
+    required: true
+  },
+  owner_id: {
+    type: String,
+    min: 2,
+    max: 32,
+    required: true
+  },
+  cost: {
     type: String,
     min: 2,
     max: 32,
@@ -11,12 +28,20 @@ const productSchema = new Schema({
   description: {
     type: String,
     min: 6,
-    max: 255,
-    required: true
+    max: 255
   },
-  productImage: { type: String, required: true },
-  postDate: { type: Date, default: Date.now }
+  date_upload: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-const Product = mongoose.model('Product', productSchema);
-module.exports = Product;
+module.exports = model('Product', productSchema);
+
+/**
+ ,
+  order_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  }
+ */
