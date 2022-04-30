@@ -7,7 +7,7 @@ const productSchema = new Schema({
     max: 32,
     required: true
   },
-  category:{
+  category: {
     type: String,
     min: 2,
     max: 32,
@@ -34,7 +34,7 @@ const productSchema = new Schema({
     type: Date,
     default: Date.now
   }
-})
+});
 
 module.exports = model('Product', productSchema);
 
