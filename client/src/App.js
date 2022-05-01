@@ -1,25 +1,22 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import Welcome from './components/welcome/Welcome';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import { Outlet } from 'react-router-dom';
+import AddProduct from './components/addproduct/AddProduct';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    const fetchFromApi = () => {
-      fetch('/api')
-        .then((res) => res.json())
-        .then((data) => setMessage(data.message));
-    };
-    fetchFromApi();
-  }, [message]);
-
   return (
-    <div className='App'>
-      <h1 style={{ textAlign: 'center' }}>Fullstack MERN application</h1>
-      <Welcome message={message} />
+    <div className='app'>
+      <div className='main-content'>
+        <Navbar />
+        <Outlet />
+        <AddProduct></AddProduct>
+      </div>
+      <Footer />
     </div>
   );
 }
+
 
 export default App;
