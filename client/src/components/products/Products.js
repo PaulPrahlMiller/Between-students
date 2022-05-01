@@ -12,7 +12,7 @@ const Products = () => {
 
   useEffect(() => {
     getProducts(productDispatch);
-  }, [productDispatch]);
+  }, [productDispatch, filteredProducts, categoryProducts]);
 
   return (
     <div className='products'>

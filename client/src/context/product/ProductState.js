@@ -1,7 +1,12 @@
 import React, { useReducer } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
-import { ADD_PRODUCT, GET_PRODUCTS, FILTER_BY_SEARCH } from '../types';
+import {
+  ADD_PRODUCT,
+  GET_PRODUCTS,
+  FILTER_BY_SEARCH,
+  FILTER_BY_CATEGORY
+} from '../types';
 
 // Functions to update state exported here before the functional component
 
@@ -33,6 +38,13 @@ export const filterBySearch = (dispatch, searchTerm) => {
   dispatch({
     type: FILTER_BY_SEARCH,
     payload: searchTerm
+  });
+};
+
+export const filterByCategory = (dispatch, category) => {
+  dispatch({
+    type: FILTER_BY_CATEGORY,
+    payload: category
   });
 };
 
