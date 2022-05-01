@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './pages/UserAccount';
+import UnknownRoute from './pages/UnknownRoute';
 import Login from './components/auth/Login';
 import './index.css';
 import App from './App';
@@ -31,6 +32,7 @@ ReactDOM.render(
               />
               <Route path='login' element={<Login />} />
             </Route>
+            <Route path='*' element={<UnknownRoute />} />
           </Routes>
         </BrowserRouter>
       </ProductState>
