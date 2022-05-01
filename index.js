@@ -20,3 +20,6 @@ app.use('/api', apiRoutes);
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+
+//added test info from Zijie
