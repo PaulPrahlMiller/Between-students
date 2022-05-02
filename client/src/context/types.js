@@ -3,8 +3,12 @@
  */
 
 /** Auth Types */
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGIN_DENIED = 'LOGIN_DENIED';
+export const REGISTER_USER = 'REGISTER_USER';
+export const LOAD_USER = 'LOAD_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const UNAUTHORIZED = 'UNAUTHORIZED';
 
 /** Product Types */
 export const GET_PRODUCTS = 'GET_PRODUCTS';

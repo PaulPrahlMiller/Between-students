@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import ProductSearch from '../components/products/ProductSearch';
+import Products from '../components/products/Products';
 
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <Fragment>
+      <ProductSearch />
+      <Products />
+    </Fragment>
+  );
 };
 
 export default Home;

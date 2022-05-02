@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './index.css';
+import App from './App';
 import AuthState from './context/auth/AuthState';
 import ProductState from './context/product/ProductState';
 import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UserAccount from './components/UserAccount';
-import Login from './components/auth/Login';
-import './index.css';
-import App from './App';
+import UserAccount from './pages/UserAccount';
+import UnknownRoute from './pages/UnknownRoute';
+import LoginForm from './components/auth/LoginForm';
+import RegisterForm from './components/auth/RegisterForm';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -29,8 +32,10 @@ ReactDOM.render(
                   </ProtectedRoute>
                 }
               />
-              <Route path='login' element={<Login />} />
+              <Route path='login' element={<LoginForm />} />
+              <Route path='register' element={<RegisterForm />} />
             </Route>
+            <Route path='*' element={<UnknownRoute />} />
           </Routes>
         </BrowserRouter>
       </ProductState>

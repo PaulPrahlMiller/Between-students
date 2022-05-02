@@ -5,6 +5,9 @@ const { description } = require('@hapi/joi/lib/base');
 // Register Validation
 const registerValidation = (data) => {
   const schema = Joi.object({
+    firstname: Joi.string().min(3).required(),
+    lastname: Joi.string().min(3).required(),
+    address: Joi.string().min(6).required(),
     email: Joi.string().min(6).required().email(),
     password: Joi.string().min(6).required()
   });
