@@ -2,3 +2,13 @@
 .main-content {
   min-height: 100vh;
 }
+
+#loading-page {
+  width: 100%;
+  padding-top: 25%;
+}
+
+#loading-page > img {
+  display: block;
+  margin: 0 auto;
+}
