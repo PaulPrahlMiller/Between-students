@@ -1,7 +1,8 @@
 import React from 'react';
+import AddProduct from '../components/addproduct/AddProduct';
 
 const UserAccount = () => {
-  return <div>UserAccount</div>;
+  return <AddProduct />;
 };
 
 export default UserAccount;
