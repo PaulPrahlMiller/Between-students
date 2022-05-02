@@ -1,41 +1,21 @@
-require('dotenv').config();
 const User = require('../models/User');
 const Product = require('../models/Product');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const signale = require('signale');
+require('dotenv').config();
 const {
   registerValidation,
   loginValidation,
   addProductValidation,
   removeValidation
 } = require('../validation');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const signale = require('signale');
-
-exports.welcome = (req, res) => {
-  res.json({ message: 'Hello from the API' });
-};
 
 exports.getProducts = async (req, res) => {
   // NO NEED FOR AUTHORIZATION
   const products = await Product.find({});
   res.json({ message: 'Now you are looking for products', data: products });
 };
-
-// exports.myProducts = async (req, res) => {
-//   const token = req.header('token');
-//   decodeToken(token);
-
-// };
-
-// function decodeToken(token) {
-//   const base64Url = token.split('.')[1];
-//   const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-//   const buff = new Buffer(base64, 'base64');
-//   const payloadinit = buff.toString('ascii');
-//   const payload = JSON.parse(payloadinit);
-//   console.log(payload);
-//   return payload;
-// }
 
 exports.getUsers = async (req, res) => {
   const users = await User.find({});
@@ -198,21 +178,49 @@ exports.login = async (req, res) => {
   }
 
   // If existing email
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) {
-    signale.fatal('Email not found');
-    return res.status(400).json({ error: 'Email is not found' });
-  }
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      signale.fatal('Email not found');
+      return res.status(400).json({ error: 'Email is not found' });
+    }
 
-  // Password correct?
-  const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword) {
-    signale.fatal('Invalid password');
-    return res.status(400).json({ error: 'Invalid password' });
-  }
+    // Password correct?
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      signale.fatal('Invalid password');
+      return res.status(400).json({ error: 'Invalid password' });
+    }
 
-  // Create and assign token
-  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-  signale.complete('Login succeded!');
-  res.send({ token: token }); // attached token to the header OR WE CAN DO THE REDIRECTING HERE
+    // Create object to sign JWT with
+    const jwtPayload = {
+      user: {
+        id: user._id
+      }
+    };
+
+    // Create and assign token
+    const token = jwt.sign(jwtPayload, process.env.TOKEN_SECRET);
+    signale.complete('Login succeeded!');
+    res.json({ token }); // attached token to the header OR WE CAN DO THE REDIRECTING HERE
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+exports.getLoggedInUser = async (req, res) => {
+  try {
+    // Find user in database and return all data except the password
+    const user = await User.findById(req.user.id).select('-password');
+
+    res.json(user);
+    //
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server error');
+  }
 };
