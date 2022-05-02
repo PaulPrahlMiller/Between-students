@@ -5,7 +5,7 @@ const singleFileUpload = async (req, res, next) => {
     const newProduct = new Product({
       title: req.body.title,
       description: req.body.description,
-      productImage: req.file.originalname
+      productImage: req.file.filename
       //productImage: req.file.filename
       // productImage: url + '/client/public/uploads/' + req.file.filename
     });
