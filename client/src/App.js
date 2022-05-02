@@ -4,6 +4,8 @@ import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import { Outlet } from 'react-router-dom';
+import AddProduct from './components/addproduct/AddProduct';
+import UseProducts from './components/addproduct/UseProducts';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <div className='main-content'>
         <Navbar />
         <Outlet />
+        {/* <AddProduct></AddProduct>
+        <UseProducts></UseProducts> */}
       </div>
       <Footer />
     </div>

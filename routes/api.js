@@ -6,7 +6,8 @@ const authUser = require('../middleware/auth');
 
 const { upload } = require('../middleware/upload');
 const { singleFileUpload } = require('../controllers/upload');
-const Product = require('../models/Product');
+
+router.post('/add', upload.single('productImage'), singleFileUpload);
 
 router.get('/products', apiController.getProducts);
 router.get('/users', apiController.getUsers);

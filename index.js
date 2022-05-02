@@ -1,13 +1,12 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const apiRoutes = require('./routes/api');
 const connectDatabase = require('./config/db');
-const modelController = require('./models/models_controller')
 const PORT = process.env.PORT || 5000;
-const signale = require('signale')
+const signale = require('signale');
 
 const app = express();
-
 
 // Connect to mongoDB database
 connectDatabase();
@@ -16,14 +15,14 @@ connectDatabase();
 // ------ modelController.insertManyProducts()
 // ------ modelController.insertManyUsers()
 
-
 // Cors used to allow cross-origin communication on localserver between frontend and backend
 app.use(cors());
 
 app.use(express.json());
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/api', apiRoutes);
 
 app.listen(PORT, () => {
-  signale.success(`Server listening on port ${PORT}`)
-})
+  signale.success(`Server listening on port ${PORT}`);
+});
