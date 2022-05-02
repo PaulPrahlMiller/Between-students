@@ -1,40 +1,18 @@
-const { date } = require('@hapi/joi');
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  firstname: {
-    type: String,
-    min: 2,
-    max: 32,
-    required: true
-  },
-  lastname: {
-    type: String,
-    min: 2,
-    max: 32,
-    required: true
-  },
-  address: {
-    type: String,
-    min: 2,
-    max: 60,
-    required: true
-  },
   email: {
     type: String,
-    required: true,
-    unique: true
+    required: 'Enter Email'
   },
   password: {
     type: String,
-    min: 6,
-    max: 255,
-    required: true
+    required: 'Enter Password'
   },
-  date_registration: {
-    type: Date,
-    default: Date.now
-  }
+  registration_date: { type: Date, default: Date.now }
 });
 
-module.exports = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

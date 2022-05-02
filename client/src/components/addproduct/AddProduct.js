@@ -23,16 +23,12 @@ const AddProduct = () => {
     setTitle('');
     setDescription('');
 
-    const response = await fetch('http://localhost:5000/api/add', {
+    await fetch('http://localhost:5000/api/add', {
       method: 'POST',
       body: formData
-    });
-    if (response) {
-      console.log(response);
-    }
-    {
-      console.log('uploaded');
-    }
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data)); // get the data here!
   };
 
   return (
