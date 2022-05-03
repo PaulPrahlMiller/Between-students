@@ -17,6 +17,8 @@ const UnknownRoute = () => {
       <div className='NotFoundBox'>
           <Header className="NotFoundheader"/>
           <div className='NotFoundBodyDiv'>
+              <h2 className='NotFoundMessage'>- Page not found -</h2>
+
               <button className="backButton" onClick={handleClick} > <span className='backButtonText'>Back to Home Page</span></button>
           </div>
           <Footer/>
