@@ -1,56 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
-import { getUser } from '../../context/auth/AuthState';
 
 const UseProducts = () => {
   const [productList, setProductList] = useState([]);
+  const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
   var url = 'uploads/';
-  // const [authState, authDispatch] = useAuth();
-  // const { isAuthenticated } = authState;
-  // const [token, setToken] = useState([]);
-  // token = authState.token;
-  // console.log(token);
-  // var bearer = 'Bearer ' + token;
-  // const token_local = localStorage.getItem('token');
-  // console.log(token_local);
 
-  const fetchProduct = (e) => {
-    console.log(e.target);
-    // console.log(token, bearer);
-    console.log('getting user' + getUser);
-    // fetch('http://localhost:5000/api/mydetails', {
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization: `Bearer ${token_local}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error ${response.status}`);
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((results) => {
-    //     results.data.map((productImage) => {
-    //       console.log(productImage);
-    //     });
-    //     setProductList(results.data);
-    //     productList.map((product) => {
-    //       console.log(product);
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  };
+  useEffect(() => {
+    axios('http://localhost:5000/api/user').then((response) => {
+      var original_data = response.data;
+      console.log('original data in first useEffect', original_data);
+      setProductList(original_data);
+      console.log('printing products', productList);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log('Changed products: ', productList);
+  }, [productList]);
 
   return (
     <div className='container'>
       <h1>This is the retrived data</h1>
-      <button onClick={fetchProduct}>Click me!</button>;
+      <button
+        onClick={() => {
+          navigate('/create-item');
+        }}
+      >
+        Create a new item for sell
+      </button>
+      ;
       <table>
         <tbody>
           {productList.map((item) => {
@@ -58,7 +40,9 @@ const UseProducts = () => {
               <tr key={item._id}>
                 <td>{item.title}</td>
                 <td>{item.description}</td>
-                <td>{item.postDate}</td>
+                <td>{item.createdAt}</td>
+                <td>{item.cost}</td>
+                <td>{item.category}</td>
                 <td>{item.productImage}</td>
                 <img
                   src={url + `${item.productImage}`}

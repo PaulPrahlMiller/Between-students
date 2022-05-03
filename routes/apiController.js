@@ -210,8 +210,8 @@ exports.getLoggedInUser = async (req, res) => {
     const user = await User.findById(req.user.id).select('-password');
     // const mydata = await User.find({ _id: user._id });
     const productsList = await Product.find({ owner_id: user._id });
-    signale.complete(productsList);
-    res.json({ user: user, productsList });
+    //signale.complete(productsList);
+    res.json(productsList);
   } catch (error) {
     signale.fatal('Error while resolving token and getting Details.');
     res.status(400).json('Invalid Token');
