@@ -71,32 +71,26 @@ exports.removeProduct = async (req, res) => {
 exports.addProduct = async (req, res) => {
   signale.pending('A user is trying to add a product!');
   try {
-    // Check if a request has a token - varify
-    const token = req.header('token');
-    if (!token) {
-      signale.fatal('Access Denied');
-      return res.status(401).json('Access Denied');
-    }
-    // Validate product inputs
-    const { error } = addProductValidation(req.body);
-    if (error) {
-      signale.fatal('Input flagged error during validation');
-      return res.status(400).json({ error: error.details[0].message }); // The message is form the joi object in validation.js
-    }
-    // Get owners-ID out of the token from request
-    const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.user = verified;
-    // Create new Product
+    // find user by ID
+    const user = await User.findById(req.user.id).select('-password');
+    // const mydata = await User.find({ _id: user._id });
+    // Validate product inputs using Joi in validation
+    // const { error } = addProductValidation(req.body);
+    // if (error) {
+    //   signale.fatal('Input flagged error during validation');
+    //   return res.status(400).json({ error: error.details[0].message }); // The message is form the joi object in validation.js
+    // }
     const product = new Product({
-      product_name: req.body.product_name,
+      title: req.body.title,
       category: req.body.category,
-      owner_id: verified._id, // Here is the owners ID
+      owner_id: user._id, // Here is the owners ID
       cost: req.body.cost,
+      productImage: req.file.filename,
       description: req.body.description // DESCRIPTION MUST BE DEFINED IN THE REQUEST - AT LEAST ""
     });
     const savedProduct = await product.save();
     signale.complete('Product added!');
-    res.json({ product: savedProduct, token: token });
+    res.json({ product: savedProduct, user: user });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -104,7 +98,7 @@ exports.addProduct = async (req, res) => {
 
 exports.myDetails = async (req, res) => {
   signale.pending('A user requesting his/her list of product');
-  const token = req.header('Authorization');
+  const token = req.header('token');
   if (!token) {
     signale.fatal('Access Denied');
     return res.status(401).json('Access Denied');
@@ -144,9 +138,6 @@ exports.register = async (req, res) => {
 
     // Create new User
     let user = new User({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      address: req.body.address,
       email: req.body.email,
       password: hashPssword
     });
@@ -215,12 +206,14 @@ exports.login = async (req, res) => {
 exports.getLoggedInUser = async (req, res) => {
   try {
     // Find user in database and return all data except the password
-    const user = await User.findById(req.user.id).select('-password');
 
-    res.json(user);
-    //
+    const user = await User.findById(req.user.id).select('-password');
+    // const mydata = await User.find({ _id: user._id });
+    const productsList = await Product.find({ owner_id: user._id });
+    signale.complete(productsList);
+    res.json({ user: user, productsList });
   } catch (error) {
-    console.log(error);
-    res.status(500).send('Internal Server error');
+    signale.fatal('Error while resolving token and getting Details.');
+    res.status(400).json('Invalid Token');
   }
 };
