@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './pages/UserAccount';
+import CreateProduct from './pages/CreateProduct';
 import UnknownRoute from './pages/UnknownRoute';
 import LoginForm from './components/auth/LoginForm';
 import RegisterForm from './components/auth/RegisterForm';
@@ -29,6 +30,14 @@ ReactDOM.render(
                 element={
                   <ProtectedRoute>
                     <UserAccount />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='create-item'
+                element={
+                  <ProtectedRoute>
+                    <CreateProduct />
                   </ProtectedRoute>
                 }
               />
