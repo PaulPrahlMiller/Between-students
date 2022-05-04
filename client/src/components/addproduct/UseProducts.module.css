@@ -1,0 +1,82 @@
+.container{
+    background-color: rgb(71, 184, 92);
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+}
+
+.btnItem {
+    background-color: #b3e3f78d; /* Green */
+    color: rgba(60, 103, 218, 0.815);
+    border:none;
+    padding: 15px 32px;
+    width: 400px;
+    text-align: center;
+    text-decoration:none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+
+}
+
+.cardStyle{
+    max-width: 540px;
+    overflow:scroll;
+}
+
+.imgCard {
+    width: 350px;
+    height: 290px;
+    object-fit: cover;
+    overflow:scroll;
+    border-radius: 0.25rem;
+}
+
+.btnCard {
+    background-color: #F05E5E; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    /* width: 200px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+}
+
+.btnCardEdit {
+    background-color: #E99E0E; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    /* width: 200px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+}
+
+.btnCardView {
+    background-color: #1885028f; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    /* width: 200px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+}
+.cardTxt {
+    margin-top: 1.2rem;
+}

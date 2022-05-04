@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './AddProduct.css';
 
 const AddProduct = () => {
   const [title, setTitle] = useState('');
@@ -41,7 +42,7 @@ const AddProduct = () => {
 
   return (
     //<AddProductContainer>
-    <div className='container'>
+    <div class='container'>
       <h1>Add new item for sell</h1>
       <button
         onClick={() => {
@@ -51,10 +52,13 @@ const AddProduct = () => {
         Go back
       </button>
       <form onSubmit={changeOnClick} encType='multipart/form-data'>
-        <div className='form-group'>
-          <label htmlFor='title'>
+        <div className='row mb-3'>
+          <label htmlFor='title' class='col-sm-2 col-form-label'>
             Title:
+          </label>
+          <div class='col-sm-6'>
             <input
+              class='form-control'
               type='text'
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -62,11 +66,13 @@ const AddProduct = () => {
               placeholder='Title'
               required
             />
-          </label>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='description'>
+        <div class='row mb-3'>
+          <label htmlFor='description' class='col-sm-2 col-form-label'>
             Description:
+          </label>
+          <div class='col-sm-6'>
             <input
               type='text'
               value={description}
@@ -75,11 +81,13 @@ const AddProduct = () => {
               placeholder='Description'
               required
             />
-          </label>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='category'>
+        <div class='row mb-3'>
+          <label htmlFor='category' class='col-sm-2 col-form-label'>
             Category:
+          </label>
+          <div class='col-sm-6'>
             <input
               type='text'
               value={category}
@@ -88,11 +96,13 @@ const AddProduct = () => {
               placeholder='Category'
               required
             />
-          </label>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='cost'>
+        <div class='row mb-3'>
+          <label htmlFor='cost' class='col-sm-2 col-form-label'>
             Cost:
+          </label>
+          <div class='col-sm-6'>
             <input
               type='text'
               value={cost}
@@ -101,11 +111,13 @@ const AddProduct = () => {
               placeholder='Cost'
               required
             />
-          </label>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='file'>
+        <div class='row mb-3'>
+          <label htmlFor='file' class='col-sm-2 col-form-label'>
             Choose Item Image
+          </label>
+          <div class='col-sm-6'>
             <input
               type='file'
               filename='productImage'
@@ -113,7 +125,7 @@ const AddProduct = () => {
               onChange={onChangeFile}
               required
             />
-          </label>
+          </div>
         </div>
         <button type='submit' className='btn btn-primary'>
           Post Item
