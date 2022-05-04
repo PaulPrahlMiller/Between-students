@@ -11,8 +11,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './pages/UserAccount';
 import CreateProduct from './pages/CreateProduct';
 import UnknownRoute from './pages/UnknownRoute';
-import LoginForm from './components/auth/LoginForm';
-import RegisterForm from './components/auth/RegisterForm';
+import LoginForm from './components/auth/LoginForm/LoginForm';
+import RegisterForm from './components/auth/RegisterForm/RegisterForm';
 
 import reportWebVitals from './reportWebVitals';
 

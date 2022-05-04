@@ -9,7 +9,6 @@ const { upload } = require('../middleware/upload');
 
 router.post(
   '/addproduct',
-  authUser,
   upload.single('productImage'),
   apiController.addProduct
 );
