@@ -17,7 +17,6 @@ router.post('/register', apiController.register);
 router.post('/login', apiController.login);
 router.post(
   '/addproduct',
-  authUser,
   upload.single('productImage'),
   apiController.addProduct
 );

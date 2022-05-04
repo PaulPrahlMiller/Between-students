@@ -33,7 +33,7 @@ export const getUser = async (dispatch) => {
     // Dispatch to auth reducer with user object as payload
     dispatch({
       type: LOAD_USER,
-      payload: res.data
+      payload: res.data.user
     });
   } catch (error) {
     // Error handling

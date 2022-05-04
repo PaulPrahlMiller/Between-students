@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import { register } from '../../context/auth/AuthState';
+import useAuth from '../../../hooks/useAuth';
+import { register } from '../../../context/auth/AuthState';
+import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -56,73 +57,52 @@ const RegisterForm = () => {
   if (isAuthenticated) return <Navigate to='/account' replace={true} />;
 
   return (
-    <div className='auth-form'>
+    <div className={styles.authForm}>
+      <div className={styles.formHeader}>
+        <h2>Register</h2>
+      </div>
       <form
         onChange={handleOnChange}
         onSubmit={(e) => handleRegister(e, formData)}
         ref={registerForm}
       >
-        <div className='form-group'>
-          <label htmlFor='firstname'>First name</label>
-          <input
-            type='firstname'
-            name='firstname'
-            defaultValue={formData.firstname}
-            required
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='lastname'>Last name</label>
-          <input
-            type='lastname'
-            name='lastname'
-            defaultValue={formData.lastname}
-            required
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='address'>Address</label>
-          <input
-            type='text'
-            name='address'
-            defaultValue={formData.address}
-            required
-          />
-        </div>
-        <div className='form-group'>
+        <div className={styles.formRow}>
           <label htmlFor='email'>Email</label>
           <input
             type='email'
             name='email'
             defaultValue={formData.email}
             required
+            className={styles.formInput}
           />
         </div>
-        <div className='form-group'>
+        <div className={styles.formRow}>
           <label htmlFor='password'>Password</label>
           <input
             type='password'
             name='password'
             defaultValue={formData.password}
             required
+            className={styles.formInput}
           />
         </div>
-        <div className='form-group'>
-          <label htmlFor='confirmPassword'>confirmPassword</label>
+        <div className={styles.formRow}>
+          <label htmlFor='confirmPassword'>Confirm Password</label>
           <input
             type='password'
             name='confirmPassword'
             defaultValue={formData.confirmPassword}
             required
+            className={styles.formInput}
           />
         </div>
-        <div className='form-group'>
-          <input type='submit' value='Register' />
+        <div className={styles.formRow}>
+          <input type='submit' value='Register' className={styles.formButton} />
         </div>
       </form>
-      <div className='auth-form-message'>
+      <div className={styles.formMessage}>
         Already a member?{' '}
-        <span onClick={handleClick} className='auth-form-nav'>
+        <span onClick={handleClick} className={styles.actionText}>
           Login
         </span>
       </div>
