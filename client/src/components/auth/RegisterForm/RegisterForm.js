@@ -58,6 +58,9 @@ const RegisterForm = () => {
 
   return (
     <div className={styles.authForm}>
+      <div className={styles.formHeader}>
+        <h2>Register</h2>
+      </div>
       <form
         onChange={handleOnChange}
         onSubmit={(e) => handleRegister(e, formData)}

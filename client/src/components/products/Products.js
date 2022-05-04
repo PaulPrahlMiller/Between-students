@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import useProducts from '../../hooks/useProducts';
 import { getProducts } from '../../context/product/ProductState';
 import Product from './Product';
+import Loading from '../../pages/Loading';
 
 const Products = () => {
   // Use the products context
@@ -32,7 +33,7 @@ const Products = () => {
               ))}
         </Fragment>
       ) : (
-        <h1>Loading...</h1> // If products is null, they are being fetched. When fetched, if there are no products it will be an empty array and render nothing which will remove the loading icon
+        <Loading /> // If products is null, they are being fetched. When fetched, if there are no products it will be an empty array and render nothing which will remove the loading icon
       )}
     </div>
   );
