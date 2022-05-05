@@ -73,13 +73,6 @@ exports.addProduct = async (req, res) => {
   try {
     // find user by ID
     const user = await User.findById(req.user.id).select('-password');
-    // const mydata = await User.find({ _id: user._id });
-    // Validate product inputs using Joi in validation
-    // const { error } = addProductValidation(req.body);
-    // if (error) {
-    //   signale.fatal('Input flagged error during validation');
-    //   return res.status(400).json({ error: error.details[0].message }); // The message is form the joi object in validation.js
-    // }
     const product = new Product({
       title: req.body.title,
       category: req.body.category,
@@ -93,28 +86,6 @@ exports.addProduct = async (req, res) => {
     res.json({ product: savedProduct, user: user });
   } catch (err) {
     res.status(400).json(err);
-  }
-};
-
-exports.myDetails = async (req, res) => {
-  signale.pending('A user requesting his/her list of product');
-  const token = req.header('token');
-  if (!token) {
-    signale.fatal('Access Denied');
-    return res.status(401).json('Access Denied');
-  }
-
-  try {
-    //  This makes sure that every api call has a token and varified
-    const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.user = verified;
-    const mydata = await User.find({ _id: verified._id });
-    const productsList = await Product.find({ owner_id: verified._id });
-    signale.complete(productsList);
-    res.json({ user: mydata, productsList });
-  } catch (error) {
-    signale.fatal('Error while resolving token and getting Details.');
-    res.status(400).json('Invalid Token');
   }
 };
 
@@ -203,7 +174,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.getLoggedInUser = async (req, res) => {
+exports.getLoggedInUserProduct = async (req, res) => {
   try {
     // Find user in database and return all data except the password
 
@@ -212,6 +183,17 @@ exports.getLoggedInUser = async (req, res) => {
     const productsList = await Product.find({ owner_id: user._id });
     //signale.complete(productsList);
     res.json(productsList);
+  } catch (error) {
+    signale.fatal('Error while resolving token and getting Details.');
+    res.status(400).json('Invalid Token');
+  }
+};
+
+exports.getLoggedInUser = async (req, res) => {
+  try {
+    // Find user in database and return all data except the password
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
   } catch (error) {
     signale.fatal('Error while resolving token and getting Details.');
     res.status(400).json('Invalid Token');
