@@ -4,7 +4,8 @@ import {
   REGISTER_USER,
   LOAD_USER,
   LOGOUT_USER,
-  UNAUTHORIZED
+  UNAUTHORIZED,
+  CLEAR_ERROR
 } from '../types';
 
 const authReducer = (state, action) => {
@@ -18,6 +19,10 @@ const authReducer = (state, action) => {
         loading: false
       };
     case LOGIN_DENIED:
+      return {
+        ...state,
+        error: action.payload
+      };
     case LOGOUT_USER:
     case UNAUTHORIZED:
       return {
@@ -33,6 +38,11 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         user: action.payload,
         loading: false
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: null
       };
     default:
       throw new Error(`Invalid type "${action.type}" provided to reducer`);

@@ -7,7 +7,9 @@ import {
   REGISTER_USER,
   LOAD_USER,
   LOGOUT_USER,
-  UNAUTHORIZED
+  UNAUTHORIZED,
+  LOGIN_DENIED,
+  CLEAR_ERROR
 } from '../types';
 
 // export any functions to update the state here with dispatch as first param.
@@ -37,7 +39,6 @@ export const getUser = async (dispatch) => {
     });
   } catch (error) {
     // Error handling
-    console.log(error);
     dispatch({
       type: UNAUTHORIZED
     });
@@ -54,7 +55,7 @@ export const login = async (dispatch, formData) => {
   try {
     // Login user to get an authorization token
     const res = await axios.post('http://localhost:5000/api/login', formData);
-    console.log(res.data);
+
     // dispatch to reducer with token as payload
     dispatch({
       type: LOGIN_USER,
@@ -64,7 +65,10 @@ export const login = async (dispatch, formData) => {
     // Get user uses the stored token to retrieve the user object from the database
     getUser(dispatch);
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: LOGIN_DENIED,
+      payload: error.response.data.message
+    });
   }
 };
 
@@ -88,13 +92,20 @@ export const register = async (dispatch, formData) => {
   }
 };
 
+export const clearError = (dispatch) => {
+  dispatch({
+    type: CLEAR_ERROR
+  });
+};
+
 const AuthState = (props) => {
   // Initialise state when app loads
   const initialState = {
     user: null,
     isAuthenticated: false,
     token: localStorage.getItem('token'),
-    loading: true
+    loading: true,
+    error: null
   };
 
   // Initialise reducer

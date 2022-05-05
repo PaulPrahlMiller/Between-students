@@ -1,0 +1,29 @@
+.danger {
+  background-color: rgb(255, 175, 175);
+  border: 2px solid rgb(189, 0, 0);
+  border-radius: 0.5rem;
+  color: rgb(189, 0, 0);
+  line-height: 2.5rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.success {
+  background-color: rgb(155, 255, 155);
+  border: 2px solid rgb(22, 122, 0);
+  border-radius: 0.5rem;
+  color: rgb(14, 76, 0);
+  line-height: 2.5rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.alertContainer {
+  background-color: none;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  height: 3rem;
+  margin: 0.5rem 0;
+}

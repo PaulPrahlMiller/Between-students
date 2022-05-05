@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import AuthState from './context/auth/AuthState';
+import AlertState from './context/alert/AlertState';
 import ProductState from './context/product/ProductState';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -19,35 +20,37 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <AuthState>
-      <ProductState>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<App />}>
-              <Route index element={<Home />} />
-              <Route path='about' element={<About />} />
-              <Route
-                path='account'
-                element={
-                  <ProtectedRoute>
-                    <UserAccount />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path='create-item'
-                element={
-                  <ProtectedRoute>
-                    <CreateProduct />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path='login' element={<LoginForm />} />
-              <Route path='register' element={<RegisterForm />} />
-            </Route>
-            <Route path='*' element={<UnknownRoute />} />
-          </Routes>
-        </BrowserRouter>
-      </ProductState>
+      <AlertState>
+        <ProductState>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<App />}>
+                <Route index element={<Home />} />
+                <Route path='about' element={<About />} />
+                <Route
+                  path='account'
+                  element={
+                    <ProtectedRoute>
+                      <UserAccount />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path='create-item'
+                  element={
+                    <ProtectedRoute>
+                      <CreateProduct />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path='login' element={<LoginForm />} />
+                <Route path='register' element={<RegisterForm />} />
+              </Route>
+              <Route path='*' element={<UnknownRoute />} />
+            </Routes>
+          </BrowserRouter>
+        </ProductState>
+      </AlertState>
     </AuthState>
   </React.StrictMode>,
   document.getElementById('root')

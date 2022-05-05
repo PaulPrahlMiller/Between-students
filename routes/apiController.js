@@ -173,7 +173,7 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       signale.fatal('Email not found');
-      return res.status(400).json({ error: 'Email is not found' });
+      return res.status(400).json({ message: 'Email is not found' });
     }
 
     // Password correct?
@@ -183,7 +183,7 @@ exports.login = async (req, res) => {
     );
     if (!validPassword) {
       signale.fatal('Invalid password');
-      return res.status(400).json({ error: 'Invalid password' });
+      return res.status(400).json({ message: 'Invalid password' });
     }
 
     // Create object to sign JWT with

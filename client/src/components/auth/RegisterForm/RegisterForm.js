@@ -1,28 +1,35 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import { register } from '../../../context/auth/AuthState';
+import { clearError, register } from '../../../context/auth/AuthState';
 import styles from './RegisterForm.module.css';
+import useAlert from '../../../hooks/useAlert';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    address: '',
     email: '',
     password: '',
     confirmPassword: ''
   });
 
-  const { firstname, lastname, address, email, password, confirmPassword } =
-    formData;
-
-  const registerForm = useRef(null);
+  const { email, password, confirmPassword } = formData;
 
   const [authState, authDispatch] = useAuth();
+
+  const { isAuthenticated, error } = authState;
+
+  const setAlert = useAlert()[1];
+
+  useEffect(() => {
+    if (error) {
+      setAlert('danger', error);
+      clearError(authDispatch);
+    }
+  }, [error]);
+
   let navigate = useNavigate();
 
-  const { isAuthenticated } = authState;
+  const registerForm = useRef(null);
 
   const handleOnChange = (e) => {
     setFormData({
@@ -41,15 +48,11 @@ const RegisterForm = () => {
     if (registerForm.current.reportValidity()) {
       if (passwordMatch) {
         register(authDispatch, {
-          firstname,
-          lastname,
-          address,
           email,
           password
         });
-        navigate('/account');
       } else {
-        // Show error to user
+        setAlert('danger', 'Passwords do not match');
       }
     }
   };
@@ -65,6 +68,7 @@ const RegisterForm = () => {
         onChange={handleOnChange}
         onSubmit={(e) => handleRegister(e, formData)}
         ref={registerForm}
+        autoComplete='off'
       >
         <div className={styles.formRow}>
           <label htmlFor='email'>Email</label>
@@ -73,6 +77,7 @@ const RegisterForm = () => {
             name='email'
             defaultValue={formData.email}
             required
+            minLength='6'
             className={styles.formInput}
           />
         </div>
@@ -83,6 +88,7 @@ const RegisterForm = () => {
             name='password'
             defaultValue={formData.password}
             required
+            minLength='6'
             className={styles.formInput}
           />
         </div>
