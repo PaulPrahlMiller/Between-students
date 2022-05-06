@@ -2,7 +2,9 @@ import {
   ADD_PRODUCT,
   FILTER_BY_SEARCH,
   FILTER_BY_CATEGORY,
-  GET_PRODUCTS
+  GET_PRODUCTS,
+  SET_CURRENT_PRODUCT,
+  CLEAR_CURRENT_PRODUCT
 } from '../types';
 
 const productReducer = (state, action) => {
@@ -11,6 +13,18 @@ const productReducer = (state, action) => {
       return {
         ...state, // Pass current state
         products: action.payload // Pass any values to be updated
+      };
+    case SET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: state.products.find((product) => {
+          return product._id === action.payload;
+        })
+      };
+    case CLEAR_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: null
       };
     case ADD_PRODUCT:
       return {
@@ -23,12 +37,8 @@ const productReducer = (state, action) => {
         categoryProducts: null,
         filteredProducts: state.products.filter((product) => {
           return (
-            product.title
-              .toLowerCase()
-              .includes(action.payload.toLowerCase()) ||
-            product.description
-              .toLowerCase()
-              .includes(action.payload.toLowerCase())
+            product.title.toLowerCase().includes(action.payload.toLowerCase()) ||
+            product.description.toLowerCase().includes(action.payload.toLowerCase())
           );
         })
       };

@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { login } from '../../../context/auth/AuthState';
 import styles from './LoginForm.module.css';
+import useAlert from '../../../hooks/useAlert';
+import { clearError } from '../../../context/auth/AuthState';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +12,22 @@ const LoginForm = () => {
     password: ''
   });
 
-  const loginForm = useRef(null);
-
   const [authState, authDispatch] = useAuth();
+
+  const setAlert = useAlert()[1];
+
+  const { isAuthenticated, error } = authState;
+
+  useEffect(() => {
+    if (error) {
+      setAlert('danger', error);
+      clearError(authDispatch);
+    }
+  }, [error]);
+
   let navigate = useNavigate();
 
-  const { isAuthenticated } = authState;
+  const loginForm = useRef(null);
 
   const handleOnChange = (e) => {
     setFormData({
@@ -32,7 +44,6 @@ const LoginForm = () => {
     e.preventDefault();
     if (loginForm.current.reportValidity()) {
       login(authDispatch, formData);
-      navigate('/account');
     }
   };
 
@@ -47,6 +58,7 @@ const LoginForm = () => {
         onChange={handleOnChange}
         onSubmit={(e) => handleSubmit(e, formData)}
         ref={loginForm}
+        autoComplete='off'
       >
         <div className={styles.formRow}>
           <label htmlFor='email'>Email</label>
@@ -56,6 +68,7 @@ const LoginForm = () => {
             placeholder='Email'
             defaultValue={formData.email}
             required
+            minLength='6'
             className={styles.formInput}
           />
         </div>
@@ -66,8 +79,9 @@ const LoginForm = () => {
             name='password'
             placeholder='Password'
             defaultValue={formData.password}
-            required
             className={styles.formInput}
+            required
+            minLength='6'
           />
         </div>
         <div className={styles.formRow}>

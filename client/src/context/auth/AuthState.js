@@ -7,7 +7,11 @@ import {
   REGISTER_USER,
   LOAD_USER,
   LOGOUT_USER,
-  UNAUTHORIZED
+  UNAUTHORIZED,
+  LOGIN_DENIED,
+  REGISTER_DENIED,
+  CLEAR_ERROR,
+  SET_USERS_PRODUCTS
 } from '../types';
 
 // export any functions to update the state here with dispatch as first param.
@@ -33,14 +37,26 @@ export const getUser = async (dispatch) => {
     // Dispatch to auth reducer with user object as payload
     dispatch({
       type: LOAD_USER,
-      payload: res.data.user
+      payload: res.data
     });
   } catch (error) {
-    // Error handling
-    console.log(error);
     dispatch({
       type: UNAUTHORIZED
     });
+  }
+};
+
+export const getUserProducts = async (dispatch) => {
+  try {
+    // Get the user products from the database
+    const res = await axios.get('http://localhost:5000/api/products/user');
+
+    dispatch({
+      type: SET_USERS_PRODUCTS,
+      payload: res.data
+    });
+  } catch (error) {
+    console.error(error.message);
   }
 };
 
@@ -53,8 +69,8 @@ export const logout = (dispatch) => {
 export const login = async (dispatch, formData) => {
   try {
     // Login user to get an authorization token
-    const res = await axios.post('http://localhost:5000/api/login', formData);
-    console.log(res.data);
+    const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+
     // dispatch to reducer with token as payload
     dispatch({
       type: LOGIN_USER,
@@ -64,16 +80,16 @@ export const login = async (dispatch, formData) => {
     // Get user uses the stored token to retrieve the user object from the database
     getUser(dispatch);
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: LOGIN_DENIED,
+      payload: error.response.data.message
+    });
   }
 };
 
 export const register = async (dispatch, formData) => {
   try {
-    const res = await axios.post(
-      'http://localhost:5000/api/register',
-      formData
-    );
+    const res = await axios.post('http://localhost:5000/api/auth/register', formData);
     console.log(res.data);
 
     dispatch({
@@ -83,9 +99,17 @@ export const register = async (dispatch, formData) => {
 
     getUser(dispatch);
   } catch (error) {
-    // Handle errors
-    console.log(error);
+    dispatch({
+      type: REGISTER_DENIED,
+      payload: error.response.data.message
+    });
   }
+};
+
+export const clearError = (dispatch) => {
+  dispatch({
+    type: CLEAR_ERROR
+  });
 };
 
 const AuthState = (props) => {
@@ -94,19 +118,24 @@ const AuthState = (props) => {
     user: null,
     isAuthenticated: false,
     token: localStorage.getItem('token'),
-    loading: true
+    loading: true,
+    error: null
   };
 
   // Initialise reducer
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  const { loading } = state;
+
   // Set token when application loads
   setAuthToken(state.token);
 
   // Loading true when app is run, set to false after checking for logged in user.
-  if (state.loading) {
-    getUser(dispatch);
-  }
+  useEffect(() => {
+    if (loading) {
+      getUser(dispatch);
+    }
+  }, [loading]);
 
   // Update the token in localStorage whenever it is updated in the state.
   useEffect(() => {

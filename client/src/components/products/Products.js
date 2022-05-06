@@ -21,16 +21,14 @@ const Products = () => {
         <Fragment>
           {categoryProducts !== null // If categoryProducts !== null, it will contain an array of products filtered by category
             ? categoryProducts.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product key={product._id} product={product} />
               ))
             : filteredProducts !== null // If filteredProducts !== null, it will contain an array of products filtered by search term
             ? filteredProducts.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product key={product._id} product={product} />
               ))
             : // If no filters are active, all products will be rendered
-              products.map((product) => (
-                <Product key={product.id} product={product} />
-              ))}
+              products.map((product) => <Product key={product._id} product={product} />)}
         </Fragment>
       ) : (
         <Loading /> // If products is null, they are being fetched. When fetched, if there are no products it will be an empty array and render nothing which will remove the loading icon
