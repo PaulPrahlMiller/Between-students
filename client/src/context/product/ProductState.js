@@ -8,7 +8,8 @@ import {
   SET_CURRENT_PRODUCT,
   CLEAR_CURRENT_PRODUCT,
   FILTER_BY_SEARCH,
-  FILTER_BY_CATEGORY
+  FILTER_BY_CATEGORY,
+  SET_LOADING
 } from '../types';
 
 // Functions to update state exported here before the functional component
@@ -60,13 +61,21 @@ export const filterByCategory = (dispatch, category) => {
   });
 };
 
+export const setLoading = (dispatch, value) => {
+  dispatch({
+    type: SET_LOADING,
+    payload: value
+  });
+};
+
 const ProductState = (props) => {
   // Initialise the state
   const initialState = {
     products: null,
     filteredProducts: null,
     categoryProducts: null,
-
+    currentProduct: null,
+    loading: true,
     categories: [
       'Sofas',
       'Beds',
@@ -89,8 +98,7 @@ const ProductState = (props) => {
       'Computers & accesories',
       'Lamps & lights',
       'Sports'
-    ],
-    currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
+    ]
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);

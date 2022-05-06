@@ -11,10 +11,12 @@ function App() {
   return (
     <div className='app'>
       <Header />
-      <Navbar />
       <div className={styles.mainContent}>
-        <Alert />
-        <Outlet />
+        <Navbar />
+        <div className={styles.contentContainer}>
+          <Alert />
+          <Outlet />
+        </div>
       </div>
       <Footer />
     </div>
