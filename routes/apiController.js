@@ -7,7 +7,6 @@ require('dotenv').config();
 const {
   registerValidation,
   loginValidation,
-  addProductValidation,
   removeValidation
 } = require('../validation');
 
@@ -148,10 +147,7 @@ exports.login = async (req, res) => {
     }
 
     // Password correct?
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
       signale.fatal('Invalid password');
       return res.status(400).json({ message: 'Invalid password' });

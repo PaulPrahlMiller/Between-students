@@ -22,16 +22,6 @@ const loginValidation = (data) => {
   return schema.validate(data);
 };
 
-const addProductValidation = (data) => {
-  const schema = Joi.object({
-    title: Joi.string().min(2).required(),
-    category: Joi.string().min(3).required(),
-    cost: Joi.number().required(),
-    description: Joi.string().min(0)
-  });
-  return schema.validate(data);
-};
-
 const removeValidation = (data) => {
   const schema = Joi.object({
     product_id: Joi.string().required()
@@ -42,6 +32,5 @@ const removeValidation = (data) => {
 module.exports = {
   registerValidation,
   loginValidation,
-  addProductValidation,
   removeValidation
 };
