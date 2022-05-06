@@ -1,6 +1,57 @@
-.container {
+.container__parent {
+    flex-direction: row;
+    justify-content: flex-start;
+    display: flex;
+    margin: auto;
     background-color: #E99E0E;
-    width: 600px;
-    height: 600px;
+    /* background-color: white; */
+    position:relative;  
+    width: 100%;
+    height: auto; 
     
 }
+
+.container__left {
+    background-color: rgb(247, 217, 162);
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: scroll;
+}
+
+.div__upload {
+    padding: 4rem 1rem 3rem 1rem;
+    border-style: solid;
+    border-width: thin;
+    border-color:rgb(177, 176, 176);
+    margin-bottom: 1rem;
+}
+
+.div__icon{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 2rem;
+    background-color: rgb(177, 176, 176);
+    margin: auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.div__leftContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .container__left {
+      width: 100%;
+    }
+  }

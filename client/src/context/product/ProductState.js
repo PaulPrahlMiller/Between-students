@@ -54,6 +54,7 @@ const ProductState = (props) => {
     products: null, // Will contain an array with all the products listed in the database
     filteredProducts: null, // Will be null when no filter is applied, or an array of filtered products.
     categoryProducts: null,
+    categories: ['Furniture', 'Books'],
     currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
   };
 

@@ -11,9 +11,8 @@ function App() {
       <Header />
       <div className='main-content'>
         <Navbar />
-        <div className='container'>
-          <Outlet />
-        </div>
+
+        <Outlet />
       </div>
       <Footer />
     </div>
