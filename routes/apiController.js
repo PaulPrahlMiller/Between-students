@@ -7,7 +7,6 @@ require('dotenv').config();
 const {
   registerValidation,
   loginValidation,
-  addProductValidation,
   removeValidation
 } = require('../validation');
 

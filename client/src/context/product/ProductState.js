@@ -66,7 +66,31 @@ const ProductState = (props) => {
     products: null,
     filteredProducts: null,
     categoryProducts: null,
-    currentProduct: null
+
+    categories: [
+      'Sofas',
+      'Beds',
+      'Tables',
+      'Chairs',
+      'Shelves',
+      'Mirrors',
+      'Storage Containers',
+      'Books',
+      'Home Decorations',
+      'Study materials',
+      'Households',
+      'Textiles',
+      'Clothes',
+      'Shoes',
+      'Plants',
+      'Electric Appliances',
+      'Cooking utilities',
+      'Kitchen Appliances',
+      'Computers & accesories',
+      'Lamps & lights',
+      'Sports'
+    ],
+    currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
