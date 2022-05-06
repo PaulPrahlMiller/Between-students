@@ -1,0 +1,9 @@
+.loadingPage {
+  width: 100%;
+  padding-top: 25%;
+}
+
+.loadingIcon {
+  display: block;
+  margin: 0 auto;
+}

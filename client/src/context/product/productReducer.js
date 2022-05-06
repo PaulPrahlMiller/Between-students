@@ -17,7 +17,7 @@ const productReducer = (state, action) => {
     case SET_CURRENT_PRODUCT:
       return {
         ...state,
-        currentProduct: state.products.find((product) => {
+        currentProduct: state.products?.find((product) => {
           return product._id === action.payload;
         })
       };

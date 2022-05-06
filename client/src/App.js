@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import styles from './App.module.css';
 import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -10,12 +11,10 @@ function App() {
   return (
     <div className='app'>
       <Header />
-      <div className='main-content'>
-        <Navbar />
-        <div className='container'>
-          <Alert />
-          <Outlet />
-        </div>
+      <Navbar />
+      <div className={styles.mainContent}>
+        <Alert />
+        <Outlet />
       </div>
       <Footer />
     </div>

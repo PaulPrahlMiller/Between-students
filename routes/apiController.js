@@ -14,7 +14,7 @@ const {
 exports.getProducts = async (req, res) => {
   // NO NEED FOR AUTHORIZATION
   const products = await Product.find({});
-  res.json({ message: 'Now you are looking for products', data: products });
+  res.json({ products });
 };
 
 exports.getUsers = async (req, res) => {
@@ -76,7 +76,7 @@ exports.addProduct = async (req, res) => {
     const product = new Product({
       title: req.body.title,
       category: req.body.category,
-      owner_id: user._id, // Here is the owners ID
+      owner_id: req.user.id,
       cost: req.body.cost,
       productImage: req.file.filename,
       description: req.body.description // DESCRIPTION MUST BE DEFINED IN THE REQUEST - AT LEAST ""
@@ -148,10 +148,7 @@ exports.login = async (req, res) => {
     }
 
     // Password correct?
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
       signale.fatal('Invalid password');
       return res.status(400).json({ message: 'Invalid password' });

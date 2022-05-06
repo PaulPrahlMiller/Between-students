@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect } from 'react';
-import useProducts from '../../hooks/useProducts';
-import { getProducts } from '../../context/product/ProductState';
-import Product from './Product';
-import Loading from '../../pages/Loading';
+import useProducts from '../../../hooks/useProducts';
+import { getProducts } from '../../../context/product/ProductState';
+import Product from '../ProductItem/ProductItem';
+import Loading from '../../../pages/Loading/Loading';
+import styles from './Products.module.css';
 
 const Products = () => {
   // Use the products context
@@ -16,7 +17,7 @@ const Products = () => {
   }, [productDispatch, filteredProducts, categoryProducts]);
 
   return (
-    <div className='products'>
+    <div className={styles.products}>
       {products !== null ? ( // Check if there are products to render
         <Fragment>
           {categoryProducts !== null // If categoryProducts !== null, it will contain an array of products filtered by category

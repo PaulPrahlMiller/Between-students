@@ -15,6 +15,7 @@ import UnknownRoute from './pages/UnknownRoute';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import RegisterForm from './components/auth/RegisterForm/RegisterForm';
 import Admin from './components/admin/Admin';
+import Product from './components/products/Product/Product';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -27,6 +28,7 @@ ReactDOM.render(
             <Routes>
               <Route path='/' element={<App />}>
                 <Route index element={<Home />} />
+                <Route path='/:productId' element={<Product />} />
                 <Route path='about' element={<About />} />
                 <Route
                   path='account'
@@ -46,8 +48,8 @@ ReactDOM.render(
                 />
                 <Route path='login' element={<LoginForm />} />
                 <Route path='register' element={<RegisterForm />} />
+                <Route path='*' element={<UnknownRoute />} />
               </Route>
-              <Route path='*' element={<UnknownRoute />} />
               <Route path='admin' element={<Admin />} />
             </Routes>
           </BrowserRouter>

@@ -7,10 +7,7 @@ const storage = multer.diskStorage({
     callback(null, './client/public/uploads');
   },
   filename: (req, file, callback) => {
-    callback(
-      null,
-      new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname
-    );
+    callback(null, new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname);
   }
 });
 
@@ -19,7 +16,8 @@ const filefilter = (req, file, cb) => {
   if (
     file.mimetype === 'image/png' ||
     file.mimetype === 'image/jpg' ||
-    file.mimetype === 'image/jpeg'
+    file.mimetype === 'image/jpeg' ||
+    file.mimetype === 'image/webp'
   ) {
     cb(null, true);
   } else {

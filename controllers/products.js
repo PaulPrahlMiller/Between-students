@@ -1,5 +1,6 @@
 const signale = require('signale');
 const Product = require('../models/Product');
+const { removeValidation } = require('../validation');
 
 exports.getProducts = async (req, res) => {
   // NO NEED FOR AUTHORIZATION
@@ -21,32 +22,28 @@ exports.removeProduct = async (req, res) => {
       // The message is from the joi object in validation.js
       return res.status(400).json({ message: error.details[0].message });
     }
-    // Check for existing product
-    let product = await Product.findById(req.body.product_id);
+    // Check for existing product that belongs to user
+    // Logged in user can only delete owned products
+    let product = await Product.findOneAndDelete({
+      _id: req.body.product_id,
+      owner_id: req.user.id
+    });
+
+    // If product is null, it was not found in the database or does not belong
+    // to the user
     if (!product) {
       signale.fatal('Product does not exist :(');
       return res.status(400).json({
-        message: `Product with ID ${req.body.product_id} could not be found`
+        message: `Product could not be found`
       });
     }
-    // Should check the product belongs to the logged in user.
-    if (!(product.owner_id === req.user.id)) {
-      signale.fatal('User not authorized to delete the product');
-      // Unauthorized response
-      return res
-        .status(403)
-        .json({ message: 'User not authorized to delete that product' });
-    }
-
-    // Delete the product
-    product = await product.deleteOne();
 
     // Successful response
-    signale.complete(`Product of id ${req.product_id}, successfully removed!`);
-    res.json({
-      message: `Product of id ${req.product_id}, succefully removed!`
+    signale.complete(`Product with id ${req.body.product_id}, removed!`);
+    res.status(200).json({
+      message: `Product of id ${req.body.product_id}, succefully removed!`
     });
-  } catch (err) {
+  } catch (error) {
     signale.fatal('Something went wrong while removing ... ');
     res.status(500).send('Server error');
   }
@@ -62,14 +59,15 @@ exports.addProduct = async (req, res) => {
       owner_id: req.user.id,
       cost: req.body.cost,
       productImage: req.file.filename,
-      description: req.body.description // DESCRIPTION MUST BE DEFINED IN THE REQUEST - AT LEAST ""
+      description: req.body.description
     });
     // Save the product in database
     product = await product.save();
     // Successful response
     signale.complete('Product added!');
     res.status(201).json({ product });
-  } catch (err) {
+  } catch (error) {
+    console.error(error);
     res.status(500).send('Server error');
   }
 };

@@ -1,8 +1,7 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
 import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
 import {
   ADD_PRODUCT,
   GET_PRODUCTS,
@@ -71,10 +70,6 @@ const ProductState = (props) => {
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-
-  useEffect(() => {
-    getProducts(dispatch);
-  }, [dispatch]);
 
   return (
     <ProductContext.Provider value={{ state: state, dispatch }}>
