@@ -1,29 +1,42 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
+import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 import {
   ADD_PRODUCT,
   GET_PRODUCTS,
+  SET_CURRENT_PRODUCT,
+  CLEAR_CURRENT_PRODUCT,
   FILTER_BY_SEARCH,
   FILTER_BY_CATEGORY
 } from '../types';
 
 // Functions to update state exported here before the functional component
 
-export const getProducts = (dispatch) => {
-  const products = [
-    {
-      id: 1,
-      title: 'Desk',
-      category: 'furniture',
-      description: 'A beautiful wooden desk, 1200mm wide 600mm deep'
-    }
-  ];
+export const getProducts = async (dispatch) => {
+  try {
+    const res = await axios.get('http://localhost:5000/api/products');
+    // Normally data will be retrieved from the database. Here we use the hardcoded data.
+    dispatch({
+      type: GET_PRODUCTS,
+      payload: res.data.products
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 
-  // Normally data will be retrieved from the database. Here we use the hardcoded data.
+export const setCurrentProduct = (dispatch, productId) => {
   dispatch({
-    type: GET_PRODUCTS,
-    payload: products
+    type: SET_CURRENT_PRODUCT,
+    payload: productId
+  });
+};
+
+export const clearCurrentProduct = (dispatch) => {
+  dispatch({
+    type: CLEAR_CURRENT_PRODUCT
   });
 };
 
@@ -51,13 +64,17 @@ export const filterByCategory = (dispatch, category) => {
 const ProductState = (props) => {
   // Initialise the state
   const initialState = {
-    products: null, // Will contain an array with all the products listed in the database
-    filteredProducts: null, // Will be null when no filter is applied, or an array of filtered products.
+    products: null,
+    filteredProducts: null,
     categoryProducts: null,
-    currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
+    currentProduct: null
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
+
+  useEffect(() => {
+    getProducts(dispatch);
+  }, [dispatch]);
 
   return (
     <ProductContext.Provider value={{ state: state, dispatch }}>

@@ -19,10 +19,6 @@ const authReducer = (state, action) => {
         loading: false
       };
     case LOGIN_DENIED:
-      return {
-        ...state,
-        error: action.payload
-      };
     case LOGOUT_USER:
     case UNAUTHORIZED:
       return {
@@ -30,7 +26,8 @@ const authReducer = (state, action) => {
         isAuthenticated: false,
         token: null,
         user: null,
-        loading: false
+        loading: false,
+        error: action.payload
       };
     case LOAD_USER:
       return {
