@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
-import UnknownRoute from '../../../pages/UnknownRoute';
+import Loading from '../../../pages/Loading/Loading';
+import Redirect from '../../routing/Redirect';
 import styles from './Product.module.css';
 import {
   clearCurrentProduct,
-  setCurrentProduct
+  setCurrentProduct,
+  setLoading
 } from '../../../context/product/ProductState';
 
 const Product = () => {
@@ -14,15 +16,21 @@ const Product = () => {
 
   const [productState, productDispatch] = useProducts();
 
-  const { currentProduct } = productState;
+  const { currentProduct, loading } = productState;
 
   useEffect(() => {
     setCurrentProduct(productDispatch, productId);
+    setTimeout(() => setLoading(productDispatch, false), 1000);
     // Clean up function
-    return () => clearCurrentProduct(productDispatch);
+    return () => {
+      clearCurrentProduct(productDispatch);
+      setLoading(productDispatch, true);
+    };
   }, [productDispatch, productId]);
 
-  if (currentProduct === undefined) return <UnknownRoute />;
+  if (loading) return <Loading />;
+
+  if (currentProduct === undefined) return <Redirect />;
 
   return (
     <div className={styles.productContainer}>

@@ -8,7 +8,8 @@ import {
   SET_CURRENT_PRODUCT,
   CLEAR_CURRENT_PRODUCT,
   FILTER_BY_SEARCH,
-  FILTER_BY_CATEGORY
+  FILTER_BY_CATEGORY,
+  SET_LOADING
 } from '../types';
 
 // Functions to update state exported here before the functional component
@@ -60,13 +61,21 @@ export const filterByCategory = (dispatch, category) => {
   });
 };
 
+export const setLoading = (dispatch, value) => {
+  dispatch({
+    type: SET_LOADING,
+    payload: value
+  });
+};
+
 const ProductState = (props) => {
   // Initialise the state
   const initialState = {
     products: null,
     filteredProducts: null,
     categoryProducts: null,
-    currentProduct: null
+    currentProduct: null,
+    loading: true
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);

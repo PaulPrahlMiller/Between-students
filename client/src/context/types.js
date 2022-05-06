@@ -21,6 +21,7 @@ export const CLEAR_CURRENT_PRODUCT = 'CLEAR_CURRENT_PRODUCT';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
 export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY';
+export const SET_LOADING = 'SET_LOADING';
 
 /* Alert Types */
 export const SET_ALERT = 'SET_ALERT';

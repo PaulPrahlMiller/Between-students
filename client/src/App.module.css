@@ -1,5 +1,8 @@
 .mainContent {
   min-height: 100vh;
+}
+
+.contentContainer {
   width: 80%;
   margin: 0 auto;
 }
