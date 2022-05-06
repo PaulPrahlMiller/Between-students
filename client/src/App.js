@@ -12,10 +12,10 @@ function App() {
       <Header />
       <div className='main-content'>
         <Navbar />
-        <div className='container'>
+
           <Alert />
           <Outlet />
-        </div>
+       
       </div>
       <Footer />
     </div>

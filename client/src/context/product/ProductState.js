@@ -67,7 +67,10 @@ const ProductState = (props) => {
     products: null,
     filteredProducts: null,
     categoryProducts: null,
-    currentProduct: null
+
+    categories: ['Furniture', 'Books'],
+    currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
+
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
