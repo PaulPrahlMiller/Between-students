@@ -8,30 +8,34 @@ function PreviewProduct(props) {
       <div class='div__outterOut'>
         <div class='div__outter'>
           <div class='div__preview'>
-            <h1>Preview</h1>
+            <h3>Preview</h3>
           </div>
           <div class='div__details'>
             <div class='div__imgPreview'>
-              <h3>Your Listing Preview</h3>
-              <img
-                class='div__previewImage'
-                height={150}
-                width={200}
-                src={props.uploaded}
-                alt=''
-              ></img>
-              {/* <h5>
-                As you create your listing, you can preview how it will appear
-                to others on Student Hub.
-              </h5> */}
+              {props.uploaded ? (
+                <img class='img__preview' src={props.uploaded} alt=''></img>
+              ) : (
+                <h3>
+                  Your list preview: <br></br>
+                  <h4>
+                    As you create your listing, you can preview how it will appear to
+                    others on Student Hub.
+                  </h4>
+                </h3>
+              )}
             </div>
             <div class='div__des'>
-              <h4 class='h4__des'>Description:{props.description}</h4>
-
-              <h4 class='h4__des'>Title:{props.title}</h4>
-              <h4 class='h4__des'>
-                Price: <span>{props.price} kr</span>
-              </h4>
+              <div class='div__desJustify'>
+                <h4 class='h4__des'>Title:{props.title}</h4>
+              </div>
+              <div class='div__desJustify'>
+                <h4 class='h4__des'>
+                  Price: <span>{props.price} kr</span>
+                </h4>
+              </div>
+              <div class='div__desJustify'>
+                <h4 class='h4__des'>Description:{props.description}</h4>
+              </div>
             </div>
           </div>
         </div>
