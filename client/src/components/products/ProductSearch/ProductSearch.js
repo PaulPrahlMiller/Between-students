@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { filterBySearch, clearFilter } from '../../../context/product/ProductState';
 import useProducts from '../../../hooks/useProducts';
 import styles from './ProductSearch.module.css';
 
 const ProductSearch = () => {
-  const [productState, productDispatch] = useProducts();
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleOnChange = (e) => {
+  const { query } = useParams();
+
+  console.log(query);
+
+  const productDispatch = useProducts()[1];
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (e.target.value === '') return clearFilter(productDispatch);
-    filterBySearch(productDispatch, e.target.value);
+    if (searchQuery === '') {
+      navigate('/');
+    } else {
+      setSearchQuery('');
+      navigate(`/search/${searchQuery}`);
+    }
   };
 
   return (
     <div className={styles.searchContainer}>
-      <form className={styles.searchBar}>
+      <form className={styles.searchBar} onSubmit={handleSubmit}>
         <input
           className={styles.inputText}
           type='text'
-          onChange={handleOnChange}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder='Search for products...'
         />
         <input className={styles.inputButton} type='submit' value='Search' />

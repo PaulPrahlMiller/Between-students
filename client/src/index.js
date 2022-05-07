@@ -29,7 +29,8 @@ ReactDOM.render(
             <Routes>
               <Route path='/' element={<App />}>
                 <Route index element={<Home />} />
-                <Route path='/:productId' element={<Product />} />
+                <Route path='/search/:query' element={<Home />} />
+                <Route path='/:category/:productId' element={<Product />} />
                 <Route path='about' element={<About />} />
                 <Route
                   path='account'

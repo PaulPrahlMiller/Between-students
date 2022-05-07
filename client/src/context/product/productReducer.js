@@ -56,8 +56,7 @@ const productReducer = (state, action) => {
     case CLEAR_FILTER:
       return {
         ...state,
-        filteredProducts: null,
-        categoryProducts: null
+        filteredProducts: null
       };
     case SET_LOADING:
       return {

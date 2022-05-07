@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const ProductItem = ({ product }) => {
   return (
-    <Link to={`/${product._id}`} style={{ all: 'unset' }}>
+    <Link to={`/${product.category}/${product._id}`} style={{ all: 'unset' }}>
       <div className={styles.product}>
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
-            src={'uploads/' + product.productImage}
+            src={'/uploads/' + product.productImage}
             alt='the item'
           />
         </div>
