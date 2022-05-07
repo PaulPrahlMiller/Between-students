@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
 import Redirect from '../../routing/Redirect';

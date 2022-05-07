@@ -9,7 +9,8 @@ import {
   CLEAR_CURRENT_PRODUCT,
   FILTER_BY_SEARCH,
   FILTER_BY_CATEGORY,
-  SET_LOADING
+  SET_LOADING,
+  CLEAR_FILTER
 } from '../types';
 
 // Functions to update state exported here before the functional component
@@ -58,6 +59,12 @@ export const filterByCategory = (dispatch, category) => {
   dispatch({
     type: FILTER_BY_CATEGORY,
     payload: category
+  });
+};
+
+export const clearFilter = (dispatch) => {
+  dispatch({
+    type: CLEAR_FILTER
   });
 };
 

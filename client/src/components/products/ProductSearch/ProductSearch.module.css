@@ -1,0 +1,34 @@
+.searchContainer {
+  width: 100%;
+  padding-bottom: 1rem;
+  display: flex;
+}
+
+.searchBar {
+  display: flex;
+  flex-grow: 1;
+  border: 1.5px solid #ccc;
+  border-radius: 1rem;
+  background-color: rgb(252, 252, 252);
+}
+
+.inputText {
+  all: unset;
+  flex-grow: 1;
+  border: none;
+  padding: 0.35rem 1rem;
+  color: #666;
+  background-color: transparent;
+}
+
+.inputButton {
+  all: unset;
+  box-sizing: border-box;
+  flex-basis: 6rem;
+  background-color: dodgerblue;
+  text-align: center;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  color: whitesmoke;
+  box-shadow: -2px 0px 3px #ccc;
+}
