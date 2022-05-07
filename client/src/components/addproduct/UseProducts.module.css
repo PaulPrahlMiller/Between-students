@@ -1,23 +1,15 @@
-.container{
-    background-color: rgb(71, 184, 92);
-    margin-bottom: 2rem;
-    border-radius: 0.5rem;
-}
 
 .btnItem {
     background-color: #b3e3f78d; /* Green */
     color: rgba(60, 103, 218, 0.815);
     border:none;
-    padding: 15px 32px;
-    width: 400px;
+    width: 100%;
+    height: 50px;
     text-align: center;
     text-decoration:none;
     display: inline-block;
     font-size: 20px;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    margin-top: 0.8rem;
-
+    border-radius: 0.5rem;
 }
 
 .cardStyle{
@@ -26,57 +18,50 @@
 }
 
 .imgCard {
-    width: 350px;
-    height: 290px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     overflow:scroll;
     border-radius: 0.25rem;
 }
 
 .btnCard {
-    background-color: #F05E5E; /* Green */
+    background-color: lightgray; /* Green */
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: black;
+    padding: 10px 32px;
     /* width: 200px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
+    font-style: bold;
     border-radius: 1rem;
-    margin-right: 1rem;
+    margin-right: 5px;
     margin-top: 0.8rem;
 }
 
-.btnCardEdit {
-    background-color: #E99E0E; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    /* width: 200px; */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    margin-top: 0.8rem;
-}
-
-.btnCardView {
-    background-color: #1885028f; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    /* width: 200px; */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    margin-top: 0.8rem;
-}
 .cardTxt {
     margin-top: 1.2rem;
+}
+
+.icon__delete {
+    margin-right: 5px;
+}
+
+.div__buttons {
+    /* display: flex;
+    flex-direction: row;
+    width: 100px; */
+}
+
+.icon__tags{
+    size: 20px;
+}
+
+.div__sideNavListing{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
 }

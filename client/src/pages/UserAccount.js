@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
-import UseProducts from '../components/addproduct/UseProducts';
-
+import ShowDefaultUser from '../components/addproduct/DefaultUserPage';
 const UserAccount = () => {
   return (
     <Fragment>
-      <UseProducts />
+      <ShowDefaultUser></ShowDefaultUser>
     </Fragment>
   );
 };

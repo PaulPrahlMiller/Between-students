@@ -1,11 +1,12 @@
 .container__right {
-    background-color:bisque;
+    background-color:white;
     text-align: center;
     width: auto;
     height: auto;
     /* width: 640px; */
     /* height: 500px; */
     margin: auto;
+    padding: 10px 30px 30px 30px;
     display: flex;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -14,6 +15,7 @@
 
 .div__outterOut {
     display: flex;
+    /* background-color: brown; */
 }
 
 .div__outter{
@@ -24,46 +26,61 @@
     height: 480px; */
 }
 .div__preview {
-    background-color: rgb(111, 215, 19);
+    /* background-color: purple; */
     text-align: left;
-    margin-left: 1rem;
+    
 }
 
 .div__details{
-    background-color: rgb(146, 146, 231);
+    /* background-color: red; */
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-/* .div__detailsRight{
-    background-color: brown;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    
-} */
 
 .div__imgPreview{
-    background-color: rgb(168, 224, 13);
-    height: 400px;
-    width: 210px;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 10px 0px 0px 10px;
+    border-width: thin;
+    height: 360px;
+    width: 270px;
     align-items: center; 
     display: flex;
     flex-direction: column;
+    padding-top: 70px;
+}
+
+.img__preview {
+    height: 70%;
+    width: 100%;
 }
 
 .div__des{
     display: flex;
     flex-direction: column;
     width: 380px;
+    border-top-style: solid;
+    border-top-color: lightgray;
+    border-top-width: thin;
+    border-radius: 0px 10px 10px 0px;
+    border-right-style: solid;
+    border-right-color: lightgray;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: lightgray;
+    border-bottom-width: thin;
     /* height: 400px; */
     height:100%;
-    
+    /* justify-content: space-evenly; */
+    text-align: left;
 }
 
 .h4__des{
-    word-wrap:break-word
+    word-wrap:break-word;
+    margin-left: 10px;
+    
 }
 
 .btn__publish{

@@ -1,13 +1,12 @@
 import React from 'react';
 import './Popup.css';
 
-function Popup(props) {
+function InsightPopup(props) {
   return props.trigger ? (
     <div className='popup'>
       <div className='popup-inner'>
-        <h4>Item description</h4>
-        <p>{props.des}</p>
-        {console.log(props.des)}
+        <h4>Clicks on listings</h4>
+        <p>{props.clicks}</p>
         <button className='close-btn' onClick={() => props.setTrigger(false)}>
           Close
         </button>
@@ -19,4 +18,4 @@ function Popup(props) {
   );
 }
 
-export default Popup;
+export default InsightPopup;
