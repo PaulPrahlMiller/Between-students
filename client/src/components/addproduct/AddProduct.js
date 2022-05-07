@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './AddProduct.css';
-import { IoArrowBackSharp, IoImageOutline } from 'react-icons/io5';
+import { IoImageOutline, IoCloseCircle } from 'react-icons/io5';
 import PreviewProduct from './PreviewProduct';
 import useProducts from '../../hooks/useProducts';
 
@@ -15,13 +15,27 @@ const AddProduct = () => {
   const [ProductState, productDispatch] = useProducts();
   const [cost, setCost] = useState('');
   const [uploaded, setUploaded] = useState(undefined);
+  const [shown, setShown] = useState(false);
+  const [submitBtn, setSubmitBtn] = useState(true);
   const navigate = useNavigate();
 
   const onChangeFile = (e) => {
     setFileName(e.target.files[0]);
     setUploaded(URL.createObjectURL(e.target.files[0]));
-    console.log(e.target.files);
-    console.log(URL.createObjectURL(e.target.files[0]));
+    setShown(true);
+  };
+
+  const allFilled = () => {
+    if (
+      (title !== '') &
+      (description !== '') &
+      (fileName !== '') &
+      (category !== '') &
+      (cost !== '')
+    ) {
+      console.log('All filled');
+      setSubmitBtn(false);
+    }
   };
 
   const changeOnClick = async (e) => {
@@ -35,35 +49,55 @@ const AddProduct = () => {
     formData.append('category', category);
     formData.append('cost', cost);
 
-    await axios
-      .post('http://localhost:5000/api/addproduct', formData)
-      .then((res) => {
-        setTitle('');
-        setDescription('');
-        setCategory('');
-        setCost('');
-        setFileName('');
-        console.log(res);
-      });
+    await axios.post('http://localhost:5000/api/addproduct', formData).then((res) => {
+      setTitle('');
+      setDescription('');
+      setCategory('');
+      setCost('');
+      setFileName('');
+    });
   };
 
   return (
     <div class='container__parent'>
       <div class='container__left'>
-        <h1>Add new item for sell</h1>
+        <div class='div__closeCircle'>
+          <IoCloseCircle
+            size={40}
+            onClick={() => {
+              navigate('/account');
+            }}
+          ></IoCloseCircle>
+        </div>
+        <div class='div__headerLeft'>
+          <h1>Item for sale</h1>
+        </div>
+
         <div class='container__formBody'>
           <form onSubmit={changeOnClick} encType='multipart/form-data'>
             <div class='div__upload'>
-              <div class='div__icon'>
-                <IoImageOutline size={30}></IoImageOutline>
-              </div>
               <input
                 type='file'
                 filename='productImage'
-                className='form-control-file'
+                class='file__upload'
                 onChange={onChangeFile}
                 required
               />
+              {shown ? '' : <h5>Add a photo</h5>}
+              <div class='div__icon'>
+                {shown ? (
+                  <img
+                    class='div__previewImage'
+                    height={150}
+                    width={210}
+                    src={uploaded}
+                    alt=''
+                  ></img>
+                ) : (
+                  <IoImageOutline size={30}></IoImageOutline>
+                )}
+              </div>
+
               <label htmlFor='file' class='col-sm-2 col-form-label' />
             </div>
             <div class='form-floating mb-3'>
@@ -77,7 +111,7 @@ const AddProduct = () => {
               />
               <label htmlFor='floatingInput'>Title</label>
             </div>
-            <div class='form-floating'>
+            <div class='form-floating mb-3'>
               <input
                 type='number'
                 class='form-control input-number'
@@ -89,12 +123,12 @@ const AddProduct = () => {
               <label htmlFor='floatingPassword'>Cost</label>
             </div>
             <select
-              class='form-select'
+              class='form-select mb-3'
               value={category}
               id='inputGroupSelect01'
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option>Choose...</option>
+              <option>Category</option>
               {ProductState.categories.map((cat) => {
                 return (
                   <option value={cat} key={cat.id}>
@@ -103,34 +137,28 @@ const AddProduct = () => {
                 );
               })}
             </select>
-
-            <div class='form-floating mt-3'>
-              <textarea
-                class='form-control'
-                placeholder='Leave a comment here'
-                id='floatingTextarea2'
-                height={400}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
-              <label htmlFor='floatingTextarea2'>Description</label>
+            <textarea
+              class='form-floating form-control textarea-des'
+              placeholder='Description'
+              id='floatingTextarea2'
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value);
+                allFilled();
+              }}
+            ></textarea>
+            <div class='div__btnPublish'>
+              <button
+                type='submit'
+                className='btn btn-primary btn__publish'
+                disabled={submitBtn}
+              >
+                Publish
+              </button>
             </div>
-
-            <div class='div__leftContainer'></div>
-            <button type='submit' className='btn btn-primary btn__publish'>
-              Publish
-            </button>
           </form>
-          <IoArrowBackSharp
-            size={30}
-            onClick={() => {
-              navigate('/account');
-            }}
-          />
-          Back
         </div>
       </div>
-      {/*Preview product will render div for right container */}
       <PreviewProduct
         title={title}
         price={cost}

@@ -12,10 +12,8 @@ function App() {
       <Header />
       <div className='main-content'>
         <Navbar />
-
-          <Alert />
-          <Outlet />
-       
+        <Alert />
+        <Outlet />
       </div>
       <Footer />
     </div>

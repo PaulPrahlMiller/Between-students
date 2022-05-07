@@ -10,7 +10,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './pages/UserAccount';
+import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
+import ViewInsights from './pages/UserInsights';
 import UnknownRoute from './pages/UnknownRoute';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import RegisterForm from './components/auth/RegisterForm/RegisterForm';
@@ -41,6 +43,22 @@ ReactDOM.render(
                   element={
                     <ProtectedRoute>
                       <CreateProduct />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path='insights'
+                  element={
+                    <ProtectedRoute>
+                      <ViewInsights />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path='user-listing'
+                  element={
+                    <ProtectedRoute>
+                      <ViewListing />
                     </ProtectedRoute>
                   }
                 />
