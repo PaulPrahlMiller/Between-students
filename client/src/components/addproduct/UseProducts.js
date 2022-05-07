@@ -13,7 +13,7 @@ const UseProducts = () => {
   var url = 'uploads/';
 
   useEffect(() => {
-    axios('http://localhost:5000/api/userproduct').then((response) => {
+    axios('http://localhost:5000/api/products/user').then((response) => {
       var original_data = response.data;
       console.log('original data in first useEffect', original_data);
       setProductList(original_data);
