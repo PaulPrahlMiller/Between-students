@@ -23,7 +23,7 @@ const LoginForm = () => {
       setAlert('danger', error);
       clearError(authDispatch);
     }
-  }, [error]);
+  }, [error, authDispatch, setAlert]);
 
   let navigate = useNavigate();
 
