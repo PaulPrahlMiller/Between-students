@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Loading from '../../pages/Loading';
+import Loading from '../../pages/Loading/Loading';
 
 const ProtectedRoute = ({ children }) => {
   const authState = useAuth()[0];

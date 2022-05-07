@@ -1,10 +1,3 @@
-
-.NotFoundBox {
-  height: 100vh;
-  width: 100vw;
-}
-
-
 .NotFoundBodyDiv {
   height: 45%;
   display: flex;
@@ -12,6 +5,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .backButton {
   height: 20%;
   width: 40%;
@@ -35,12 +29,12 @@
 .backButtonText:hover {
 }
 
-.NotFoundMessage{
-    padding: 2%;
-    margin: 2%;
-    font-size: larger;
-    color: green;
-    font-weight: bold;
+.NotFoundMessage {
+  padding: 2%;
+  margin: 2%;
+  font-size: larger;
+  color: green;
+  font-weight: bold;
 }
 
 .backButtonText {

@@ -1,15 +1,16 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
 import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
 import {
   ADD_PRODUCT,
   GET_PRODUCTS,
   SET_CURRENT_PRODUCT,
   CLEAR_CURRENT_PRODUCT,
   FILTER_BY_SEARCH,
-  FILTER_BY_CATEGORY
+  FILTER_BY_CATEGORY,
+  SET_LOADING,
+  CLEAR_FILTER
 } from '../types';
 
 // Functions to update state exported here before the functional component
@@ -61,13 +62,27 @@ export const filterByCategory = (dispatch, category) => {
   });
 };
 
+export const clearFilter = (dispatch) => {
+  dispatch({
+    type: CLEAR_FILTER
+  });
+};
+
+export const setLoading = (dispatch, value) => {
+  dispatch({
+    type: SET_LOADING,
+    payload: value
+  });
+};
+
 const ProductState = (props) => {
   // Initialise the state
   const initialState = {
     products: null,
     filteredProducts: null,
     categoryProducts: null,
-
+    currentProduct: null,
+    loading: true,
     categories: [
       'Sofas',
       'Beds',
@@ -90,15 +105,10 @@ const ProductState = (props) => {
       'Computers & accesories',
       'Lamps & lights',
       'Sports'
-    ],
-    currentProduct: null // Will contain a specific product when we want to show a single page for a specific product.
+    ]
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-
-  useEffect(() => {
-    getProducts(dispatch);
-  }, [dispatch]);
 
   return (
     <ProductContext.Provider value={{ state: state, dispatch }}>

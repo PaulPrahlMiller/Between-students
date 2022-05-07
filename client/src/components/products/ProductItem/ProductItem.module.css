@@ -1,0 +1,45 @@
+.product {
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  cursor: pointer;
+  box-shadow: 2px 3px 3px -3px #bbb;
+}
+
+.imageContainer {
+  height: 150px;
+  width: auto;
+  background-color: #eee;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.productInfo {
+  min-height: 10rem;
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.infoTop {
+  font-family: 'News Cycle';
+  font-size: 1.25rem;
+}
+
+.infoMid {
+  font-size: 1rem;
+}
+
+.infoBottom {
+  display: block;
+}

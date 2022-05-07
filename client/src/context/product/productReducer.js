@@ -4,7 +4,9 @@ import {
   FILTER_BY_CATEGORY,
   GET_PRODUCTS,
   SET_CURRENT_PRODUCT,
-  CLEAR_CURRENT_PRODUCT
+  CLEAR_CURRENT_PRODUCT,
+  SET_LOADING,
+  CLEAR_FILTER
 } from '../types';
 
 const productReducer = (state, action) => {
@@ -17,7 +19,7 @@ const productReducer = (state, action) => {
     case SET_CURRENT_PRODUCT:
       return {
         ...state,
-        currentProduct: state.products.find((product) => {
+        currentProduct: state.products?.find((product) => {
           return product._id === action.payload;
         })
       };
@@ -38,7 +40,8 @@ const productReducer = (state, action) => {
         filteredProducts: state.products.filter((product) => {
           return (
             product.title.toLowerCase().includes(action.payload.toLowerCase()) ||
-            product.description.toLowerCase().includes(action.payload.toLowerCase())
+            product.description.toLowerCase().includes(action.payload.toLowerCase()) ||
+            product.category.toLowerCase().includes(action.payload.toLowerCase())
           );
         })
       };
@@ -49,6 +52,16 @@ const productReducer = (state, action) => {
         categoryProducts: state.products.filter((product) => {
           return product.category === action.payload;
         })
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filteredProducts: null
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload
       };
     default:
       throw new Error('Invalid type provided to reducer function');
