@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { filterBySearch, clearFilter } from '../../../context/product/ProductState';
-import useProducts from '../../../hooks/useProducts';
+import { useNavigate } from 'react-router-dom';
+import useAlert from '../../../hooks/useAlert';
 import styles from './ProductSearch.module.css';
 
 const ProductSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { query } = useParams();
-
-  console.log(query);
-
-  const productDispatch = useProducts()[1];
-
   const navigate = useNavigate();
+
+  const [alert, setAlert] = useAlert();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery === '') {
-      navigate('/');
-    } else {
+    if (searchQuery !== '') {
       setSearchQuery('');
       navigate(`/search/${searchQuery}`);
+    } else {
+      setAlert('danger', 'Please enter a search term');
     }
   };
 
