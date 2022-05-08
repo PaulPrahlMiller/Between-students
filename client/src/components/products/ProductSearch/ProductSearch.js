@@ -8,7 +8,7 @@ const ProductSearch = () => {
 
   const navigate = useNavigate();
 
-  const [alert, setAlert] = useAlert();
+  const setAlert = useAlert()[1];
 
   const handleSubmit = (e) => {
     e.preventDefault();
