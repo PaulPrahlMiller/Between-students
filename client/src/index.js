@@ -67,9 +67,7 @@ ReactDOM.render(
                 />
                 <Route path='login' element={<LoginForm />} />
                 <Route path='register' element={<RegisterForm />} />
-                {['404', '*'].map((path, index) => {
-                  return <Route path={path} element={<UnknownRoute />} key={index} />;
-                })}
+                <Route path='*' element={<UnknownRoute />} />
               </Route>
               <Route path='admin' element={<Admin />} />
             </Routes>

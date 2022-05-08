@@ -8,6 +8,7 @@ import {
   setCurrentProduct
 } from '../../../context/product/ProductState';
 import useLoading from '../../../hooks/useLoading';
+import UnknownRoute from '../../../pages/UnknownRoute';
 
 const Product = () => {
   // Get the product ID from the url parameters
@@ -30,7 +31,7 @@ const Product = () => {
 
   if (loading) return <Loading />;
 
-  if (currentProduct === undefined) return <Navigate to='/404' />;
+  if (currentProduct === undefined) return <UnknownRoute />;
 
   return (
     <div className={styles.productContainer}>
