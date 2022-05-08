@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
-import Redirect from '../../routing/Redirect';
 import styles from './Product.module.css';
 import {
   clearCurrentProduct,
-  setCurrentProduct,
-  setLoading
+  setCurrentProduct
 } from '../../../context/product/ProductState';
+import useLoading from '../../../hooks/useLoading';
 
 const Product = () => {
   // Get the product ID from the url parameters
@@ -16,21 +15,22 @@ const Product = () => {
 
   const [productState, productDispatch] = useProducts();
 
-  const { currentProduct, loading } = productState;
+  const { products, currentProduct } = productState;
 
   useEffect(() => {
-    setCurrentProduct(productDispatch, productId);
-    setTimeout(() => setLoading(productDispatch, false), 1000);
-    // Clean up function
+    if (products) {
+      setCurrentProduct(productDispatch, productId);
+    }
     return () => {
       clearCurrentProduct(productDispatch);
-      setLoading(productDispatch, true);
     };
-  }, [productDispatch, productId]);
+  }, [productDispatch, productId, currentProduct, products]);
+
+  const loading = useLoading(1000);
 
   if (loading) return <Loading />;
 
-  if (currentProduct === undefined) return <Redirect />;
+  if (currentProduct === undefined) return <Navigate to='/404' />;
 
   return (
     <div className={styles.productContainer}>
