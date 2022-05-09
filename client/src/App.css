@@ -69,23 +69,23 @@
 .subnav-content {
     display: none;
     position: absolute;
-    background-color: antiquewhite;
-    width: 28%;
-    z-index: auto;
-    background-color: #eee;
+    width: auto;
+    height: 500px;
+    overflow-x: scroll;
+    border-style: solid;
+    border-width: thin;
+    z-index: 999;
     color: black;
     font-size: 20px;
-    column-count: 2;
-/*    font-family: 'Nova Mono'*/
-}
+    background-color: ghostwhite;
+/*    column-count: 1;*/
 
-.subnav-content:hover {
-    background-color: lightgrey;
+/*    font-family: 'Nova Mono', monospace;*/
+
 }
 
     .subnav-content option:hover {
-        background-color: #eee;
-        color: black;
+       color: green;
     }
 
 .subnav:hover .subnav-content {
@@ -183,3 +183,64 @@
 }
 
 
+/*About page */
+
+.about {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+}
+
+img {
+    max-width: auto;
+}
+
+.aboutcontainer {
+    height: 800px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-right: 150px;
+}
+
+.aboutphoto1 {
+    height: 600px;
+    width: 400px;
+    justify-content: center;
+}
+.abouttext1 {
+    height: 400px;
+    justify-content: center;
+}
+.aboutname {
+    font-family: 'Monoton';
+}
+.abouttitle1 {
+    font-size: 35px;
+    justify-content: center;
+    font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
+}
+
+.aboutintrotext1 {
+    font-size: 30px;
+    justify-content: center;
+    font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
+}
+
+
+@media screen and (max-width: 1080px) {
+    .about {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+
+    }
+    #sidebar {
+        display: none;
+    }
+    
+}
