@@ -1,16 +1,15 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import React, { Fragment, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Product.module.css';
+import useLoading from '../../../hooks/useLoading';
+import UnknownRoute from '../../../pages/UnknownRoute';
+import formatDate from '../../../utils/dateFormatter';
 import {
   clearCurrentProduct,
   setCurrentProduct
 } from '../../../context/product/ProductState';
-import useLoading from '../../../hooks/useLoading';
-import UnknownRoute from '../../../pages/UnknownRoute';
-import ImagePreview from './ImagePreview';
-import formatDate from '../../../utils/dateFormatter';
 
 const Product = () => {
   // Get the product ID from the url parameters
@@ -20,7 +19,7 @@ const Product = () => {
 
   const { products, currentProduct } = productState;
 
-  const [showImage, setShowImage] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (products) {
@@ -31,26 +30,28 @@ const Product = () => {
     };
   }, [productDispatch, productId, currentProduct, products]);
 
+  const handleClick = () => {
+    const path = currentProduct.productImage;
+    navigate(`/preview/${path}`);
+  };
+
   const loading = useLoading(1000);
 
-  if (loading) return <Loading />;
-
-  if (currentProduct === undefined) return <UnknownRoute />;
+  if (loading || !products) return <Loading />;
 
   const date = formatDate(currentProduct.createdAt);
 
+  if (currentProduct === undefined) return <UnknownRoute />;
+
   return (
     <Fragment>
-      {showImage && (
-        <ImagePreview image={currentProduct.productImage} setShowImage={setShowImage} />
-      )}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <img
             src={`/uploads/${currentProduct.productImage}`}
             alt={currentProduct.title}
             className={styles.productImage}
-            onClick={() => setShowImage(true)}
+            onClick={handleClick}
           />
         </div>
         <div className={styles.infoContainer}>
