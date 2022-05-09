@@ -33,23 +33,24 @@
 .productMeta {
   display: flex;
   line-height: 0.75rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
 }
 
 .productCategory {
   font-size: 0.9rem;
   font-weight: 300;
-  flex-grow: 1;
+  line-height: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .productCost {
   font-size: 1.2rem;
   font-weight: 600;
-  padding-bottom: 3rem;
+  flex-grow: 1;
 }
 
 .productDescription {
-  flex-grow: 1;
+  padding-top: 1rem;
 }
 
 .productDate {

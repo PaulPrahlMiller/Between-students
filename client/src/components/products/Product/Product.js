@@ -57,13 +57,13 @@ const Product = () => {
         <div className={styles.infoContainer}>
           <div className={styles.productHeading}>
             <div className={styles.productTitle}>{currentProduct.title}</div>
-            <div className={styles.productMeta}>
-              <div className={styles.productCategory}>{currentProduct.category}</div>
-              <div className={styles.productDate}>{date}</div>
-            </div>
+            <div className={styles.productCategory}>{currentProduct.category}</div>
+          </div>
+          <div className={styles.productMeta}>
+            <div className={styles.productCost}>{currentProduct.cost} kr</div>
+            <div className={styles.productDate}>{date}</div>
           </div>
           <hr />
-          <div className={styles.productCost}>{currentProduct.cost} kr</div>
           <div className={styles.productDescription}>{currentProduct.description}</div>
         </div>
       </div>
