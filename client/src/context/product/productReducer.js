@@ -50,13 +50,14 @@ const productReducer = (state, action) => {
         ...state,
         filteredProducts: null,
         categoryProducts: state.products.filter((product) => {
-          return product.category === action.payload;
+          return product.category.toLowerCase() === action.payload.toLowerCase();
         })
       };
     case CLEAR_FILTER:
       return {
         ...state,
-        filteredProducts: null
+        filteredProducts: null,
+        categoryProducts: null
       };
     case SET_LOADING:
       return {

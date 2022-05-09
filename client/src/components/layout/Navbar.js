@@ -16,8 +16,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    console.log(e.target.innerText);
-    navigate(`/categories/${e.target.innerText}`);
+    if (e.target.tagName === 'OPTION') {
+      navigate(`/categories/${e.target.innerText}`);
+    }
   };
 
   const handleLogout = () => {

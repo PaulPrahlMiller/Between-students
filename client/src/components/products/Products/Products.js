@@ -14,7 +14,9 @@ const Products = () => {
 
   return (
     <Fragment>
-      {products?.length === 0 ? (
+      {products?.length === 0 ||
+      filteredProducts?.length === 0 ||
+      categoryProducts?.length === 0 ? (
         <div className={styles.noProducts}>There is currently no products available</div>
       ) : products !== null ? ( // Check if there are products to render
         <div className={styles.products}>

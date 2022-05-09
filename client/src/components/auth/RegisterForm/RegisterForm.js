@@ -57,7 +57,7 @@ const RegisterForm = () => {
     }
   };
 
-  if (isAuthenticated) return <Navigate to='/' replace={true} />;
+  if (isAuthenticated) return <Navigate to='/account' replace={true} />;
 
   return (
     <div className={styles.authForm}>
