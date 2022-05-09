@@ -20,7 +20,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 /* Change the color of navigation links on hover */
@@ -56,7 +56,7 @@
 }
 
     .subnav .subnavbtn {
-        font-size: 30px;
+        font-size: 40px;
         border: none;
         outline: none;
         color: black;
@@ -69,25 +69,28 @@
 .subnav-content {
     display: none;
     position: absolute;
-    left: 0;
-    background-color: #666;
-    width: 100%;
-    z-index: 1;
+    background-color: antiquewhite;
+    width: 28%;
+    z-index: auto;
+    background-color: #eee;
+    color: black;
+    font-size: 20px;
+    column-count: 2;
+/*    font-family: 'Nova Mono'*/
 }
 
-    .subnav-content a {
-        float: left;
-        color: white;
-        text-decoration: none;
-    }
+.subnav-content:hover {
+    background-color: lightgrey;
+}
 
-        .subnav-content a:hover {
-            background-color: #eee;
-            color: black;
-        }
+    .subnav-content option:hover {
+        background-color: #eee;
+        color: black;
+    }
 
 .subnav:hover .subnav-content {
     display: block;
+
 }
 
 /* Header styles */

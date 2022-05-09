@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className="subnav-content">
                 {ProductState.categories.map((cat) => {
                     return (
-                        <option value={cat} key={cat.id}>
+                        <option  value={cat} key={cat.id}>
                             {cat}
                         </option>
                     );
