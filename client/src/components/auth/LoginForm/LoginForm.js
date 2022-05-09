@@ -47,7 +47,7 @@ const LoginForm = () => {
     }
   };
 
-  if (isAuthenticated) return <Navigate to='/account' replace={true} />;
+  if (isAuthenticated) return <Navigate to='/' replace={true} />;
 
   return (
     <div className={styles.authForm}>

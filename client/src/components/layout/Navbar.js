@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import useProducts from '../../hooks/useProducts';
+import useAuth from '../../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../../context/auth/AuthState';
+import setAuthToken from '../../utils/setAuthToken';
 
 const accountIcon = require('../../assets/account_icon.jpg');
 
 const Navbar = () => {
   const pathname = window.location.href.split('/').pop();
-  const [ProductState, productDispatch] = useProducts();
+  const [productState, productDispatch] = useProducts();
+  const [authState, authDispatch] = useAuth();
+  const { categories } = productState;
+  const { isAuthenticated } = authState;
   const navigate = useNavigate();
+
   const handleClick = (e) => {
     console.log(e.target.innerText);
     navigate(`/categories/${e.target.innerText}`);
   };
+
+  const handleLogout = () => {
+    logout(authDispatch);
+    setAuthToken(null);
+  };
+
   return (
     <div className='topnav'>
       <Link to='/' className={pathname === '' && 'active'}>
@@ -21,10 +34,10 @@ const Navbar = () => {
       <div className='subnav' onClick={handleClick}>
         <button className='subnavbtn'>Categories</button>
         <div className='subnav-content'>
-          {ProductState.categories.map((cat) => {
+          {categories.map((category) => {
             return (
-              <option value={cat} key={cat.id}>
-                {cat}
+              <option value={category} key={category.id}>
+                {category}
               </option>
             );
           })}
@@ -34,9 +47,18 @@ const Navbar = () => {
         About Us
       </Link>
       <div className='accountnav'>
-        <Link to='/account' className={pathname === 'account' && 'active'}>
-          <img src={accountIcon} className='accounticon' alt='account_icon' />
-        </Link>
+        {isAuthenticated ? (
+          <Fragment>
+            <Link to='/' onClick={handleLogout} id='logout-link'>
+              Logout
+            </Link>
+            <Link to='/account' className={pathname === 'account' && 'active'}>
+              <img src={accountIcon} className='accounticon' alt='account_icon' />
+            </Link>
+          </Fragment>
+        ) : (
+          <Link to='/login'>Login</Link>
+        )}
       </div>
     </div>
   );
