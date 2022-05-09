@@ -1,18 +1,15 @@
 .fullscreen {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 5vh 5vw;
+  background-color: #222;
   box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(40, 40, 40, 0.9);
 }
 
 .imageContainer {
-  position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
 }
 
 .image {
@@ -23,14 +20,11 @@
 
 .closeButton {
   all: unset;
-  position: absolute;
-  top: 5vh;
-  right: 5vw;
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-  color: whitesmoke;
-  background-color: none;
+  height: 1rem;
+  width: 1rem;
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
 }

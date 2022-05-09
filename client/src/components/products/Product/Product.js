@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Product.module.css';
@@ -22,6 +22,8 @@ const Product = () => {
 
   const [showImage, setShowImage] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (products) {
       setCurrentProduct(productDispatch, productId);
@@ -31,26 +33,28 @@ const Product = () => {
     };
   }, [productDispatch, productId, currentProduct, products]);
 
+  const handleClick = () => {
+    const path = currentProduct.productImage;
+    navigate(`/preview/${path}`);
+  };
+
   const loading = useLoading(1000);
 
   if (loading) return <Loading />;
 
-  if (currentProduct === undefined) return <UnknownRoute />;
-
   const date = formatDate(currentProduct.createdAt);
+
+  if (currentProduct === undefined) return <UnknownRoute />;
 
   return (
     <Fragment>
-      {showImage && (
-        <ImagePreview image={currentProduct.productImage} setShowImage={setShowImage} />
-      )}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <img
             src={`/uploads/${currentProduct.productImage}`}
             alt={currentProduct.title}
             className={styles.productImage}
-            onClick={() => setShowImage(true)}
+            onClick={handleClick}
           />
         </div>
         <div className={styles.infoContainer}>
