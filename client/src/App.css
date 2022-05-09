@@ -1,1 +1,137 @@
+/* Main template styles */
+.main-content {
+  min-height: 100vh;
+}
+
+/* Add a black background color to the navigation bar */
+.topnav {
+  overflow: hidden;
+  font-family: 'Monoton';
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of navigation links on hover */
+.topnav a:hover, .subnav:hover .subnavbtn {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link in navigation bar */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* accountnav styles */
+.accountnav {
+  float: left;
+  overflow: hidden;
+  left: 800px;
+}
+
+/* accounticon styles */
+.accounticon {
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+}
+
+/* Header styles */
+.cover {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.coverphoto {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.coverphototext {
+  font-size: 40px;
+  font-family: 'Monoton';
+  color: #D77215;
+  text-align: center;
+  line-height: 62px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  margin: auto;
+}
+
+.coverphotosearch {
+  border: none;
+  padding: 0;
+  font-family: Monda;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.coverphotosearchinput {
+  width: 260px;
+  border: 1px solid #555;
+  padding: 9px 4px 9px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+
+/* Footer styles */
+.footer {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.footerphoto {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.footerphototext {
+  font-size: 15px;
+  font-family: Montaga;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 18px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  margin: auto;
+}
+
+.instagramicon {
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+}
+
+.facebookicon {
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+}
+
+.twittericon {
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+}
+
 
