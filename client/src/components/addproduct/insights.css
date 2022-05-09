@@ -1,13 +1,11 @@
 .div__insights{
-    background-color: aqua;
-    margin-left: 350px;
     padding: 0px 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .div__innerRow{
-    background-color: beige;
+    background-color: lightgray;
     width: 300px;
     height: 80px;
     border-radius: 00.5rem;
@@ -15,6 +13,7 @@
     margin: 10px 10px 10px 10px;
     text-align: center;
     cursor: pointer;
+    padding-top: 5px;
 }
 
 .div__clicks{
@@ -30,5 +29,5 @@
 
 
 @media screen and (max-width: 700px) {
-    div.div__insights {margin-left: 10px; margin-top: 10px; max-width: 300px; align-self: center;}
+    div.div__insights {margin-left: 10px; margin-top: 10px; max-width: 300px; align-self: center; flex-direction: column;}
 }
