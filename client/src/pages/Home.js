@@ -8,15 +8,17 @@ import useProducts from '../hooks/useProducts';
 const Home = () => {
   const { query } = useParams();
 
-  const productDispatch = useProducts()[1];
+  const [productState, productDispatch] = useProducts();
+
+  const { products } = productState;
 
   useEffect(() => {
     if (query === undefined) {
       clearFilter(productDispatch);
-    } else {
+    } else if (products) {
       filterBySearch(productDispatch, query);
     }
-  }, [productDispatch, query]);
+  }, [productDispatch, query, products]);
 
   return (
     <Fragment>

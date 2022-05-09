@@ -12,13 +12,11 @@ const Products = () => {
   // Destructure values from the state
   const { products, filteredProducts, categoryProducts } = productState;
 
-  useEffect(() => {
-    getProducts(productDispatch);
-  }, [productDispatch, filteredProducts, categoryProducts]);
-
   return (
     <Fragment>
-      {products !== null ? ( // Check if there are products to render
+      {products?.length === 0 ? (
+        <div className={styles.noProducts}>There is currently no products available</div>
+      ) : products !== null ? ( // Check if there are products to render
         <div className={styles.products}>
           {categoryProducts !== null ? ( // If categoryProducts !== null, it will contain an array of products filtered by category
             categoryProducts.map((product) => (
