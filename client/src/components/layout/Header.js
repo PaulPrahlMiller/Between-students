@@ -8,9 +8,7 @@ const Header = () => {
         <div className="coverphototext">
             <span>HKR Student Life.com</span>
             <br />
-            <form className="coverphotosearch">
-                <input class="coverphotosearchinput" type="search" placeholder="Search..." />
-            </form>
+
         </div>
 
     </div>;

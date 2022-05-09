@@ -6,7 +6,8 @@ import { Fragment } from 'react';
 const ShowDefaultUser = () => {
   return (
     <Fragment>
-      <SideNavBar></SideNavBar>;<UseProducts></UseProducts>
+      <SideNavBar></SideNavBar>
+      <UseProducts></UseProducts>
     </Fragment>
   );
 };

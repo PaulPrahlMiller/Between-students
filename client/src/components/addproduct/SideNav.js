@@ -75,10 +75,6 @@ const SideNavBar = () => {
           Insights
         </a>
       </div>
-      <div className={styles.div__sideNavListing}>
-        <VscDashboard size={20}></VscDashboard>
-        <a href='#contact'>Seller dashboard</a>
-      </div>
     </div>
   );
 };

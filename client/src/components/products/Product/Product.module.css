@@ -1,0 +1,86 @@
+.productContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  height: 200px;
+  width: 100%;
+  flex-grow: 2;
+  background-color: rgb(245, 245, 245);
+}
+
+.infoContainer {
+  flex-grow: 1;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.productImage {
+  object-fit: contain;
+  object-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.productTitle {
+  font-family: 'News Cycle';
+  font-size: 1.5rem;
+}
+
+.productMeta {
+  display: flex;
+  line-height: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.productCategory {
+  font-size: 0.9rem;
+  font-weight: 300;
+  flex-grow: 1;
+}
+
+.productCost {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 3rem;
+}
+
+.productDescription {
+  flex-grow: 1;
+}
+
+.productDate {
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 500px) {
+  .imageContainer {
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .imageContainer {
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .imageContainer {
+    height: 500px;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .productContainer {
+    flex-direction: row;
+  }
+
+  .infoContainer {
+    padding: 0 2rem;
+  }
+}

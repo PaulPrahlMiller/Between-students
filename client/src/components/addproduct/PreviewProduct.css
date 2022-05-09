@@ -1,11 +1,14 @@
 .container__right {
     background-color:white;
     text-align: center;
+    padding-left: 30px;
     width: auto;
     height: auto;
     /* width: 640px; */
     /* height: 500px; */
-    margin: auto;
+    /* margin: auto; */
+    margin-left: 30px;
+    margin-bottom: 30px;
     padding: 10px 30px 30px 30px;
     display: flex;
     border-radius: 0.5rem;

@@ -5,8 +5,12 @@
 
 /* Add a black background color to the navigation bar */
 .topnav {
-  overflow: hidden;
-  font-family: 'Monoton';
+    overflow: hidden;
+    font-family: 'Monoton';
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -16,20 +20,20 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 40px;
 }
 
 /* Change the color of navigation links on hover */
-.topnav a:hover, .subnav:hover .subnavbtn {
-  background-color: #ddd;
-  color: black;
-}
+    .topnav a:hover, .subnav:hover .subnavbtn {
+        background-color: #ddd;
+        color: black;
+    }
 
 /* Add a color to the active/current link in navigation bar */
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
+    .topnav a.active {
+        background-color: lightgrey;
+        color: white;
+    }
 
 /* accountnav styles */
 .accountnav {
@@ -43,6 +47,50 @@
   object-fit: cover;
   width: 30px;
   height: 30px;
+}
+
+/* Sub navigation styles */
+.subnav {
+    float: left;
+    overflow: hidden;
+}
+
+    .subnav .subnavbtn {
+        font-size: 40px;
+        border: none;
+        outline: none;
+        color: black;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+.subnav-content {
+    display: none;
+    position: absolute;
+    width: auto;
+    height: 500px;
+    overflow-x: scroll;
+    border-style: solid;
+    border-width: thin;
+    z-index: 999;
+    color: black;
+    font-size: 20px;
+    background-color: ghostwhite;
+/*    column-count: 1;*/
+
+/*    font-family: 'Nova Mono', monospace;*/
+
+}
+
+    .subnav-content option:hover {
+       color: green;
+    }
+
+.subnav:hover .subnav-content {
+    display: block;
+
 }
 
 /* Header styles */
@@ -59,7 +107,7 @@
 }
 
 .coverphototext {
-  font-size: 40px;
+  font-size: 60px;
   font-family: 'Monoton';
   color: #D77215;
   text-align: center;
@@ -135,3 +183,64 @@
 }
 
 
+/*About page */
+
+.about {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+}
+
+img {
+    max-width: auto;
+}
+
+.aboutcontainer {
+    height: 800px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-right: 150px;
+}
+
+.aboutphoto1 {
+    height: 600px;
+    width: 400px;
+    justify-content: center;
+}
+.abouttext1 {
+    height: 400px;
+    justify-content: center;
+}
+.aboutname {
+    font-family: 'Monoton';
+}
+.abouttitle1 {
+    font-size: 35px;
+    justify-content: center;
+    font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
+}
+
+.aboutintrotext1 {
+    font-size: 30px;
+    justify-content: center;
+    font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
+}
+
+
+@media screen and (max-width: 1080px) {
+    .about {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+
+    }
+    #sidebar {
+        display: none;
+    }
+    
+}
