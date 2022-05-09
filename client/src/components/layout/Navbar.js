@@ -1,7 +1,6 @@
 import React from 'react';
 import useProducts from '../../hooks/useProducts';
-import { useNavigate } from 'react-router-dom';
-//import { log } from 'signale';
+import { Link, useNavigate } from 'react-router-dom';
 
 const accountIcon = require('../../assets/account_icon.jpg');
 
@@ -15,9 +14,9 @@ const Navbar = () => {
   };
   return (
     <div className='topnav'>
-      <a className={pathname === '' && 'active'} href='/'>
+      <Link to='/' className={pathname === '' && 'active'}>
         Home
-      </a>
+      </Link>
 
       <div className='subnav' onClick={handleClick}>
         <button className='subnavbtn'>Categories</button>
@@ -31,13 +30,13 @@ const Navbar = () => {
           })}
         </div>
       </div>
-      <a className={pathname === 'about' && 'active'} href='/about'>
+      <Link to='/about' className={pathname === 'about' && 'active'}>
         About Us
-      </a>
+      </Link>
       <div className='accountnav'>
-        <a className={pathname === 'account' && 'active'} href='/account'>
+        <Link to='/account' className={pathname === 'account' && 'active'}>
           <img src={accountIcon} className='accounticon' alt='account_icon' />
-        </a>
+        </Link>
       </div>
     </div>
   );
