@@ -14,7 +14,6 @@ import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
 import ViewInsights from './pages/UserInsights';
 import UnknownRoute from './pages/UnknownRoute';
-import Redirect from './components/routing/Redirect';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import RegisterForm from './components/auth/RegisterForm/RegisterForm';
 import Admin from './components/admin/Admin';
@@ -68,8 +67,7 @@ ReactDOM.render(
                 />
                 <Route path='login' element={<LoginForm />} />
                 <Route path='register' element={<RegisterForm />} />
-                <Route path='*' element={<Redirect />} />
-                <Route path='404' element={<UnknownRoute />} />
+                <Route path='*' element={<UnknownRoute />} />
               </Route>
               <Route path='admin' element={<Admin />} />
             </Routes>

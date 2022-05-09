@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './UnknownRoute.css';
 
 const UnknownRoute = () => {
   let navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/'); // This is supposed to be the main Home page.
+    navigate(-1); // Using -1 is equivalent to clicking back in the browser
   };
 
   return (
@@ -16,7 +16,7 @@ const UnknownRoute = () => {
 
         <button className='backButton' onClick={handleClick}>
           {' '}
-          <span className='backButtonText'>Back to Home Page</span>
+          <span className='backButtonText'>Go back</span>
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
 import axios from 'axios';
@@ -82,7 +82,6 @@ const ProductState = (props) => {
     filteredProducts: null,
     categoryProducts: null,
     currentProduct: null,
-    loading: true,
     categories: [
       'Sofas',
       'Beds',
@@ -109,6 +108,14 @@ const ProductState = (props) => {
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
+
+  const { products } = state;
+
+  useEffect(() => {
+    if (products === null) {
+      getProducts(dispatch);
+    }
+  }, [dispatch, products]);
 
   return (
     <ProductContext.Provider value={{ state: state, dispatch }}>
