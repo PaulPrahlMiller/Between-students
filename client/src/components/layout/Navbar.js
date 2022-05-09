@@ -1,20 +1,35 @@
 import React from 'react';
+import useProducts from '../../hooks/useProducts';
+import { useNavigate } from 'react-router-dom';
+//import { log } from 'signale';
 
 const accountIcon = require('../../assets/account_icon.jpg')
 
 const Navbar = () => {
     const pathname = window.location.href.split("/").pop();
-
+    const [ProductState, productDispatch] = useProducts();
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        console.log(e.target.innerText)
+        navigate(`/categories/${e.target.innerText}`);
+    }
     return <div className="topnav">
         <a className={pathname === '' && "active"} href="/">Home</a>
 
-        <a className={pathname === "books" && "active"} href="/books">Books</a>
-        <a className={pathname === "furnitures" && "active"} href="/furnitures">Furnitures</a>
-        <a className={pathname === "clothes" && "active"} href="/clothes">Clothes</a>
-        <a className={pathname === "decorations" && "active"} href="/decorations">Decorations</a>
+        <div className="subnav" onClick={handleClick}>
+            <button className="subnavbtn">Categories</button>
+            <div className="subnav-content">
+                {ProductState.categories.map((cat) => {
+                    return (
+                        <option value={cat} key={cat.id}>
+                            {cat}
+                        </option>
+                    );
+                })}
 
-        <a className={pathname === "about" && "active"} href="/about">About</a>
-
+            </div>
+        </div>
+        <a className={pathname === "about" && "active"} href="/about">About Us</a>
         <div className="accountnav">
             <a className={pathname === "account" && "active"} href="/account">
                 <img src={accountIcon} className="accounticon" alt="account_icon" />
@@ -22,5 +37,6 @@ const Navbar = () => {
         </div>
     </div>;
 };
+
 
 export default Navbar;
