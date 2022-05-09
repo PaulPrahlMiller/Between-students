@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './ImagePreview.module.css';
 
 const ImagePreview = () => {
-  const params = useParams();
+  const { imagePath } = useParams();
 
   const navigate = useNavigate();
 
@@ -15,14 +15,14 @@ const ImagePreview = () => {
     <div className={styles.fullscreen}>
       <div className={styles.imageContainer}>
         <img
-          src={`/uploads/${params.imagePath}`}
+          src={`/uploads/${imagePath}`}
           className={styles.image}
           onClick={handleClick}
         />
-        <button className={styles.closeButton} onClick={handleClick}>
-          x
-        </button>
       </div>
+      <button className={styles.closeButton} onClick={handleClick}>
+        x
+      </button>
     </div>
   );
 };
