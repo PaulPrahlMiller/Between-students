@@ -1,0 +1,36 @@
+.fullscreen {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.closeButton {
+  all: unset;
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: whitesmoke;
+  background-color: none;
+}
