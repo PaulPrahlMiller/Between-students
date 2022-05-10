@@ -2,17 +2,20 @@ const searchFilter = (products, query) => {
   const regex = /[^a-z0-9']+/gi;
 
   let filtered = null;
+
   filtered = products.filter((product) => {
-    const fields = [product.title, product.category, product.description];
+    const fields = [product.category, product.title, product.description];
 
     return fields.some((field) => {
+      console.log(field);
       let words = field
         .replace(regex, ' ')
         .split(' ')
         .map((word) => {
           return word.toLowerCase();
         });
-      return words.includes(query);
+      // Match both singular and plural versions of search term.
+      return words.includes(query) || words.includes(query + 's');
     });
   });
 
