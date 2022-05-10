@@ -7,7 +7,7 @@
 .searchBar {
   display: flex;
   flex-grow: 1;
-  border: 1.5px solid #ccc;
+  border: 1.5px solid #bbb;
   border-radius: 1rem;
   background-color: rgb(252, 252, 252);
 }
@@ -23,7 +23,7 @@
 
 .inputButton {
   all: unset;
-  box-sizing: border-box;
+  box-sizing: content-box;
   flex-basis: 6rem;
   background-color: dodgerblue;
   text-align: center;

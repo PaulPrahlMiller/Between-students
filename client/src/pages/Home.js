@@ -21,7 +21,7 @@ const Home = () => {
       clearFilter(productDispatch);
     } else if (products) {
       if (query) {
-        filterBySearch(productDispatch, query);
+        filterBySearch(productDispatch, products, query);
       } else if (category) {
         filterByCategory(productDispatch, category);
       }
