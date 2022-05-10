@@ -6,7 +6,13 @@ const searchFilter = (products, query) => {
     const fields = [product.title, product.category, product.description];
 
     return fields.some((field) => {
-      return field.replace(regex, ' ').split(' ').includes(query);
+      let words = field
+        .replace(regex, ' ')
+        .split(' ')
+        .map((word) => {
+          return word.toLowerCase();
+        });
+      return words.includes(query);
     });
   });
 
