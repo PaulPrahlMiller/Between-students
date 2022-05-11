@@ -3,7 +3,7 @@ import React from 'react';
 const TeamPhoto_Tian = require('../../src/assets/Tian.jpg')
 const TeamPhoto_Zijie = require('../../src/assets/Zijie.jpg')
 const TeamPhoto_Paul = require('../../src/assets/Tian.jpg')
-const TeamPhoto_Frank = require('../../src/assets/Tian.jpg')
+const TeamPhoto_Frank = require('../../src/assets/Frank.jpg')
 const TeamPhoto_Meron = require('../../src/assets/Meron.jpg')
 
 
@@ -64,9 +64,9 @@ const About = () => {
                 {<img src={TeamPhoto_Frank} className="aboutphoto1" alt="about_photo" />}
             </div>
             <div className="abouttext1">
-                <h1 className="aboutname"> Full name</h1>
-                <h1 className="abouttitle1"> title</h1>
-                <p className="aboutintrotext1"> info</p>
+                <h1 className="aboutname">Frank Yuan</h1>
+                <h1 className="abouttitle1"> Frontend Developer</h1>
+                <p className="aboutintrotext1"> He is a CS student</p>
             </div>
         </div>
 
