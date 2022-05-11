@@ -8,7 +8,8 @@
 .div__wrapperCards{
     background-color: #add8e6;
     overflow-y: visible;
-    
+    max-width: 1000px;
+    margin: auto;
 }
 .wrapper__img {
     max-height: 280px;
@@ -26,6 +27,13 @@
 .text__underHeader p{
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
+    
+}
+
+.img__leaves{
+    width: 50px;
+    margin-left: 900px;
+    height: auto;
 }
 
 .text__underHeaderTwo p {
@@ -42,15 +50,10 @@
     font-style: italic;
 }
 
-.overlay {
-    position: relative;
-    top: 100;
-    left: 100;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 10;
-    opacity: 0.5;
- }
+.link__register{
+    text-align: center;
+    margin: auto;
+}
 
 @media screen and (max-width: 1080px) {
     .wrapper__img {
@@ -63,5 +66,8 @@
     }
     .text__underHeaderThree p{
         padding-top: 0px;
+    }
+    .img__leaves{
+        margin: auto;
     }
 }
