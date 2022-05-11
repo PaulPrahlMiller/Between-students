@@ -1,0 +1,12 @@
+.div__overlayCard h5, p, a{
+    text-align: right;
+}
+
+.div__overlayCard h5, a{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-left: 400px;
+}
+
