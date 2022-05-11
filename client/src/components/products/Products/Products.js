@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import useProducts from '../../../hooks/useProducts';
-import { getProducts } from '../../../context/product/ProductState';
+import useLoading from '../../../hooks/useLoading';
 import ProductItem from '../ProductItem/ProductItem';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Products.module.css';
@@ -12,9 +12,17 @@ const Products = () => {
   // Destructure values from the state
   const { products, filteredProducts, categoryProducts } = productState;
 
+  useEffect(() => {}, [filteredProducts, categoryProducts, products]);
+
+  const loading = useLoading(1500);
+
+  if (loading) return <Loading />;
+
   return (
     <Fragment>
-      {products?.length === 0 ? (
+      {products?.length === 0 ||
+      filteredProducts?.length === 0 ||
+      categoryProducts?.length === 0 ? (
         <div className={styles.noProducts}>There is currently no products available</div>
       ) : products !== null ? ( // Check if there are products to render
         <div className={styles.products}>

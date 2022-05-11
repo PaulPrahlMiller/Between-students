@@ -20,6 +20,7 @@ import Admin from './components/admin/Admin';
 import Product from './components/products/Product/Product';
 
 import reportWebVitals from './reportWebVitals';
+import ImagePreview from './components/products/Product/ImagePreview';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -70,6 +71,7 @@ ReactDOM.render(
                 <Route path='register' element={<RegisterForm />} />
                 <Route path='*' element={<UnknownRoute />} />
               </Route>
+              <Route path='/preview/:imagePath' element={<ImagePreview />} />
               <Route path='admin' element={<Admin />} />
             </Routes>
           </BrowserRouter>

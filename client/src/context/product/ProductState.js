@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
 import axios from 'axios';
+import searchFilter from '../../utils/searchFilter';
 import {
   ADD_PRODUCT,
   GET_PRODUCTS,
@@ -48,10 +49,11 @@ export const addProduct = (dispatch, product) => {
   });
 };
 
-export const filterBySearch = (dispatch, searchTerm) => {
+export const filterBySearch = (dispatch, products, searchTerm) => {
+  const filteredArray = searchFilter(products, searchTerm);
   dispatch({
     type: FILTER_BY_SEARCH,
-    payload: searchTerm
+    payload: filteredArray
   });
 };
 
@@ -90,7 +92,6 @@ const ProductState = (props) => {
       'Shelves',
       'Mirrors',
       'Storage Containers',
-      'furniture',
       'Books',
       'Home Decorations',
       'Study materials',
