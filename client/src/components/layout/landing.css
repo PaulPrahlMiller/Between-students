@@ -1,0 +1,19 @@
+.p__landing{
+    text-align: right;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.h5__landing{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-left: 300px;
+}
+
+.button__landing{
+    text-align: center;
+    margin-left: 300px;
+}
+

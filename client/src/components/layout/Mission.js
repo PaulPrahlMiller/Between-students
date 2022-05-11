@@ -1,14 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 import './mission.css';
 
 const Mission = () => {
   const titlePage = require('../../assets/hkr-students.jpg');
   const chairs = require('../../assets/chairs_outside.jpg');
-  const backStudents = require('../../assets/students-back.jpg');
   const amused = require('../../assets/amused.jpg');
   const surprised = require('../../assets/woman-blue.jpg');
-  const navigate = useNavigate();
 
   return (
     <div class='container-sm flex-direction-column'>
@@ -18,7 +17,7 @@ const Mission = () => {
       <div class='container-sm py-3 text__header'>
         <p class='textEmbed'>OUR MISSION</p>
         <h2>From throwing away to better use.</h2>
-        <div class='container-sm text__underHeader'>
+        <div class='container-sm text__underHeader flex-direction-row'>
           <p>
             We know how difficult it is to move to a new city to study.<br></br> We also
             know how stressful it is to get rid of things you used <br></br> but no longer
@@ -26,6 +25,11 @@ const Mission = () => {
             <br></br> A second hand marketplace only for students in Kristianstad
             University.
           </p>
+          <img
+            class='img-fluid img__leaves'
+            alt='img'
+            src='https://djc49bfkedftq.cloudfront.net/fit-in/110x110/filters:format(png)/webApp/stickers/sticker_leaves_green.png'
+          ></img>
         </div>
       </div>
       <div class='row gx-5 div__wrapperCards'>
@@ -68,22 +72,22 @@ const Mission = () => {
           <img class='img-fluid' alt='img' src={amused}></img>
         </div>
       </div>
-      <div class='row gx-5 py-3 pb-5'>
+      <div class='row gx-5 py-3 pb-5 flex-direction-column'>
         <div class='col-md-6'>
           <img class='img-fluid' alt='img' src={surprised}></img>
         </div>
-        <div class='col-md-6 text__underHeaderThree'>
-          <p>
-            We made it super easy and simple for you to start trading on our platform.
-            <br />
-            <button
-              type='button'
-              class='btn btn-dark my-3'
-              onClick={navigate('/register')}
-            >
-              Read more here
-            </button>
-          </p>
+        <div class='col-md-6'>
+          <div class='row-md-4 text__underHeaderThree'>
+            <p>
+              We made it super easy and simple for you to start trading on our platform.
+              <br />
+            </p>
+          </div>
+          <div class='row-md-2 link__register'>
+            <Link to='/register' class='btn btn-dark my-3'>
+              Read more
+            </Link>
+          </div>
         </div>
       </div>
     </div>

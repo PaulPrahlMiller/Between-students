@@ -9,6 +9,7 @@ import ProductState from './context/product/ProductState';
 import Home from './pages/Home';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import LandingHome from './components/layout/LandingPage';
 import UserAccount from './pages/UserAccount';
 import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
@@ -36,7 +37,8 @@ ReactDOM.render(
                 <Route path='/categories/:category' element={<Home />} />
                 <Route path='/:category/:productId' element={<Product />} />
                 <Route path='/mission' element={<Mission />} />
-                <Route path='about' element={<About />} />
+                <Route path='/landing' element={<LandingHome />} />
+                <Route path='/about' element={<About />} />
                 <Route
                   path='account'
                   element={

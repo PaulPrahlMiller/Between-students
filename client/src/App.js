@@ -4,7 +4,6 @@ import styles from './App.module.css';
 import Header from './components/layout/Header';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-
 import { Outlet } from 'react-router-dom';
 import Alert from './components/layout/Alert/Alert';
 
