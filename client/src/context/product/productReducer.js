@@ -37,26 +37,21 @@ const productReducer = (state, action) => {
       return {
         ...state,
         categoryProducts: null,
-        filteredProducts: state.products.filter((product) => {
-          return (
-            product.title.toLowerCase().includes(action.payload.toLowerCase()) ||
-            product.description.toLowerCase().includes(action.payload.toLowerCase()) ||
-            product.category.toLowerCase().includes(action.payload.toLowerCase())
-          );
-        })
+        filteredProducts: action.payload
       };
     case FILTER_BY_CATEGORY:
       return {
         ...state,
         filteredProducts: null,
         categoryProducts: state.products.filter((product) => {
-          return product.category === action.payload;
+          return product.category.toLowerCase() === action.payload.toLowerCase();
         })
       };
     case CLEAR_FILTER:
       return {
         ...state,
-        filteredProducts: null
+        filteredProducts: null,
+        categoryProducts: null
       };
     case SET_LOADING:
       return {

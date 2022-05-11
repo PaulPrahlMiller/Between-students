@@ -27,7 +27,7 @@ const authReducer = (state, action) => {
         token: null,
         user: null,
         loading: false,
-        error: action.payload
+        error: action.payload || null
       };
     case LOAD_USER:
       return {
