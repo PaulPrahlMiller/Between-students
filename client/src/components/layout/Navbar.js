@@ -1,10 +1,14 @@
 import React, { Fragment } from 'react';
 import useProducts from '../../hooks/useProducts';
+
+import { useNavigate } from 'react-router-dom';
+
 import useAuth from '../../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../context/auth/AuthState';
 import setAuthToken from '../../utils/setAuthToken';
 import { clearFilter } from '../../context/product/ProductState';
+
 
 const accountIcon = require('../../assets/account_icon.jpg');
 
