@@ -46,7 +46,6 @@ const Navbar = () => {
           })}
         </div>
       </div>
-
       <Link to='/about' className={pathname === 'about' && 'active'}>
         About Us
       </Link>
