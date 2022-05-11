@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import useProducts from '../../hooks/useProducts';
-import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../context/auth/AuthState';
@@ -13,7 +13,7 @@ const Navbar = () => {
   const pathname = window.location.href.split('/').pop();
   const [ProductState, productDispatch] = useProducts();
   const [authState, authDispatch] = useAuth();
-  const { categories } = productState;
+  const { categories } = ProductState;
   const { isAuthenticated } = authState;
   const navigate = useNavigate();
 

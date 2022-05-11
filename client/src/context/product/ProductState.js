@@ -92,7 +92,6 @@ const ProductState = (props) => {
       'Shelves',
       'Mirrors',
       'Storage Containers',
-      'furniture',
       'Books',
       'Home Decorations',
       'Study materials',

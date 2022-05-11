@@ -13,6 +13,7 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 
 /* Style the links inside the navigation bar */
@@ -117,6 +118,7 @@
   font-family: 'Overlock', cursive;
   color: #D77215;
   text-align: center;
+  font-weight: bolder;
   line-height: 62px;
   position: absolute;
   top: 0;
@@ -229,6 +231,15 @@ img {
         height: auto;
         flex-direction: column;
 
+    }
+    .topnav{
+      flex-direction: column;
+    }
+    .cover{
+      width: 100%;
+    }
+    .coverphototext{
+      font-size: 40px;
     }
     #sidebar {
         display: none;
