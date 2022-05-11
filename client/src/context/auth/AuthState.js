@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 import authReducer from './authReducer';
 import AuthContext from './authContext';
 import axios from 'axios';
+import setAuthToken from '../../utils/setAuthToken';
 import {
   LOGIN_USER,
   REGISTER_USER,
@@ -16,18 +17,6 @@ import {
 
 // export any functions to update the state here with dispatch as first param.
 // export const myFunction = (dispatch) => {}
-
-const setAuthToken = (token) => {
-  if (token) {
-    // Store the token
-    localStorage.setItem('token', token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    // Clear the token
-    localStorage.removeItem('token');
-    delete axios.defaults.headers.common['Authorization'];
-  }
-};
 
 export const getUser = async (dispatch) => {
   try {
