@@ -1,0 +1,67 @@
+.textEmbed{
+    margin: auto;
+    text-align: center;
+    font-family: 'Koulen';
+    color: gray;
+}
+
+.div__wrapperCards{
+    background-color: #add8e6;
+    overflow-y: visible;
+    
+}
+.wrapper__img {
+    max-height: 280px;
+    padding-top: 30px;
+}
+
+
+.text__header h2{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    margin: 10px 0px 10px 0px;
+}
+
+.text__underHeader p{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+.text__underHeaderTwo p {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    font-style: italic;
+}
+
+.text__underHeaderThree p {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    font-style: italic;
+}
+
+.overlay {
+    position: relative;
+    top: 100;
+    left: 100;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+    opacity: 0.5;
+ }
+
+@media screen and (max-width: 1080px) {
+    .wrapper__img {
+        height: auto;
+        max-height: fit-content;
+    }
+    .text__underHeaderTwo{
+        padding-top: 0px;
+        text-align: justify;
+    }
+    .text__underHeaderThree p{
+        padding-top: 0px;
+    }
+}

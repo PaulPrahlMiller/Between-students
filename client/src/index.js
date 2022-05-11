@@ -12,6 +12,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './pages/UserAccount';
 import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
+import Mission from './components/layout/Mission';
 import ViewInsights from './pages/UserInsights';
 import UnknownRoute from './pages/UnknownRoute';
 import LoginForm from './components/auth/LoginForm/LoginForm';
@@ -34,6 +35,7 @@ ReactDOM.render(
                 <Route path='/search/:query' element={<Home />} />
                 <Route path='/categories/:category' element={<Home />} />
                 <Route path='/:category/:productId' element={<Product />} />
+                <Route path='/mission' element={<Mission />} />
                 <Route path='about' element={<About />} />
                 <Route
                   path='account'
