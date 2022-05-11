@@ -49,6 +49,7 @@ const Navbar = () => {
       <Link to='/about' className={pathname === 'about' && 'active'}>
         About Us
       </Link>
+      <a href='/mission'>Mission</a>
       <div className='accountnav'>
         {isAuthenticated ? (
           <Fragment>
