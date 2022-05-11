@@ -49,7 +49,7 @@ const AddProduct = () => {
     formData.append('category', category);
     formData.append('cost', cost);
 
-    await axios.post('http://localhost:5000/api/addproduct', formData).then((res) => {
+    await axios.post('http://localhost:5000/api/products', formData).then((res) => {
       setTitle('');
       setDescription('');
       setCategory('');

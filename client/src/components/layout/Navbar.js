@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../context/auth/AuthState';
 import setAuthToken from '../../utils/setAuthToken';
+
 import { clearFilter } from '../../context/product/ProductState';
 
 const accountIcon = require('../../assets/account_icon.jpg');
@@ -49,7 +50,8 @@ const Navbar = () => {
       <Link to='/about' className={pathname === 'about' && 'active'}>
         About Us
       </Link>
-      <a href='/mission'>Mission</a>
+      <Link to='/mission'>Mission</Link>
+      <Link to='/landing'>Landing</Link>
       <div className='accountnav'>
         {isAuthenticated ? (
           <Fragment>

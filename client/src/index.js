@@ -37,7 +37,7 @@ ReactDOM.render(
                 <Route path='/categories/:category' element={<Home />} />
                 <Route path='/:category/:productId' element={<Product />} />
                 <Route path='/mission' element={<Mission />} />
-                <Route path='/home' element={<LandingHome />} />
+                <Route path='/landing' element={<LandingHome />} />
                 <Route path='/about' element={<About />} />
                 <Route
                   path='account'
