@@ -51,49 +51,51 @@ const LoginForm = () => {
 
   return (
     <div className={styles.authForm}>
-      <div className={styles.formHeader}>
-        <h2>LOGIN</h2>
-      </div>
-      <form
-        onChange={handleOnChange}
-        onSubmit={(e) => handleSubmit(e, formData)}
-        ref={loginForm}
-      >
-        <div className={styles.formRow}>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            name='email'
-            placeholder='Email'
-            defaultValue={formData.email}
-            required
-            minLength='6'
-            className={styles.formInput}
-          />
+      <div className={styles.formContainer}>
+        <div className={styles.formHeader}>
+          <h2>LOGIN</h2>
         </div>
-        <div className={styles.formRow}>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            name='password'
-            placeholder='Password'
-            defaultValue={formData.password}
-            className={styles.formInput}
-            required
-            minLength='6'
-          />
+        <form
+          onChange={handleOnChange}
+          onSubmit={(e) => handleSubmit(e, formData)}
+          ref={loginForm}
+        >
+          <div className={styles.formRow}>
+            <label htmlFor='email'>Email</label>
+            <input
+              type='email'
+              name='email'
+              placeholder='Email'
+              defaultValue={formData.email}
+              required
+              minLength='6'
+              className={styles.formInput}
+            />
+          </div>
+          <div className={styles.formRow}>
+            <label htmlFor='password'>Password</label>
+            <input
+              type='password'
+              name='password'
+              placeholder='Password'
+              defaultValue={formData.password}
+              className={styles.formInput}
+              required
+              minLength='6'
+            />
+          </div>
+          <div className={styles.formRow}>
+            <input type='submit' value='Login' className={styles.formButton} />
+          </div>
+        </form>
+        <div className={styles.formMessage}>
+          <small>
+            Not a member?{'  '}
+            <span onClick={handleClick} className={styles.actionText}>
+              Register
+            </span>
+          </small>
         </div>
-        <div className={styles.formRow}>
-          <input type='submit' value='Login' className={styles.formButton} />
-        </div>
-      </form>
-      <div className={styles.formMessage}>
-        <small>
-          Not a member?{'  '}
-          <span onClick={handleClick} className={styles.actionText}>
-            Register
-          </span>
-        </small>
       </div>
     </div>
   );
