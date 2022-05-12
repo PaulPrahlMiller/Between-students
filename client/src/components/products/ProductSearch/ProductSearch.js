@@ -24,7 +24,7 @@ const ProductSearch = () => {
     <div className={styles.searchContainer}>
       <form className={styles.searchBar} onSubmit={handleSubmit}>
         <input
-          class="coverphotosearchinput"
+          class='coverphotosearchinput'
           className={styles.inputText}
           type='text'
           value={searchQuery}

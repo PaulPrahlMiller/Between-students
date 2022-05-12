@@ -83,7 +83,9 @@ const Mission = () => {
             </p>
           </div>
           <div class='row-md-2 link__register'>
-            <Link to='/register' class='btn btn-dark my-3'>
+
+            <Link to='/register' class='btn btn-dark my-3 hover__link'>
+
               Read more
             </Link>
           </div>
