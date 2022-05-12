@@ -73,6 +73,15 @@ const Navbar = () => {
           </li>
           <li className={styles.navItem}>
             <NavLink
+              to='/mission'
+              className={styles.navLink}
+              style={({ isActive }) => (isActive ? activeLink : undefined)}
+            >
+              Our mission
+            </NavLink>
+          </li>
+          <li className={styles.navItem}>
+            <NavLink
               to='/about'
               className={styles.navLink}
               style={({ isActive }) => (isActive ? activeLink : undefined)}
