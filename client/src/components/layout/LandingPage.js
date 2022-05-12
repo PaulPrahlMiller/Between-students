@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -5,10 +6,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import dog from '../../assets/dog.jpg';
+
 import './landing.css';
 
 const LandingHome = () => {
   const landingPic = require('../../assets/landing-top.jpg');
+
   const sofa = require('../../assets/cover-sofa.png');
   const decorations = require('../../assets/decorations.jpg');
   const stationery = require('../../assets/stationery.jpg');

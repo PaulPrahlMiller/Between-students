@@ -58,7 +58,6 @@ const LoginForm = () => {
         onChange={handleOnChange}
         onSubmit={(e) => handleSubmit(e, formData)}
         ref={loginForm}
-        autoComplete='off'
       >
         <div className={styles.formRow}>
           <label htmlFor='email'>Email</label>

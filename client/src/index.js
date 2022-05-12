@@ -7,7 +7,7 @@ import App from './App';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import ProductState from './context/product/ProductState';
-import Home from './pages/Home';
+import ProductPage from './pages/ProductPage';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LandingHome from './components/layout/LandingPage';
@@ -33,12 +33,14 @@ ReactDOM.render(
           <BrowserRouter>
             <Routes>
               <Route path='/' element={<App />}>
-                <Route index element={<Home />} />
-                <Route path='/search/:query' element={<Home />} />
-                <Route path='/categories/:category' element={<Home />} />
+                <Route index element={<LandingHome />} />
+                <Route path='/search' element={<ProductPage />} />
+                <Route path='/search/:query' element={<ProductPage />} />
+                <Route path='/categories/:category' element={<ProductPage />} />
                 <Route path='/:category/:productId' element={<Product />} />
                 <Route path='/mission' element={<Mission />} />
                 <Route path='/landing' element={<LandingHome />} />
+
                 <Route path='/about' element={<About />} />
                 <Route
                   path='account'
