@@ -98,7 +98,7 @@
     width: 100%;
     background-color: rgba(240, 240, 240, 0.9);
     text-align: center;
-    z-index: 1;
+    z-index: 99;
   }
 
   .navItem {
