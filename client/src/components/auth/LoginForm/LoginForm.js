@@ -52,7 +52,7 @@ const LoginForm = () => {
   return (
     <div className={styles.authForm}>
       <div className={styles.formHeader}>
-        <h2>Login</h2>
+        <h2>LOGIN</h2>
       </div>
       <form
         onChange={handleOnChange}
@@ -91,7 +91,7 @@ const LoginForm = () => {
         <small>
           Not a member?{'  '}
           <span onClick={handleClick} className={styles.actionText}>
-            <strong>Register</strong>
+            Register
           </span>
         </small>
       </div>
