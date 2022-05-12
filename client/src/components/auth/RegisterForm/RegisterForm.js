@@ -79,6 +79,7 @@ const RegisterForm = () => {
             required
             minLength='6'
             className={styles.formInput}
+            autoComplete='new-password' // When set to 'off' it does not work as intended. 'new-password' prevents autocomplete
           />
         </div>
         <div className={styles.formRow}>
@@ -90,6 +91,7 @@ const RegisterForm = () => {
             required
             minLength='6'
             className={styles.formInput}
+            autoComplete='new-password' // When set to 'off' it does not work as intended. 'new-password' prevents autocomplete
           />
         </div>
         <div className={styles.formRow}>
