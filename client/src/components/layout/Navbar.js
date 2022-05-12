@@ -10,8 +10,8 @@ import { clearFilter } from '../../context/product/ProductState';
 
 const accountIcon = require('../../assets/account_icon.jpg');
 
-const Navbar = () => {
-  const pathname = window.location.href.split('/').pop();
+
+  const Navbar = () => {
   const [ProductState, productDispatch] = useProducts();
   const [authState, authDispatch] = useAuth();
   const { categories } = ProductState;
@@ -29,9 +29,11 @@ const Navbar = () => {
     setAuthToken(null);
   };
 
-  return (
-    <div className='topnav'>
-      <Link to='/' className={pathname === '' && 'active'}>
+      return (
+  <nav class="navbar navbar-default navbar-fixed-top">
+
+    <div className='topnav '>
+      <Link to='/' >
         Home
       </Link>
 
@@ -47,10 +49,10 @@ const Navbar = () => {
           })}
         </div>
       </div>
-      <Link to='/about' className={pathname === 'about' && 'active'}>
+      <Link to='/about' >
         About Us
       </Link>
-      <Link to='/mission'>Mission</Link>
+          <Link to='/mission' >Mission</Link>
       <Link to='/landing'>Landing</Link>
       <div className='accountnav'>
         {isAuthenticated ? (
@@ -58,7 +60,7 @@ const Navbar = () => {
             <Link to='/' onClick={handleLogout} id='logout-link'>
               Logout
             </Link>
-            <Link to='/account' className={pathname === 'account' && 'active'}>
+            <Link to='/account' >
               <img src={accountIcon} className='accounticon' alt='account_icon' />
             </Link>
           </Fragment>
@@ -66,8 +68,10 @@ const Navbar = () => {
           <Link to='/login'>Login</Link>
         )}
       </div>
-    </div>
+              </div>
+          </nav>
   );
 };
 
 export default Navbar;
+
