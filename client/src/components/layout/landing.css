@@ -1,19 +1,90 @@
 .p__landing{
-    text-align: right;
+    
     font-size: 15px;
     font-weight: lighter;
 }
 
 .h5__landing{
-    text-align: center;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bolder;
     font-size: 30px;
-    margin-left: 300px;
 }
 
 .button__landing{
     text-align: center;
-    margin-left: 300px;
+   
 }
 
+.div__catHover:hover .img__catHover {
+    opacity: 0.6;
+}
+
+.link__mission{
+    text-align: center;
+}
+
+.font__aboveCat{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+}
+
+.div__aboutApp {
+    background-color: rgb(235, 233, 233);
+}
+
+.link__mission:hover .hover__mission {
+    opacity: 0.6;
+}
+
+.div__overlayCard {
+    text-align:center;
+    
+}
+
+.text__carousel {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+}
+
+.card_carousel {
+    text-align: center;
+    padding-top: 10px;
+    opacity: 1;
+    width: 200px;
+    color: white;
+}
+
+.cardTitle__carousel, .small{
+    color: black;
+    display:block;
+    text-align: left;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0 !important;
+}
+
+.slick-prev::before, .slick-next::before {
+    color: lightgrey !important;
+}
+
+.divOverlay__bottom{
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .div__overlayCard {
+        position: inherit;
+        margin: 0px 0px 0px 0px;
+        font-size: inherit;
+        color: black;
+    }
+    .divOverlay__bottom, .link__register {
+        position: inherit;
+        margin: 0px 0px 0px 0px;
+        font-size: inherit;
+        color: inherit;
+    }
+}

@@ -10,7 +10,6 @@ import Alert from './components/layout/Alert/Alert';
 function App() {
   return (
     <div className='app'>
-      <Header />
       <div className={styles.mainContent}>
         <Navbar />
         <div className={styles.contentContainer}>

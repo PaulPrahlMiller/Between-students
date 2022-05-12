@@ -85,11 +85,7 @@ const ProductState = (props) => {
     categoryProducts: null,
     currentProduct: null,
     categories: [
-      'Sofas',
-      'Beds',
-      'Tables',
-      'Chairs',
-      'Shelves',
+      'Furniture',
       'Mirrors',
       'Storage Containers',
       'Books',
