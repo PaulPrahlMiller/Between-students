@@ -55,6 +55,14 @@
     margin: auto;
 }
 
+.link__register:hover .hover__link {
+    opacity: 0.6;
+}
+
+.button__landing:hover .hover__link {
+    opacity: 0.6;
+}
+
 @media screen and (max-width: 1080px) {
     .wrapper__img {
         height: auto;

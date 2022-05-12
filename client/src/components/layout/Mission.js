@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import './mission.css';
 
@@ -84,7 +83,7 @@ const Mission = () => {
             </p>
           </div>
           <div class='row-md-2 link__register'>
-            <Link to='/register' class='btn btn-dark my-3'>
+            <Link to='/register' class='btn btn-dark my-3 hover__link'>
               Read more
             </Link>
           </div>
