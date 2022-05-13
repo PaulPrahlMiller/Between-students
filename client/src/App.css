@@ -222,14 +222,10 @@
     width: auto;
 }
 
-
-
 .card {
     max-width: 80%;
 }
-    .card mb-3 {
-        max-width: fit-content;
-    }
+
 .aboutcontainer {
     height: 800px;
     width: auto;

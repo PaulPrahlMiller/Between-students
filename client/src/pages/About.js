@@ -25,7 +25,7 @@ const About = () => {
             {/*Tian Yao*/}
             <div class="col">
                 <div class="card">
-                    <img src={TeamPhoto_Tian} />
+                    <img src={TeamPhoto_Tian} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Tian Yao</h4>
                         <h5 class="card-text">
@@ -40,7 +40,7 @@ const About = () => {
             {/*Zijie*/}
             <div class="col">
                 <div class="card">
-                    <img src={TeamPhoto_Zijie} />
+                    <img src={TeamPhoto_Zijie} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Tian Yao</h4>
                         <h5 class="card-text">
@@ -55,7 +55,7 @@ const About = () => {
             {/*Paul*/}
             <div class="col">
                 <div class="card">
-                    <img src={TeamPhoto_Paul} />
+                    <img src={TeamPhoto_Paul} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Paul</h4>
                         <h5 class="card-text">
@@ -70,7 +70,7 @@ const About = () => {
             {/*Meron*/}
             <div class="col">
                 <div class="card">
-                    <img src={TeamPhoto_Meron} />
+                    <img src={TeamPhoto_Meron} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Meron Habtemichael</h4>
                         <h5 class="card-text">
@@ -85,7 +85,7 @@ const About = () => {
             {/*Frank*/}
             <div class="col">
                 <div class="card">
-                    <img src={TeamPhoto_Frank}/>
+                    <img src={TeamPhoto_Frank} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Frank Yuan</h4>
                         <h5 class="card-text">
