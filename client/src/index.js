@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import ProductState from './context/product/ProductState';
 import ProductPage from './pages/ProductPage';
+import Categories from './components/layout/Category/Categories';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LandingHome from './components/layout/LandingPage';
+import Pagination from './components/layout/PaginationProducts';
 import UserAccount from './pages/UserAccount';
 import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
@@ -21,7 +24,6 @@ import LoginForm from './components/auth/forms/LoginForm';
 import RegisterForm from './components/auth/forms/RegisterForm';
 import Admin from './components/admin/Admin';
 import Product from './components/products/Product/Product';
-
 import reportWebVitals from './reportWebVitals';
 import ImagePreview from './components/products/Product/ImagePreview';
 
@@ -38,10 +40,10 @@ ReactDOM.render(
                 <Route path='/search/:query' element={<ProductPage />} />
                 <Route path='/categories/:category' element={<ProductPage />} />
                 <Route path='/:category/:productId' element={<Product />} />
+                <Route path='/categories' element={<Categories />} />
                 <Route path='/mission' element={<Mission />} />
-                <Route path='/landing' element={<LandingHome />} />
-
                 <Route path='/about' element={<About />} />
+                <Route path='/pagination' element={<Pagination />} />
                 <Route
                   path='account'
                   element={

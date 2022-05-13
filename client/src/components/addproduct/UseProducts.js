@@ -47,15 +47,15 @@ const UseProducts = () => {
               </div>
               <div class='col-md-8'>
                 <div class='card-body'>
-                  <h3 class='card-title'>Title: {item.title}</h3>
+                  <h3 class='card-title'>{item.title}</h3>
                   <h4 class='card-text' className={styles.cardTxt}>
-                    Price: {item.cost}kr
+                    {item.cost}kr
                   </h4>
                   <p class='card-text' className={styles.cardTxt}>
-                    Available from: {item.createdAt}
+                    {item.createdAt}
                   </p>
                   <p class='card-text' className={styles.cardTxt}>
-                    Category: {item.category}
+                    {item.category}
                   </p>
                   <div className={styles.div__buttons}>
                     <button href='/delete' className={styles.btnCard}>

@@ -75,6 +75,10 @@
     text-align: center;
 }
 
+.float__right{
+    text-align: right;
+}
+
 @media screen and (max-width: 768px) {
     .div__overlayCard {
         position: inherit;
@@ -88,4 +92,8 @@
         font-size: inherit;
         color: inherit;
     }
+    .float__right, .font__aboveCat{
+        text-align: center;
+    }
+   
 }

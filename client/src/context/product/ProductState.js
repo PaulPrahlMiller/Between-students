@@ -91,7 +91,7 @@ const ProductState = (props) => {
       'Books',
       'Home Decorations',
       'Study materials',
-      'Households',
+      'Ceramics',
       'Textiles',
       'Clothes',
       'Shoes',
@@ -99,7 +99,7 @@ const ProductState = (props) => {
       'Electric Appliances',
       'Cooking utilities',
       'Kitchen Appliances',
-      'Computers & accesories',
+      'Computers & accessories',
       'Lamps & lights',
       'Sports'
     ]
