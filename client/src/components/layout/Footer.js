@@ -13,7 +13,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#3b5998',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
           >
             <MDBIcon fab icon='facebook-f' />
@@ -24,7 +24,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#55acee',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
           >
             <MDBIcon fab icon='twitter' />
@@ -36,7 +36,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#dd4b39',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
           >
             <MDBIcon fab icon='google' />
@@ -47,7 +47,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#ac2bac',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
           >
             <MDBIcon fab icon='instagram' />
@@ -59,7 +59,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#0082ca',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
           >
             <MDBIcon fab icon='linkedin-in' />
@@ -71,7 +71,7 @@ const Footer = () => {
             style={{
               backgroundColor: '#333333',
               border: 'none',
-              boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.5)'
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
             }}
             href='#!'
             role='button'
@@ -85,7 +85,7 @@ const Footer = () => {
         style={{
           backgroundColor: 'rgba(0, 0, 0, 0.2)',
           border: 'none',
-          boxShadow: '1px 3px 9px 1px rgba(50,50,50,0.7)'
+          boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
         }}
       >
         © 2022 Copyright:
