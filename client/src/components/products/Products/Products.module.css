@@ -10,6 +10,23 @@
   margin-top: 2rem;
 }
 
+.pageButtons {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pageButton {
+  all: unset;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0rem 0.5rem;
+  transition: all 0.25s ease-in;
+}
+
+.pageButton:hover {
+  color: dodgerblue;
+}
+
 @media only screen and (min-width: 600px) {
   .products {
     grid-template-columns: repeat(2, 1fr);
