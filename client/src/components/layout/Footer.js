@@ -9,15 +9,23 @@ const Footer = () => {
         <section className='mb-4'>
           <Link
             to={'/facebook'}
-            className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#3b5998' }}
+            className='btn btn-primary btn-floating m-1 px-3'
+            style={{
+              backgroundColor: '#3b5998',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
           >
             <MDBIcon fab icon='facebook-f' />
           </Link>
           <Link
             to={'/twitter'}
             className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#55acee' }}
+            style={{
+              backgroundColor: '#55acee',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
           >
             <MDBIcon fab icon='twitter' />
           </Link>
@@ -25,14 +33,22 @@ const Footer = () => {
           <Link
             to={'/google'}
             className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#dd4b39' }}
+            style={{
+              backgroundColor: '#dd4b39',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
           >
             <MDBIcon fab icon='google' />
           </Link>
           <Link
             to={'/instagram'}
             className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#ac2bac' }}
+            style={{
+              backgroundColor: '#ac2bac',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
           >
             <MDBIcon fab icon='instagram' />
           </Link>
@@ -40,7 +56,11 @@ const Footer = () => {
           <Link
             to={'/linkedin'}
             className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#0082ca' }}
+            style={{
+              backgroundColor: '#0082ca',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
           >
             <MDBIcon fab icon='linkedin-in' />
           </Link>
@@ -48,7 +68,11 @@ const Footer = () => {
           <Link
             to={'/github'}
             className='btn btn-primary btn-floating m-1'
-            style={{ backgroundColor: '#333333' }}
+            style={{
+              backgroundColor: '#333333',
+              border: 'none',
+              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+            }}
             href='#!'
             role='button'
           >
@@ -56,7 +80,14 @@ const Footer = () => {
           </Link>
         </section>
       </div>
-      <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+      <div
+        className='text-center p-3'
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          border: 'none',
+          boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+        }}
+      >
         © 2022 Copyright:
         <Link to={'/'} className='text-white'>
           BetweenStudents.com
