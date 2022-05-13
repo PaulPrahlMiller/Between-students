@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MDBFooter, MDBIcon } from 'mdb-react-ui-kit';
-=======
-﻿import React from 'react';
-
-const footerPhoto = require('../../assets/footer_photo.jpg');
-
-const facebookIcon = require('../../assets/facebook.jpg');
-const instagramIcon = require('../../assets/instagram.jpg');
-const twitterIcon = require('../../assets/twitter.jpg');
->>>>>>> eb86a391a501c27215fd2f6ac846c897d9b3f90f
 
 const Footer = () => {
   return (
