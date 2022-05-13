@@ -158,6 +158,7 @@
   margin: 10px;
 }
 
+
 .twittericon {
   width: 48px;
   height: 48px;
@@ -222,8 +223,8 @@
     width: auto;
 }
 
-.card {
-    max-width: 80%;
+.aboutpagecard {
+    max-width: 70%;
 }
 
 .aboutcontainer {

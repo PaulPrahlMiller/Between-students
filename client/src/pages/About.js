@@ -24,7 +24,7 @@ const About = () => {
         <div class="row row-cols-1 row-cols-md-5 g-4">
             {/*Tian Yao*/}
             <div class="col">
-                <div class="card">
+                <div class="aboutpagecard">
                     <img src={TeamPhoto_Tian} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Tian Yao</h4>
@@ -39,7 +39,7 @@ const About = () => {
             </div>
             {/*Zijie*/}
             <div class="col">
-                <div class="card">
+                <div class="aboutpagecard">
                     <img src={TeamPhoto_Zijie} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Tian Yao</h4>
@@ -54,7 +54,7 @@ const About = () => {
             </div>
             {/*Paul*/}
             <div class="col">
-                <div class="card">
+                <div class="aboutpagecard">
                     <img src={TeamPhoto_Paul} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Paul</h4>
@@ -69,7 +69,7 @@ const About = () => {
             </div>
             {/*Meron*/}
             <div class="col">
-                <div class="card">
+                <div class="aboutpagecard">
                     <img src={TeamPhoto_Meron} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Meron Habtemichael</h4>
@@ -84,7 +84,7 @@ const About = () => {
             </div>
             {/*Frank*/}
             <div class="col">
-                <div class="card">
+                <div class="aboutpagecard">
                     <img src={TeamPhoto_Frank} class="card-img-top"/>
                     <div class="card-body">
                         <h4 class="card-title">Frank Yuan</h4>
