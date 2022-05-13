@@ -9,11 +9,9 @@ const Footer = () => {
         <section className='mb-4'>
           <Link
             to={'/facebook'}
-            className='btn btn-primary btn-floating m-1 px-3'
+            className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#3b5998',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#3b5998'
             }}
           >
             <MDBIcon fab icon='facebook-f' />
@@ -22,9 +20,7 @@ const Footer = () => {
             to={'/twitter'}
             className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#55acee',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#55acee'
             }}
           >
             <MDBIcon fab icon='twitter' />
@@ -34,9 +30,7 @@ const Footer = () => {
             to={'/google'}
             className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#dd4b39',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#dd4b39'
             }}
           >
             <MDBIcon fab icon='google' />
@@ -45,9 +39,7 @@ const Footer = () => {
             to={'/instagram'}
             className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#ac2bac',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#ac2bac'
             }}
           >
             <MDBIcon fab icon='instagram' />
@@ -57,9 +49,7 @@ const Footer = () => {
             to={'/linkedin'}
             className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#0082ca',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#0082ca'
             }}
           >
             <MDBIcon fab icon='linkedin-in' />
@@ -69,9 +59,7 @@ const Footer = () => {
             to={'/github'}
             className='btn btn-primary btn-floating m-1'
             style={{
-              backgroundColor: '#333333',
-              border: 'none',
-              boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+              backgroundColor: '#333333'
             }}
             href='#!'
             role='button'
@@ -83,9 +71,7 @@ const Footer = () => {
       <div
         className='text-center p-3'
         style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.2)',
-          border: 'none',
-          boxShadow: '1px 3px 6px 1px rgba(100,100,100,0.8)'
+          backgroundColor: 'rgba(0, 0, 0, 0.2)'
         }}
       >
         © 2022 Copyright:

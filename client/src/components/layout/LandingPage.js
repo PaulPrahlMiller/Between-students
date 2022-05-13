@@ -1,12 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import useProducts from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import useLoading from '../../hooks/useLoading';
+import Loading from '../../pages/Loading/Loading';
 import Slider from 'react-slick';
 import dog from '../../assets/dog.jpg';
-
 import './landing.css';
 
 const LandingHome = () => {
@@ -16,21 +16,18 @@ const LandingHome = () => {
   const decorations = require('../../assets/decorations.jpg');
   const stationery = require('../../assets/stationery.jpg');
   const lighting = require('../../assets/lighting.jpg');
-  const [productItem, setProductItem] = useState([]);
+  const [ProductState, productDispatch] = useProducts();
+  const { products } = ProductState;
+
+  useEffect(() => {
+    console.log('products', products);
+  }, [products]);
+
+  const loading = useLoading(1500);
+
+  if (loading) return <Loading />;
+
   var url = 'uploads/';
-
-  useEffect(() => {
-    axios('http://localhost:5000/api/products').then((response) => {
-      var original_data = response.data;
-      console.log('original data in first useEffect', original_data);
-      setProductItem(original_data);
-      console.log('printing products', setProductItem);
-    });
-  }, []);
-
-  useEffect(() => {
-    console.log('changed productItem', productItem);
-  }, [productItem]);
 
   let settings = {
     inifity: false,
@@ -78,8 +75,15 @@ const LandingHome = () => {
           </div>
         </div>
       </div>
-      <div class='container-sm mt-5 ps-0 mb-3'>
-        <h5 class='font__aboveCat'>Check out our most popular products for home</h5>
+      <div class='row gx-5'>
+        <div class='col-md-6 mt-5 mb-3'>
+          <h5 class='font__aboveCat'>Check out our most popular products for home</h5>
+        </div>
+        <div class='float__right col-md-6 mt-5 mb-3'>
+          <Link to={'/categories'}>
+            <h5>view all</h5>
+          </Link>
+        </div>
       </div>
       <div class='row gx-5'>
         <div class='col-md-4 mb-5 div__catHover'>
@@ -122,13 +126,9 @@ const LandingHome = () => {
       </div>
       <div class='container'>
         <h5 class='text__carousel'>Check out our favourite products</h5>
-        {productItem.length === 0 ? (
-          <div class='spinner-border' role='status'>
-            <span class='sr-only'>Loading</span>
-          </div>
-        ) : (
+        {products !== null ? (
           <Slider {...settings}>
-            {productItem.products.map((product) => (
+            {products.map((product) => (
               <div class='out' key={product._id}>
                 <div class='card_carousel'>
                   <img
@@ -149,8 +149,11 @@ const LandingHome = () => {
               </div>
             ))}
           </Slider>
+        ) : (
+          <Loading></Loading>
         )}
       </div>
+
       <div class='card bg-white my-5 text-dark'>
         <img src={dog} class='card-img' alt='...'></img>
         <div class='card-img-overlay divOverlay__bottom'>
