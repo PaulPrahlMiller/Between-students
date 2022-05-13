@@ -2,14 +2,14 @@ import React from 'react';
 
 const TeamPhoto = require('../../src/assets/aboutpageheader.jpg')
 const TeamPhoto_Tian = require('../../src/assets/tian1.png')
-const TeamPhoto_Zijie = require('../../src/assets/IMG_3434.jpg')
+const TeamPhoto_Zijie = require('../../src/assets/Zijie.jpg')
 const TeamPhoto_Paul = require('../../src/assets/tian1.png')
 const TeamPhoto_Frank = require('../../src/assets/Frank.jpg')
 const TeamPhoto_Meron = require('../../src/assets/Meron.jpg')
 
 
 const About = () => {
-    //return <h1>About Page</h1>;
+
     return <div className="aboutpagestyle">
         <div class="cover">
             <div className="coverphototext">
@@ -99,10 +99,6 @@ const About = () => {
                     </div>
                 </div>
             </div>
-
-
-
-  
 
         </div>
 
