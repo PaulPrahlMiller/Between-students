@@ -23,7 +23,7 @@
 
 .formContainer {
   max-width: 450px;
-  height: calc(100vh - (60px + 8rem));
+  min-height: calc(100vh - (60px + 8rem));
   margin: 4rem auto 0 auto;
   padding: 2rem 1rem;
   border-radius: 1rem;

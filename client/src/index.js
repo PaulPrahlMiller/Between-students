@@ -17,8 +17,8 @@ import CreateProduct from './pages/CreateProduct';
 import Mission from './components/layout/Mission';
 import ViewInsights from './pages/UserInsights';
 import UnknownRoute from './pages/UnknownRoute';
-import LoginForm from './components/auth/LoginForm/LoginForm';
-import RegisterForm from './components/auth/RegisterForm/RegisterForm';
+import LoginForm from './components/auth/forms/LoginForm';
+import RegisterForm from './components/auth/forms/RegisterForm';
 import Admin from './components/admin/Admin';
 import Product from './components/products/Product/Product';
 

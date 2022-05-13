@@ -1,22 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import { login } from '../../../context/auth/AuthState';
-import styles from './LoginForm.module.css';
+import { clearError, register } from '../../../context/auth/AuthState';
+import styles from './AuthForm.module.css';
 import useAlert from '../../../hooks/useAlert';
-import { clearError } from '../../../context/auth/AuthState';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
+
+  const { email, password, confirmPassword } = formData;
 
   const [authState, authDispatch] = useAuth();
 
-  const setAlert = useAlert()[1];
-
   const { isAuthenticated, error } = authState;
+
+  const setAlert = useAlert()[1];
 
   useEffect(() => {
     if (error) {
@@ -27,7 +29,7 @@ const LoginForm = () => {
 
   let navigate = useNavigate();
 
-  const loginForm = useRef(null);
+  const registerForm = useRef(null);
 
   const handleOnChange = (e) => {
     setFormData({
@@ -37,13 +39,21 @@ const LoginForm = () => {
   };
 
   const handleClick = () => {
-    navigate('/register');
+    navigate('/login');
   };
 
-  const handleSubmit = async (e, formData) => {
+  const handleRegister = async (e, formData) => {
     e.preventDefault();
-    if (loginForm.current.reportValidity()) {
-      login(authDispatch, formData);
+    const passwordMatch = password === confirmPassword;
+    if (registerForm.current.reportValidity()) {
+      if (passwordMatch) {
+        register(authDispatch, {
+          email,
+          password
+        });
+      } else {
+        setAlert('danger', 'Passwords do not match');
+      }
     }
   };
 
@@ -53,23 +63,24 @@ const LoginForm = () => {
     <div className={styles.authForm}>
       <div className={styles.formContainer}>
         <div className={styles.formHeader}>
-          <h2>LOGIN</h2>
+          <h2>Register</h2>
         </div>
         <form
           onChange={handleOnChange}
-          onSubmit={(e) => handleSubmit(e, formData)}
-          ref={loginForm}
+          onSubmit={(e) => handleRegister(e, formData)}
+          ref={registerForm}
+          autoComplete='off'
         >
           <div className={styles.formRow}>
             <label htmlFor='email'>Email</label>
             <input
               type='email'
               name='email'
-              placeholder='Email'
               defaultValue={formData.email}
               required
               minLength='6'
               className={styles.formInput}
+              autoComplete='new-password' // When set to 'off' it does not work as intended. 'new-password' prevents autocomplete
             />
           </div>
           <div className={styles.formRow}>
@@ -77,28 +88,36 @@ const LoginForm = () => {
             <input
               type='password'
               name='password'
-              placeholder='Password'
               defaultValue={formData.password}
-              className={styles.formInput}
               required
               minLength='6'
+              className={styles.formInput}
+              autoComplete='new-password' // When set to 'off' it does not work as intended. 'new-password' prevents autocomplete
             />
           </div>
           <div className={styles.formRow}>
-            <input type='submit' value='Login' className={styles.formButton} />
+            <label htmlFor='confirmPassword'>Confirm Password</label>
+            <input
+              type='password'
+              name='confirmPassword'
+              defaultValue={formData.confirmPassword}
+              required
+              className={styles.formInput}
+            />
+          </div>
+          <div className={styles.formRow}>
+            <input type='submit' value='Register' className={styles.formButton} />
           </div>
         </form>
         <div className={styles.formMessage}>
-          <small>
-            Not a member?{'  '}
-            <span onClick={handleClick} className={styles.actionText}>
-              Register
-            </span>
-          </small>
+          Already a member?{' '}
+          <span onClick={handleClick} className={styles.actionText}>
+            Login
+          </span>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
