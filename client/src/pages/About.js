@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamPhoto = require('../../src/assets/aboutpageheader.jpg')
 const TeamPhoto_Tian = require('../../src/assets/tian1.png')
-const TeamPhoto_Zijie = require('../../src/assets/Zijie.jpg')
+const TeamPhoto_Zijie = require('../../src/assets/IMG_3434.jpg')
 const TeamPhoto_Paul = require('../../src/assets/tian1.png')
 const TeamPhoto_Frank = require('../../src/assets/Frank.jpg')
 const TeamPhoto_Meron = require('../../src/assets/Meron.jpg')
@@ -25,7 +25,7 @@ const About = () => {
             {/*Tian Yao*/}
             <div class="col">
                 <div class="aboutpagecard">
-                    <img src={TeamPhoto_Tian} class="card-img-top"/>
+                    <img src={TeamPhoto_Tian} class="card-img-top aboutpageteamphoto aboutpageteamimg"/>
                     <div class="card-body">
                         <h4 class="card-title">Tian Yao</h4>
                         <h5 class="card-text">
@@ -40,14 +40,14 @@ const About = () => {
             {/*Zijie*/}
             <div class="col">
                 <div class="aboutpagecard">
-                    <img src={TeamPhoto_Zijie} class="card-img-top"/>
+                    <img src={TeamPhoto_Zijie} class="card-img-top aboutpageteamphoto aboutpageteamimg"/>
                     <div class="card-body">
-                        <h4 class="card-title">Tian Yao</h4>
+                        <h4 class="card-title">Zijie</h4>
                         <h5 class="card-text">
-                            Full-stack developer
+                            QA test analyst
                         </h5>
                         <p class="card-text">
-                            She is studying in Computer Science
+                            He is a Test Automation Engineer
                         </p>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ const About = () => {
             {/*Paul*/}
             <div class="col">
                 <div class="aboutpagecard">
-                    <img src={TeamPhoto_Paul} class="card-img-top"/>
+                    <img src={TeamPhoto_Paul} class="card-img-top aboutpageteamphoto aboutpageteamimg"/>
                     <div class="card-body">
                         <h4 class="card-title">Paul</h4>
                         <h5 class="card-text">
@@ -70,7 +70,9 @@ const About = () => {
             {/*Meron*/}
             <div class="col">
                 <div class="aboutpagecard">
-                    <img src={TeamPhoto_Meron} class="card-img-top"/>
+               
+                        <img src={TeamPhoto_Meron} class="card-img-top aboutpageteamphoto aboutpageteamimg" />
+                     
                     <div class="card-body">
                         <h4 class="card-title">Meron Habtemichael</h4>
                         <h5 class="card-text">
@@ -85,7 +87,7 @@ const About = () => {
             {/*Frank*/}
             <div class="col">
                 <div class="aboutpagecard">
-                    <img src={TeamPhoto_Frank} class="card-img-top"/>
+                    <img src={TeamPhoto_Frank} class="card-img-top aboutpageteamphoto aboutpageteamimg"/>
                     <div class="card-body">
                         <h4 class="card-title">Frank Yuan</h4>
                         <h5 class="card-text">
