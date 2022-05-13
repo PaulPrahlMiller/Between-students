@@ -3,6 +3,7 @@
   margin: -4rem 0 0 -5%;
   width: 100%;
   height: 100%;
+  color: #333;
 }
 
 .authForm:before {
@@ -16,7 +17,7 @@
   background: url('../../../assets/authBackground.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(3px);
+  filter: blur(4px);
   z-index: -1;
 }
 
@@ -26,7 +27,8 @@
   margin: 4rem auto 0 auto;
   padding: 2rem 1rem;
   border-radius: 1rem;
-  background-color: whitesmoke;
+  border: 1px solid #bbb;
+  background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0px 0px 8px 4px rgba(49, 49, 49, 0.3);
 }
 
@@ -60,7 +62,7 @@
 
 .actionText {
   text-decoration: underline;
-  color: dodgerblue;
+  color: rgb(0, 82, 222);
   cursor: pointer;
 }
 
@@ -90,7 +92,7 @@ input {
 }
 
 .formInput:focus {
-  box-shadow: 0 0 0 0.2rem rgb(19, 134, 235);
+  box-shadow: 0 0 0 2px rgb(19, 134, 235);
   border-color: #ddd;
   outline: 0;
 }
