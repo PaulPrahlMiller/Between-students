@@ -1,4 +1,5 @@
 import React from 'react';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { MDBCard, MDBCardImage, MDBRow, MDBCol, MDBRipple } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
