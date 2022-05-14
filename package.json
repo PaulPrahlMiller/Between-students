@@ -4,9 +4,8 @@
   "description": "MERN boilerplate code",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-post-build": "npm run build --prefix client",
     "server": "node index.js",
     "client": "npm start --prefix client",
     "install-client": "npm install --prefix client",
@@ -15,8 +14,7 @@
   "keywords": [
     "MERN"
   ],
-  "author": "Paul Miller",
-  "license": "ISC",
+  "author": "Paul Miller",  "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "axios": "^0.27.2",
