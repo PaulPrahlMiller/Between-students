@@ -41,13 +41,15 @@ const Products = (props) => {
   };
 
   // Updates the current page when location changes to the currentPage value
-  // set in the location state object or 1 if not found.
+  // that is set in the location state object or 1 if not set.
   useEffect(() => {
     setCurrentPage(location.state?.currentPage || 1);
   }, [location]);
 
   const handleClick = (page) => {
     setCurrentPage(page);
+    // Set the currentPage in the location state so the correct page
+    // number is set when the user navigates back.
     navigate(location.pathname, { state: { currentPage: page } });
   };
 
@@ -98,6 +100,7 @@ const Products = (props) => {
         <Loading />
       )}
       <div className={styles.pageButtons}>
+        {/* Renders correct amount of buttons needed depending on amount of pages */}
         {[...range(1, pages)].map((page) => (
           <button
             key={page}
