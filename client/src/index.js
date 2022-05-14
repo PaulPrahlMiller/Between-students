@@ -12,7 +12,6 @@ import Categories from './components/layout/Category/Categories';
 import About from './pages/About';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LandingHome from './components/layout/LandingPage';
-import Pagination from './components/layout/PaginationProducts';
 import UserAccount from './pages/UserAccount';
 import ViewListing from './pages/UserListing';
 import CreateProduct from './pages/CreateProduct';
@@ -42,7 +41,6 @@ ReactDOM.render(
                 <Route path='/categories' element={<Categories />} />
                 <Route path='/mission' element={<Mission />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/pagination' element={<Pagination />} />
                 <Route
                   path='account'
                   element={
