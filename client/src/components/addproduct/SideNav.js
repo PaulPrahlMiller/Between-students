@@ -1,80 +1,91 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './UseProducts.module.css';
+import {
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane
+} from 'mdb-react-ui-kit';
 import './sideNav.css';
-import ViewProfile from './UserProfile';
-import { VscDashboard, VscAdd } from 'react-icons/vsc';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { TiTags, TiUserOutline } from 'react-icons/ti';
-import { CgInsights } from 'react-icons/cg';
+import UseProducts from './UseProducts';
+import AddProduct from './AddProduct';
+import Insights from './Insights';
 
 const SideNavBar = () => {
-  const navigate = useNavigate();
   const [profile, setProfile] = useState([]);
-  const [buttonProfile, setButtonProfile] = useState(false);
+  const [verticalActive, setVerticalActive] = useState('tab1');
+
+  const handleVerticalClick = (value) => {
+    if (value === verticalActive) {
+      return;
+    }
+
+    setVerticalActive(value);
+  };
 
   useEffect(() => {
     axios('http://localhost:5000/api/user').then((response) => {
       var user_data = response.data;
-      console.log('original data in first useEffect', user_data);
+      // console.log('original data in first useEffect', user_data);
       setProfile(user_data);
-      console.log('printing user profile', profile);
     });
   }, []);
 
-  useEffect(() => {
-    // console.log('changed profile', profile);
-  }, [profile]);
+  useEffect(() => {}, [profile]);
 
   return (
-    <div class='sidenav'>
-      <div class='container__sideBarTopBtn'>
-        <button
-          className={styles.btnItem}
-          onClick={() => {
-            navigate('/create-item');
-          }}
-        >
-          <VscAdd></VscAdd>
-          Create new listing
-        </button>
-      </div>
+    <div class=''>
+      <MDBTabs className='mb-3 justify-content-md-center'>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleVerticalClick('tab1')}
+            active={verticalActive === 'tab1'}
+          >
+            Your Listing
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleVerticalClick('tab2')}
+            active={verticalActive === 'tab2'}
+          >
+            Profile
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleVerticalClick('tab3')}
+            active={verticalActive === 'tab3'}
+          >
+            Insights
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleVerticalClick('tab4')}
+            active={verticalActive === 'tab4'}
+          >
+            Sell
+          </MDBTabsLink>
+        </MDBTabsItem>
+      </MDBTabs>
 
-      <div className={styles.div__sideNavListing}>
-        <TiTags size={20}></TiTags>
-        <a
-          href='#listing'
-          onClick={() => {
-            navigate('/user-listing');
-          }}
-        >
-          Your listings
-        </a>
-      </div>
-      <div className={styles.div__sideNavListing}>
-        <TiUserOutline size={20}></TiUserOutline>
-        <a href='#profile' onClick={() => setButtonProfile(true)}>
-          Your profile
-        </a>
-        {/* <button onClick={setButtonProfile(true)}>Your profile</button> */}
-        <ViewProfile
-          email={profile.email}
-          trigger={buttonProfile}
-          setTrigger={setButtonProfile}
-        ></ViewProfile>
-      </div>
-      <div className={styles.div__sideNavListing}>
-        <CgInsights size={20}></CgInsights>
-        <a
-          href='#clients'
-          onClick={() => {
-            navigate('/insights');
-          }}
-        >
-          Insights
-        </a>
-      </div>
+      <MDBTabsContent>
+        <MDBTabsPane show={verticalActive === 'tab1'}>
+          <UseProducts></UseProducts>
+        </MDBTabsPane>
+        <MDBTabsPane show={verticalActive === 'tab2'}>
+          Your email <br></br>
+          {profile.email}
+        </MDBTabsPane>
+        <MDBTabsPane show={verticalActive === 'tab3'}>
+          <Insights></Insights>
+        </MDBTabsPane>
+        <MDBTabsPane show={verticalActive === 'tab4'}>
+          <AddProduct></AddProduct>
+        </MDBTabsPane>
+      </MDBTabsContent>
     </div>
   );
 };

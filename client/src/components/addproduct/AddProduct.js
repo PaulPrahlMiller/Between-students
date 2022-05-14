@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter
+} from 'mdb-react-ui-kit';
 import './AddProduct.css';
-import { IoImageOutline, IoCloseCircle } from 'react-icons/io5';
+import { IoImageOutline } from 'react-icons/io5';
 import PreviewProduct from './PreviewProduct';
 import useProducts from '../../hooks/useProducts';
 
@@ -12,12 +21,13 @@ const AddProduct = () => {
   const [description, setDescription] = useState('');
   const [fileName, setFileName] = useState('');
   const [category, setCategory] = useState('');
-  const [ProductState, productDispatch] = useProducts();
+  const [ProductState] = useProducts();
   const [cost, setCost] = useState('');
   const [uploaded, setUploaded] = useState(undefined);
   const [shown, setShown] = useState(false);
   const [submitBtn, setSubmitBtn] = useState(true);
-  const navigate = useNavigate();
+  const [basicModal, setBasicModal] = useState(false);
+  const toggleShow = () => setBasicModal(!basicModal);
 
   const onChangeFile = (e) => {
     setFileName(e.target.files[0]);
@@ -58,21 +68,14 @@ const AddProduct = () => {
         setCost('');
         setFileName('');
       })
-      .then(navigate('/account'));
+      .then(toggleShow())
+      .then(() => window.location.reload(false));
   };
 
   return (
     <div class='container__parent'>
       <div class='div__leftWhole'>
         <div class='container__leftAddProduct'>
-          <div class='div__closeCircle'>
-            <IoCloseCircle
-              size={40}
-              onClick={() => {
-                navigate('/account');
-              }}
-            ></IoCloseCircle>
-          </div>
           <div class='div__headerLeft'>
             <h1>Item for sale</h1>
           </div>
@@ -171,6 +174,23 @@ const AddProduct = () => {
         description={description}
         uploaded={uploaded}
       ></PreviewProduct>
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle>Success</MDBModalTitle>
+              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+            </MDBModalHeader>
+            <MDBModalBody>New listing created!</MDBModalBody>
+
+            <MDBModalFooter>
+              <MDBBtn color='secondary' onClick={toggleShow}>
+                Close
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </div>
   );
 };
