@@ -53,7 +53,7 @@ const LoginForm = () => {
     <div className={styles.authForm}>
       <div className={styles.formContainer}>
         <div className={styles.formHeader}>
-          <h2>LOGIN</h2>
+          <h2>Login</h2>
         </div>
         <form
           onChange={handleOnChange}
