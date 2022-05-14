@@ -46,7 +46,10 @@ const About = () => {
         <div class='col-md-3 '>
           <h4 class=''>Zijie</h4>
           <h5 class=''>QA test analyst</h5>
-          <p class=''>He is a Test Automation Engineer</p>
+                  <p class=''>
+                      I studied software engineering and now work as a test automation engineer.
+                      I like to learn new stuff and keep growing my skills.
+                  </p>
         </div>
       </div>
 

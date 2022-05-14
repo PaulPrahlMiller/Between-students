@@ -48,7 +48,7 @@ const Categories = () => {
         <MDBCol>
           <MDBCard>
             <MDBRipple rippleTag='div' rippleColor='light' style={{ maxWidth: '24rem' }}>
-              <Link to={'/categories/mirros'}>
+              <Link to={'/categories/mirrors'}>
                 <MDBCardImage src={mirror} alt='...' position='top' />
                 <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
                   <div className='d-flex justify-content-center align-items-center h-100'>

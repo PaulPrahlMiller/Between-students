@@ -68,7 +68,7 @@ const LandingHome = () => {
               <br></br>
             </p>
             <div class='link__register'>
-              <Link to='/' class='btn btn-light my-3 hover__link'>
+              <Link to='/categories' class='btn btn-light my-3 hover__link'>
                 Shop now
               </Link>
             </div>
@@ -81,25 +81,25 @@ const LandingHome = () => {
         </div>
         <div class='float__right col-md-6 mt-5 mb-3'>
           <Link to={'/categories'}>
-            <h5>view all</h5>
+            <h5>View all</h5>
           </Link>
         </div>
       </div>
       <div class='row gx-5'>
         <div class='col-md-4 mb-5 div__catHover'>
-          <Link to={'/search/furniture'}>
+          <Link to={'/categories/furniture'}>
             <img class='img-fluid img__catHover' alt='img' src={stationery}></img>
           </Link>
           <p>Furniture</p>
         </div>
         <div class='col-md-4 mb-5 div__catHover'>
-          <Link to={`/search/lamps`}>
+          <Link to={`/categories/lamps & lights`}>
             <img class='img-fluid img__catHover' alt='img' src={lighting}></img>
           </Link>
           <p>Lamps</p>
         </div>
         <div class='col-md-4 mb-5 div__catHover'>
-          <Link to={'/search/decorations'}>
+          <Link to={'/categories/home decorations'}>
             <img class='img-fluid img__catHover' alt='img' src={decorations}></img>
           </Link>
           <p>Home decorations</p>
@@ -125,7 +125,17 @@ const LandingHome = () => {
         </div>
       </div>
       <div class='container'>
-        <h5 class='text__carousel'>Check out our favourite products</h5>
+        <div class='row gx-5'>
+          <div class='col-md-6 mt-5 mb-3'>
+            <h5 class='font__aboveCat'>Check out our favourite products</h5>
+          </div>
+          <div class='float__right col-md-6 mt-5 mb-3'>
+            <Link to={'/search'}>
+              <h5>View all</h5>
+            </Link>
+          </div>
+        </div>
+
         {products !== null ? (
           <Slider {...settings}>
             {products.map((product) => (

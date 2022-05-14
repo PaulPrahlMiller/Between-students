@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter
+} from 'mdb-react-ui-kit';
 import axios from 'axios';
 import styles from './UseProducts.module.css';
-import Popup from './Popup';
+import formatDate from '../../utils/dateFormatter';
 import './sideNav.css';
-import { IoTrashOutline, IoPencilOutline, IoReorderFourOutline } from 'react-icons/io5';
 
-const UseProducts = () => {
+const UseProducts = (props) => {
   const [productList, setProductList] = useState([]);
-  const [buttonPopup, setButtonPopup] = useState(false);
   const [description, setDescription] = useState('');
+  const [basicModal, setBasicModal] = useState(false);
+  const toggleShow = () => setBasicModal(!basicModal);
   var url = 'uploads/';
 
   useEffect(() => {
     axios('http://localhost:5000/api/products/user').then((response) => {
       var original_data = response.data;
-      console.log('original data in first useEffect', original_data);
+      // console.log('original data in first useEffect', original_data);
       setProductList(original_data);
-      console.log('printing products', productList);
+      // console.log('printing products', productList);
     });
   }, []);
 
@@ -26,13 +35,29 @@ const UseProducts = () => {
   }, [productList]);
 
   const handleClick = (index) => {
-    setButtonPopup(true);
     const newDesList = [...productList];
     setDescription(newDesList[index].description);
+    toggleShow();
+  };
+
+  const deleteProduct = async (id) => {
+    console.log('id to delete', id);
+    await axios
+      .delete('http://localhost:5000/api/products', { data: { product_id: id } })
+      .then((res) => console.log(res))
+      .then(() => toggleShow());
+    refresh();
+  };
+
+  const refresh = () => {
+    window.location.reload(false);
   };
 
   return (
     <div class='div__listings'>
+      <div>
+        <h1>{props.email}</h1>
+      </div>
       {productList.map((item, index) => {
         return (
           <div class='card mb-5 border-1'>
@@ -52,31 +77,30 @@ const UseProducts = () => {
                     {item.cost}kr
                   </h4>
                   <p class='card-text' className={styles.cardTxt}>
-                    {item.createdAt}
+                    {formatDate(item.createdAt)}
                   </p>
                   <p class='card-text' className={styles.cardTxt}>
                     {item.category}
                   </p>
-                  <div className={styles.div__buttons}>
-                    <button href='/delete' className={styles.btnCard}>
-                      <IoTrashOutline className={styles.icon__delete}></IoTrashOutline>
-                      Delete item
-                    </button>
-                    <button href='/edit' className={styles.btnCard}>
-                      <IoPencilOutline className={styles.icon__delete}></IoPencilOutline>
-                      Edit item
-                    </button>
-                    <button className={styles.btnCard} onClick={() => handleClick(index)}>
-                      <IoReorderFourOutline
-                        className={styles.icon__delete}
-                      ></IoReorderFourOutline>
+
+                  <div class='d-grid gap-2 d-md-block justify-content-md-start'>
+                    <MDBBtn
+                      onClick={() => {
+                        deleteProduct(item._id);
+                      }}
+                      className='text-dark '
+                      color='light'
+                    >
+                      Delete ITEM
+                    </MDBBtn>
+
+                    <MDBBtn
+                      className='mx-2'
+                      color='secondary'
+                      onClick={() => handleClick(index)}
+                    >
                       View item
-                    </button>
-                    <Popup
-                      des={description}
-                      trigger={buttonPopup}
-                      setTrigger={setButtonPopup}
-                    ></Popup>
+                    </MDBBtn>
                   </div>
                 </div>
               </div>
@@ -84,6 +108,40 @@ const UseProducts = () => {
           </div>
         );
       })}
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle>Success</MDBModalTitle>
+              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+            </MDBModalHeader>
+            <MDBModalBody>Item Deleted!</MDBModalBody>
+
+            <MDBModalFooter>
+              <MDBBtn color='secondary' onClick={toggleShow}>
+                Close
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle>Item description</MDBModalTitle>
+              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+            </MDBModalHeader>
+            <MDBModalBody>{description}</MDBModalBody>
+
+            <MDBModalFooter>
+              <MDBBtn color='secondary' onClick={toggleShow}>
+                Close
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </div>
   );
 };

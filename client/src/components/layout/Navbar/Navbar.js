@@ -4,6 +4,7 @@ import useProducts from '../../../hooks/useProducts';
 import useAuth from '../../../hooks/useAuth';
 import { logout } from '../../../context/auth/AuthState';
 import styles from './Navbar.module.css';
+import logo from '../../../assets/colorlogo.svg';
 
 const Navbar = () => {
   const [ProductState, productDispatch] = useProducts();
@@ -38,7 +39,9 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar} onClick={handleClick}>
-      <div className={styles.navBranding}>LOGO</div>
+      <div className={styles.navBranding}>
+        <img class='img-fluid' height={55} width={80} src={logo} alt='...'></img>
+      </div>
       {/* <div className={styles.categoryToggle}>Categories</div> */}
       <div
         className={isMenuOpen ? `${styles.navMenu} ${styles.expanded}` : styles.navMenu}
@@ -98,7 +101,7 @@ const Navbar = () => {
                   className={styles.navLink}
                   style={({ isActive }) => (isActive ? activeLink : undefined)}
                 >
-                  account
+                  Account
                 </NavLink>
               </li>
               <li className={styles.navItem}>
