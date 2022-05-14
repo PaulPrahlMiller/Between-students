@@ -73,28 +73,28 @@ const AddProduct = () => {
   };
 
   return (
-    <div class='container__parent'>
-      <div class='div__leftWhole'>
-        <div class='container__leftAddProduct'>
-          <div class='div__headerLeft'>
+    <div className='container__parent'>
+      <div className='div__leftWhole'>
+        <div className='container__leftAddProduct'>
+          <div className='div__headerLeft'>
             <h1>Item for sale</h1>
           </div>
 
-          <div class='container__formBody'>
+          <div className='container__formBody'>
             <form onSubmit={changeOnClick} encType='multipart/form-data'>
-              <div class='div__upload'>
-                <input
-                  type='file'
-                  filename='productImage'
-                  class='file__upload'
-                  onChange={onChangeFile}
-                  required
-                />
-                {shown ? '' : <h5>Add a photo</h5>}
-                <div class='div__icon'>
+              <div className='div__upload'>
+                {!shown && <h5>Add a photo</h5>}
+                <div className='div__icon'>
+                  <input
+                    type='file'
+                    filename='productImage'
+                    className='file__upload'
+                    onChange={onChangeFile}
+                    required
+                  />
                   {shown ? (
                     <img
-                      class='div__previewImage'
+                      className='div__previewImage'
                       height={150}
                       width={210}
                       src={uploaded}
@@ -105,12 +105,12 @@ const AddProduct = () => {
                   )}
                 </div>
 
-                <label htmlFor='file' class='col-sm-2 col-form-label' />
+                <label htmlFor='file' className='col-sm-2 col-form-label' />
               </div>
-              <div class='form-floating mb-3'>
+              <div className='form-floating mb-3'>
                 <input
                   type='text'
-                  class='form-control'
+                  className='form-control'
                   id='floatingInput'
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
@@ -118,10 +118,10 @@ const AddProduct = () => {
                 />
                 <label htmlFor='floatingInput'>Title</label>
               </div>
-              <div class='form-floating mb-3'>
+              <div className='form-floating mb-3'>
                 <input
                   type='number'
-                  class='form-control input-number'
+                  className='form-control input-number'
                   id='floatingPassword'
                   value={cost}
                   onChange={(e) => setCost(e.target.value)}
@@ -130,7 +130,7 @@ const AddProduct = () => {
                 <label htmlFor='floatingPassword'>Cost</label>
               </div>
               <select
-                class='form-select mb-3'
+                className='form-select mb-3'
                 value={category}
                 id='inputGroupSelect01'
                 onChange={(e) => setCategory(e.target.value)}
@@ -145,7 +145,7 @@ const AddProduct = () => {
                 })}
               </select>
               <textarea
-                class='form-floating form-control textarea-des'
+                className='form-floating form-control textarea-des'
                 placeholder='Description'
                 id='floatingTextarea2'
                 value={description}
@@ -154,7 +154,7 @@ const AddProduct = () => {
                   allFilled();
                 }}
               ></textarea>
-              <div class='div__btnPublish'>
+              <div className='div__btnPublish'>
                 <button
                   type='submit'
                   className='btn btn-primary btn__publish'
@@ -179,7 +179,11 @@ const AddProduct = () => {
           <MDBModalContent>
             <MDBModalHeader>
               <MDBModalTitle>Success</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+              <MDBBtn
+                classNameName='btn-close'
+                color='none'
+                onClick={toggleShow}
+              ></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>New listing created!</MDBModalBody>
 
