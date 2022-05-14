@@ -10,6 +10,11 @@ const userSchema = new Schema({
     type: String,
     required: 'Enter Password'
   },
+  is_admin: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
   registration_date: { type: Date, default: Date.now }
 });
 
