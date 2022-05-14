@@ -23,7 +23,7 @@
 
 .productInfo {
   min-height: 10rem;
-  padding: 0 0.75rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -31,9 +31,37 @@
   border-top: none;
 }
 
-.infoTop {
+.productHeader {
+  flex-grow: 1;
+  padding-top: 0.5rem;
+}
+
+.productTitle {
   font-family: 'News Cycle';
   font-size: 1.25rem;
+}
+
+.productCategory {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.productMeta {
+  display: flex;
+  padding-bottom: 0.5rem;
+  align-items: baseline;
+}
+
+.productDate {
+  flex-grow: 1;
+  font-size: 0.85rem;
+}
+
+.productPrice {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }
 
 .infoMid {
