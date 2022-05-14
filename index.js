@@ -7,6 +7,7 @@ const productRoutes = require('./routes/products');
 const connectDatabase = require('./config/db');
 const PORT = process.env.PORT || 5000;
 const signale = require('signale');
+require('dotenv').config();
 
 const app = express();
 
