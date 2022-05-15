@@ -81,7 +81,11 @@ const About = () => {
         <div className='col-md-3 '>
           <h4>Frank Yuan</h4>
           <h5>Frontend Developer</h5>
-          <p>He is a CS student.</p>
+          <p>
+            I am deeply interested in the Frontend development as well as Backend. In this
+            project, I am responsible for the Frontend development of Dashboard that
+            programmed by React.
+          </p>
         </div>
       </div>
 

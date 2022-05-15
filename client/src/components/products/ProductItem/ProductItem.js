@@ -12,7 +12,7 @@ const ProductItem = ({ product }) => {
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
-            src={'/uploads/' + product.productImage}
+            src={product.productImage}
             alt='the item'
           />
         </div>

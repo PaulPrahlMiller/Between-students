@@ -23,7 +23,6 @@ const LandingHome = () => {
 
   if (loading) return <Loading />;
 
-  var url = 'uploads/';
 
   let settings = {
     inifity: false,
@@ -139,7 +138,7 @@ const LandingHome = () => {
                 <div className='card_carousel'>
                   <img
                     className='img__carousel'
-                    src={url + product.productImage}
+                    src={product.productImage}
                     alt={product._id}
                     height={200}
                     width={210}

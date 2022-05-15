@@ -1,11 +1,13 @@
 .productContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .imageContainer {
   height: 200px;
-  width: 100%;
+  width: 60%;
+  margin-bottom: 30px;
   flex-grow: 2;
   background-color: rgb(245, 245, 245);
 }
@@ -76,6 +78,7 @@
 @media only screen and (min-width: 700px) {
   .imageContainer {
     height: 400px;
+    
   }
 }
 
@@ -88,6 +91,7 @@
 @media only screen and (min-width: 1100px) {
   .productContainer {
     flex-direction: row;
+    margin-bottom: 0px;
   }
 
   .infoContainer {

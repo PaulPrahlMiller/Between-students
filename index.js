@@ -14,8 +14,12 @@ const app = express();
 // Connect to mongoDB database
 connectDatabase();
 
-// Handle json body data
 app.use(express.json());
+
+// Cors used to allow cross-origin communication on localserver between frontend and backend
+app.use(cors());
+
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
@@ -28,8 +32,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 } else {
-  // Cors used to allow cross-origin communication on localserver between frontend and backend
-  app.use(cors());
 
   app.use('/', express.static(path.join(__dirname, 'public')));
 
