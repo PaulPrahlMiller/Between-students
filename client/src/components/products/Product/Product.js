@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Product.module.css';
@@ -31,8 +31,7 @@ const Product = () => {
   }, [productDispatch, productId, currentProduct, products]);
 
   const handleClick = () => {
-    const path = currentProduct.productImage;
-    <Link to={path}></Link>;
+    navigate(`/preview/${currentProduct._id}`);
   };
 
   const loading = useLoading();

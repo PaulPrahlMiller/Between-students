@@ -35,10 +35,10 @@ const Insights = () => {
   };
 
   return (
-    <div class='div__insights'>
-      <div class='div__innerRow' onClick={handleClickone}>
-        <div class='div__clicks'>
-          <div class='div__iconClick'>
+    <div className='div__insights'>
+      <div className='div__innerRow' onClick={handleClickone}>
+        <div className='div__clicks'>
+          <div className='div__iconClick'>
             <IoEyeOutline size={20} />
           </div>
           <h3>71</h3>
@@ -50,9 +50,9 @@ const Insights = () => {
         trigger={btnClicked}
         setTrigger={setBtnClicked}
       />
-      <div class='div__innerRow' onClick={handleClicktwo}>
-        <div class='div__clicks'>
-          <div class='div__iconClick'>
+      <div className='div__innerRow' onClick={handleClicktwo}>
+        <div className='div__clicks'>
+          <div className='div__iconClick'>
             <IoShareSocialOutline size={20} />
           </div>
           <h3>2</h3>
@@ -64,9 +64,9 @@ const Insights = () => {
         trigger={btnClickedTwo}
         setTrigger={setBtnClickedTwo}
       />
-      <div class='div__innerRow' onClick={handleClickthree}>
-        <div class='div__clicks'>
-          <div class='div__iconClick'>
+      <div className='div__innerRow' onClick={handleClickthree}>
+        <div className='div__clicks'>
+          <div className='div__iconClick'>
             <IoBookmarkOutline size={20} />
           </div>
           <h3>71</h3>
@@ -78,9 +78,9 @@ const Insights = () => {
         trigger={btnClickedThree}
         setTrigger={setBtnClickedThree}
       />
-      <div class='div__innerRow' onClick={handleClickFour}>
-        <div class='div__clicks'>
-          <div class='div__iconClick'>
+      <div className='div__innerRow' onClick={handleClickFour}>
+        <div className='div__clicks'>
+          <div className='div__iconClick'>
             <IoListOutline size={20} />
           </div>
           <h3>10</h3>

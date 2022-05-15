@@ -35,7 +35,7 @@ const SideNavBar = () => {
   useEffect(() => {}, [profile]);
 
   return (
-    <div class=''>
+    <div>
       <MDBTabs className='mb-3 justify-content-md-center'>
         <MDBTabsItem>
           <MDBTabsLink

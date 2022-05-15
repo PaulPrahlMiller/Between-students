@@ -23,7 +23,6 @@ const LandingHome = () => {
 
   if (loading) return <Loading />;
 
-
   let settings = {
     inifity: false,
     speed: 1000,

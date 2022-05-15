@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import useProducts from '../../../hooks/useProducts';
 import styles from './ImagePreview.module.css';
+import {
+  clearCurrentProduct,
+  setCurrentProduct
+} from '../../../context/product/ProductState';
 
 const ImagePreview = () => {
-  const { imagePath } = useParams();
+  const { productId } = useParams();
+
+  const [productState, productDispatch] = useProducts();
+
+  const { currentProduct } = productState;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setCurrentProduct(productDispatch, productId);
+
+    return () => {
+      clearCurrentProduct(productDispatch);
+    };
+  });
 
   const handleClick = () => {
     navigate(-1);
@@ -15,9 +32,10 @@ const ImagePreview = () => {
     <div className={styles.fullscreen}>
       <div className={styles.imageContainer}>
         <img
-          src={imagePath}
+          src={currentProduct.productImage}
           className={styles.image}
           onClick={handleClick}
+          alt={currentProduct.title}
         />
       </div>
       <button className={styles.closeButton} onClick={handleClick}>

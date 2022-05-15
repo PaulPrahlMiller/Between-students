@@ -19,7 +19,6 @@ const UseProducts = (props) => {
   const [description, setDescription] = useState('');
   const [basicModal, setBasicModal] = useState(false);
   const toggleShow = () => setBasicModal(!basicModal);
- 
 
   useEffect(() => {
     axios('/api/products/user').then((response) => {
@@ -29,10 +28,6 @@ const UseProducts = (props) => {
       // console.log('printing products', productList);
     });
   }, []);
-
-  useEffect(() => {
-    // console.log('changed profile', profile);
-  }, [productList]);
 
   const handleClick = (index) => {
     const newDesList = [...productList];
@@ -54,41 +49,36 @@ const UseProducts = (props) => {
   };
 
   return (
-    <div class='div__listings'>
+    <div className='div__listings'>
       <div>
         <h1>{props.email}</h1>
       </div>
       {productList.map((item, index) => {
         return (
-          <div class='card mb-5 border-1'>
-            <div class='row no-gutters' key={item._id}>
-              <div class='col-md-4 div__useProdutimg'>
+          <div className='card mb-5 border-1'>
+            <div className='row no-gutters' key={item._id}>
+              <div className='col-md-4 div__useProdutimg'>
                 <img
                   src={item.productImage}
                   alt='hello'
-                  class='card-img'
-                  className={styles.imgCard}
+                  className={`${styles.imgCard} card-img`}
                 ></img>
               </div>
-              <div class='col-md-8'>
-                <div class='card-body'>
-                  <h3 class='card-title'>{item.title}</h3>
-                  <h4 class='card-text' className={styles.cardTxt}>
-                    {item.cost}kr
-                  </h4>
-                  <p class='card-text' className={styles.cardTxt}>
+              <div className='col-md-8'>
+                <div className='card-body'>
+                  <h3 className='card-title'>{item.title}</h3>
+                  <h4 className={`${styles.cardTxt} card-text`}>{item.cost}kr</h4>
+                  <p className={`${styles.cardTxt} card-text`}>
                     {formatDate(item.createdAt)}
                   </p>
-                  <p class='card-text' className={styles.cardTxt}>
-                    {item.category}
-                  </p>
+                  <p className={`${styles.cardTxt} card-text`}>{item.category}</p>
 
-                  <div class='d-grid gap-2 d-md-block justify-content-md-start'>
+                  <div className='d-grid gap-2 d-md-block justify-content-md-start'>
                     <MDBBtn
                       onClick={() => {
                         deleteProduct(item._id);
                       }}
-                      className='text-dark '
+                      className='text-dark'
                       color='light'
                     >
                       Delete ITEM

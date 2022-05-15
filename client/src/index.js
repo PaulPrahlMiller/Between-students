@@ -77,7 +77,7 @@ ReactDOM.render(
                 <Route path='register' element={<RegisterForm />} />
                 <Route path='*' element={<UnknownRoute />} />
               </Route>
-              <Route path='/preview/:imagePath' element={<ImagePreview />} />
+              <Route path='/preview/:productId' element={<ImagePreview />} />
               <Route path='admin' element={<Admin />} />
             </Routes>
           </BrowserRouter>
