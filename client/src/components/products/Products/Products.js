@@ -53,7 +53,7 @@ const Products = (props) => {
     navigate(location.pathname, { state: { currentPage: page } });
   };
 
-  const loading = useLoading(1000);
+  const loading = useLoading(500);
 
   if (loading) return <Loading />;
 

@@ -37,39 +37,37 @@ const Product = () => {
     navigate(`/preview/${path}`);
   };
 
-  const loading = useLoading(1000);
+  const loading = useLoading();
 
-  if (loading || !products) return <Loading />;
-
-  const date = formatDate(currentProduct.createdAt);
+  if (loading) return <Loading />;
 
   if (currentProduct === undefined) return <UnknownRoute />;
 
-  return (
-    <Fragment>
-      <div className={styles.productContainer}>
-        <div className={styles.imageContainer}>
-          <img
-            src={`/uploads/${currentProduct.productImage}`}
-            alt={currentProduct.title}
-            className={styles.productImage}
-            onClick={handleClick}
-          />
-        </div>
-        <div className={styles.infoContainer}>
-          <div className={styles.productHeading}>
-            <div className={styles.productTitle}>{currentProduct.title}</div>
-            <div className={styles.productCategory}>{currentProduct.category}</div>
-          </div>
-          <div className={styles.productMeta}>
-            <div className={styles.productCost}>{currentProduct.cost} kr</div>
-            <div className={styles.productDate}>{date}</div>
-          </div>
-          <hr />
-          <div className={styles.productDescription}>{currentProduct.description}</div>
-        </div>
+  return currentProduct !== null ? (
+    <div className={styles.productContainer}>
+      <div className={styles.imageContainer}>
+        <img
+          src={`/uploads/${currentProduct.productImage}`}
+          alt={currentProduct.title}
+          className={styles.productImage}
+          onClick={handleClick}
+        />
       </div>
-    </Fragment>
+      <div className={styles.infoContainer}>
+        <div className={styles.productHeading}>
+          <div className={styles.productTitle}>{currentProduct.title}</div>
+          <div className={styles.productCategory}>{currentProduct.category}</div>
+        </div>
+        <div className={styles.productMeta}>
+          <div className={styles.productCost}>{currentProduct.cost} kr</div>
+          <div className={styles.productDate}>{formatDate(currentProduct.createdAt)}</div>
+        </div>
+        <hr />
+        <div className={styles.productDescription}>{currentProduct.description}</div>
+      </div>
+    </div>
+  ) : (
+    <Loading />
   );
 };
 
