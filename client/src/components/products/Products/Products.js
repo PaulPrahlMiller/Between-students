@@ -26,7 +26,7 @@ const Products = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    scrollTop(); // Scroll the window to the top when rendering.
+    scrollTop('smooth'); // Scroll the window to the top when rendering.
     const pages =
       filteredProducts?.length / PRODUCTS_PER_PAGE ||
       categoryProducts?.length / PRODUCTS_PER_PAGE ||

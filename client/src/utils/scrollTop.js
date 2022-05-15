@@ -1,7 +1,7 @@
-const scrollTop = () => {
+const scrollTop = (behaviour) => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: behaviour
   });
 };
 
