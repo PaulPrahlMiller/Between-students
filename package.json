@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node index.js",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
+    "start": "node index.js",
     "client": "npm start --prefix client",
     "install-client": "npm install --prefix client",
-    "dev": "concurrently \"nodemon server\" \"npm run client\""
+    "dev": "concurrently \"nodemon start\" \"npm run client\""
   },
   "keywords": [
     "MERN"
@@ -20,6 +21,7 @@
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",
+    "cloudinary": "^1.30.0",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

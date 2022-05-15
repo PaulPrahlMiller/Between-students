@@ -1,12 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Product.module.css';
 import useLoading from '../../../hooks/useLoading';
 import UnknownRoute from '../../../pages/UnknownRoute';
 import formatDate from '../../../utils/dateFormatter';
-import scrollTop from '../../../utils/scrollTop';
 import {
   clearCurrentProduct,
   setCurrentProduct
@@ -23,7 +22,6 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    scrollTop('auto');
     if (products) {
       setCurrentProduct(productDispatch, productId);
     }
@@ -34,7 +32,7 @@ const Product = () => {
 
   const handleClick = () => {
     const path = currentProduct.productImage;
-    navigate(`/preview/${path}`);
+    <Link to={path}></Link>;
   };
 
   const loading = useLoading(1000);
@@ -50,10 +48,10 @@ const Product = () => {
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <img
-            src={`/uploads/${currentProduct.productImage}`}
+            src={currentProduct.productImage}
             alt={currentProduct.title}
             className={styles.productImage}
-            onClick={handleClick}
+            onClick={<Link to={currentProduct.productImage}></Link>}
           />
         </div>
         <div className={styles.infoContainer}>

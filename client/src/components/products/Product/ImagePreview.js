@@ -15,7 +15,7 @@ const ImagePreview = () => {
     <div className={styles.fullscreen}>
       <div className={styles.imageContainer}>
         <img
-          src={`/uploads/${imagePath}`}
+          src={imagePath}
           className={styles.image}
           onClick={handleClick}
         />
