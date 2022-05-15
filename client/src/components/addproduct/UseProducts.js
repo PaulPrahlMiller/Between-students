@@ -19,7 +19,7 @@ const UseProducts = (props) => {
   const [description, setDescription] = useState('');
   const [basicModal, setBasicModal] = useState(false);
   const toggleShow = () => setBasicModal(!basicModal);
-  var url = 'uploads/';
+ 
 
   useEffect(() => {
     axios('http://localhost:5000/api/products/user').then((response) => {
@@ -64,7 +64,7 @@ const UseProducts = (props) => {
             <div class='row no-gutters' key={item._id}>
               <div class='col-md-4 div__useProdutimg'>
                 <img
-                  src={url + `${item.productImage}`}
+                  src={item.productImage}
                   alt='hello'
                   class='card-img'
                   className={styles.imgCard}
