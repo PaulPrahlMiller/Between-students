@@ -100,12 +100,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink
-                  to='/'
-                  className={styles.navLink}
-                  onClick={handleLogout}
-                  reloadDocument
-                >
+                <NavLink to='/' className={styles.navLink} onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>

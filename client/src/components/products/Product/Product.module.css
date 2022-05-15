@@ -6,9 +6,9 @@
 
 .imageContainer {
   height: 200px;
-  width: 60%;
+  width: 100%;
   margin-bottom: 30px;
-  flex-grow: 2;
+  flex-grow: 3;
   background-color: rgb(245, 245, 245);
 }
 
@@ -61,15 +61,6 @@
   font-size: 0.9rem;
 }
 
-.imagePreviewContainer {
-  position: absolute;
-  left: 0;
-  padding: 5vh 5vw;
-  background-color: rgba(40, 40, 40, 0.9);
-  z-index: 99;
-  display: flex;
-}
-
 @media only screen and (min-width: 500px) {
   .imageContainer {
     height: 300px;
@@ -78,7 +69,6 @@
 @media only screen and (min-width: 700px) {
   .imageContainer {
     height: 400px;
-    
   }
 }
 

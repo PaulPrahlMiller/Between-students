@@ -22,7 +22,7 @@ const ImagePreview = () => {
     return () => {
       clearCurrentProduct(productDispatch);
     };
-  });
+  }, [productDispatch, productId]);
 
   const handleClick = () => {
     navigate(-1);
