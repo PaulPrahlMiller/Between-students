@@ -25,7 +25,7 @@ const SideNavBar = () => {
   };
 
   useEffect(() => {
-    axios('http://localhost:5000/api/user').then((response) => {
+    axios('/api/user').then((response) => {
       var user_data = response.data;
       // console.log('original data in first useEffect', user_data);
       setProfile(user_data);

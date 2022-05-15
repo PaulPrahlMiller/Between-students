@@ -22,7 +22,7 @@ const UseProducts = (props) => {
   var url = 'uploads/';
 
   useEffect(() => {
-    axios('http://localhost:5000/api/products/user').then((response) => {
+    axios('/api/products/user').then((response) => {
       var original_data = response.data;
       // console.log('original data in first useEffect', original_data);
       setProductList(original_data);
@@ -43,7 +43,7 @@ const UseProducts = (props) => {
   const deleteProduct = async (id) => {
     console.log('id to delete', id);
     await axios
-      .delete('http://localhost:5000/api/products', { data: { product_id: id } })
+      .delete('/api/products', { data: { product_id: id } })
       .then((res) => console.log(res))
       .then(() => toggleShow());
     refresh();

@@ -60,7 +60,7 @@ const AddProduct = () => {
     formData.append('cost', cost);
 
     await axios
-      .post('http://localhost:5000/api/products', formData)
+      .post('/api/products', formData)
       .then((res) => {
         setTitle('');
         setDescription('');
