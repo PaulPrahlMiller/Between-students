@@ -5,6 +5,7 @@ import { login } from '../../../context/auth/AuthState';
 import styles from './AuthForm.module.css';
 import useAlert from '../../../hooks/useAlert';
 import { clearError } from '../../../context/auth/AuthState';
+import scrollTop from '../../../utils/scrollTop';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,10 @@ const LoginForm = () => {
   const setAlert = useAlert()[1];
 
   const { isAuthenticated, error } = authState;
+
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
 
   useEffect(() => {
     if (error) {

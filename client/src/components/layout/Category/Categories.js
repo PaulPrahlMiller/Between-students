@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { MDBCard, MDBCardImage, MDBRow, MDBCol, MDBRipple } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import scrollTop from '../../../utils/scrollTop';
 
 const Categories = () => {
   const furniture = require('../../../assets/categories/furniture.jpg');
@@ -21,6 +22,10 @@ const Categories = () => {
   const decorations = require('../../../assets/categories/decorations.jpg');
   const plants = require('../../../assets/categories/plants.jpg');
   const electric = require('../../../assets/categories/electric.jpg');
+
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
 
   return (
     <div className='container-lg-sm-md mb-3'>

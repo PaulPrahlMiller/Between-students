@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import scrollTop from '../utils/scrollTop';
 
 const TeamPhoto = require('../../src/assets/team-header.png');
 const TeamPhoto_Tian = require('../../src/assets/tian1.png');
@@ -8,6 +9,10 @@ const TeamPhoto_Frank = require('../../src/assets/Frank.jpg');
 const TeamPhoto_Meron = require('../../src/assets/Meron.jpg');
 
 const About = () => {
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
+
   return (
     <div className='container'>
       <div>

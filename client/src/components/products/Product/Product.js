@@ -23,8 +23,7 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
-    scrollTop();
+    scrollTop('smooth');
 
     if (products) {
       setCurrentProduct(productDispatch, productId);

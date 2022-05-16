@@ -1,8 +1,13 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './UnknownRoute.css';
+import scrollTop from '../utils/scrollTop';
 
 const UnknownRoute = () => {
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
+
   let navigate = useNavigate();
 
   const handleClick = () => {

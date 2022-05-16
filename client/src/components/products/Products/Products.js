@@ -6,11 +6,10 @@ import ProductItem from '../ProductItem/ProductItem';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Products.module.css';
 import range from '../../../utils/range';
-import scrollTop from '../../../utils/scrollTop';
 
 const Products = (props) => {
   // Use the products context
-  const [productState, productDispatch] = useProducts();
+  const productState = useProducts()[0];
 
   // Destructure values from the state
   const { products, filteredProducts, categoryProducts } = productState;
@@ -26,7 +25,6 @@ const Products = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    scrollTop('smooth'); // Scroll the window to the top when rendering.
     const pages =
       filteredProducts?.length / PRODUCTS_PER_PAGE ||
       categoryProducts?.length / PRODUCTS_PER_PAGE ||

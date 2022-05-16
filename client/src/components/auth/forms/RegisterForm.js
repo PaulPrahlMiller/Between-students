@@ -4,6 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import { clearError, register } from '../../../context/auth/AuthState';
 import styles from './AuthForm.module.css';
 import useAlert from '../../../hooks/useAlert';
+import scrollTop from '../../../utils/scrollTop';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,10 @@ const RegisterForm = () => {
   const { isAuthenticated, error } = authState;
 
   const setAlert = useAlert()[1];
+
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
 
   useEffect(() => {
     if (error) {

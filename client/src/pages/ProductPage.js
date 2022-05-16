@@ -8,6 +8,7 @@ import {
   filterByCategory
 } from '../context/product/ProductState';
 import useProducts from '../hooks/useProducts';
+import scrollTop from '../utils/scrollTop';
 
 const Home = () => {
   const { query, category } = useParams();
@@ -15,6 +16,10 @@ const Home = () => {
   const [productState, productDispatch] = useProducts();
 
   const { products } = productState;
+
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
 
   useEffect(() => {
     if (query === undefined && category === undefined) {

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './mission.css';
+import scrollTop from '../../utils/scrollTop';
 
 const Mission = () => {
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
+
   const titlePage = require('../../assets/hkr-students.jpg');
   const chairs = require('../../assets/chairs_outside.jpg');
   const amused = require('../../assets/amused.jpg');

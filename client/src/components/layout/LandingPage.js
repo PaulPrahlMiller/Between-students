@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useProducts from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
@@ -8,8 +8,13 @@ import Loading from '../../pages/Loading/Loading';
 import Slider from 'react-slick';
 import dog from '../../assets/dog.jpg';
 import './landing.css';
+import scrollTop from '../../utils/scrollTop';
 
 const LandingHome = () => {
+  useEffect(() => {
+    scrollTop('auto');
+  }, []);
+
   const landingPic = require('../../assets/landing-top.jpg');
 
   const sofa = require('../../assets/cover-sofa.png');
