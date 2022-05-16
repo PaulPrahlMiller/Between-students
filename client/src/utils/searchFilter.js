@@ -14,7 +14,9 @@ const searchFilter = (products, query) => {
           return word.toLowerCase();
         });
       // Match both singular and plural versions of search term.
-      return words.includes(query) || words.includes(query + 's');
+      return (
+        words.includes(query.toLowerCase()) || words.includes(query.toLowerCase() + 's')
+      );
     });
   });
 
