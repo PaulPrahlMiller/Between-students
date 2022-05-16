@@ -3,7 +3,6 @@ import useProducts from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import useLoading from '../../hooks/useLoading';
 import Loading from '../../pages/Loading/Loading';
 import Slider from 'react-slick';
 import dog from '../../assets/dog.jpg';
@@ -23,10 +22,6 @@ const LandingHome = () => {
   const lighting = require('../../assets/lighting.jpg');
   const productState = useProducts()[0];
   const { products } = productState;
-
-  const loading = useLoading(1500);
-
-  if (loading) return <Loading />;
 
   let settings = {
     inifity: false,
@@ -140,13 +135,15 @@ const LandingHome = () => {
             {products.map((product) => (
               <div className='out' key={product._id}>
                 <div className='card_carousel'>
-                  <img
-                    className='img__carousel'
-                    src={product.productImage}
-                    alt={product._id}
-                    height={200}
-                    width={210}
-                  ></img>
+                  <Link to={`/${product.category}/${product._id}`}>
+                    <img
+                      className='img__carousel'
+                      src={product.productImage}
+                      alt={product._id}
+                      height={200}
+                      width={210}
+                    />
+                  </Link>
                   <div className='card-body cardBody__carousel'>
                     <p className='card-title cardTitle__carousel'>{product.title}</p>
                     <small className='card-text text-muted cardTitle__carousel'>
