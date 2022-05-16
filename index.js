@@ -16,7 +16,6 @@ connectDatabase();
 
 app.use(express.json());
 
-// Cors used to allow cross-origin communication on localserver between frontend and backend
 app.use(cors());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
