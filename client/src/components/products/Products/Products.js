@@ -6,6 +6,7 @@ import ProductItem from '../ProductItem/ProductItem';
 import Loading from '../../../pages/Loading/Loading';
 import styles from './Products.module.css';
 import range from '../../../utils/range';
+import scrollTop from '../../../utils/scrollTop';
 
 const Products = (props) => {
   // Use the products context
@@ -23,6 +24,12 @@ const Products = (props) => {
   const location = useLocation();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentPage) {
+      scrollTop('auto');
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     const pages =
