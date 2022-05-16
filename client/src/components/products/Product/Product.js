@@ -23,7 +23,9 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     scrollTop();
+
     if (products) {
       setCurrentProduct(productDispatch, productId);
     }
