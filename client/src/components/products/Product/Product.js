@@ -6,6 +6,7 @@ import styles from './Product.module.css';
 import useLoading from '../../../hooks/useLoading';
 import UnknownRoute from '../../../pages/UnknownRoute';
 import formatDate from '../../../utils/dateFormatter';
+import scrollTop from '../../../utils/scrollTop';
 import {
   clearCurrentProduct,
   setCurrentProduct
@@ -22,6 +23,7 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    scrollTop();
     if (products) {
       setCurrentProduct(productDispatch, productId);
     }
