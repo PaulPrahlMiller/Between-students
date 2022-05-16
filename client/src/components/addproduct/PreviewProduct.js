@@ -3,37 +3,37 @@ import './PreviewProduct.css';
 
 function PreviewProduct(props) {
   return (
-    <div class='container__right d-none d-md-block d-sm-none'>
-      <div class='div__outterOut'>
-        <div class='div__outter'>
-          <div class='div__preview'>
+    <div className='container__right d-none d-md-block d-sm-none'>
+      <div className='div__outterOut'>
+        <div className='div__outter'>
+          <div className='div__preview'>
             <h3>Preview</h3>
           </div>
-          <div class='div__details'>
-            <div class='div__imgPreview'>
+          <div className='div__details'>
+            <div className='div__imgPreview'>
               {props.uploaded ? (
-                <img class='img__preview' src={props.uploaded} alt=''></img>
+                <img className='img__preview' src={props.uploaded} alt=''></img>
               ) : (
-                <h3>
-                  Your list preview: <br></br>
+                <div>
+                  <h3>Your list preview: </h3> <br></br>
                   <h4>
                     As you create your listing, you can preview how it will appear to
                     others on Student Hub.
                   </h4>
-                </h3>
+                </div>
               )}
             </div>
-            <div class='div__des'>
-              <div class='div__desJustify'>
-                <h4 class='h4__des'>Title:{props.title}</h4>
+            <div className='div__des'>
+              <div className='div__desJustify'>
+                <h4 className='h4__des'>Title:{props.title}</h4>
               </div>
-              <div class='div__desJustify'>
-                <h4 class='h4__des'>
+              <div className='div__desJustify'>
+                <h4 className='h4__des'>
                   Price: <span>{props.price} kr</span>
                 </h4>
               </div>
-              <div class='div__desJustify'>
-                <h4 class='h4__des'>Description:{props.description}</h4>
+              <div className='div__desJustify'>
+                <h4 className='h4__des'>Description:{props.description}</h4>
               </div>
             </div>
           </div>

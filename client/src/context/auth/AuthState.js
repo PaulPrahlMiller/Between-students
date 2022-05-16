@@ -21,7 +21,7 @@ import {
 export const getUser = async (dispatch) => {
   try {
     // Get logged in user from database
-    const res = await axios.get('http://localhost:5000/api/user');
+    const res = await axios.get('/api/user');
 
     // Dispatch to auth reducer with user object as payload
     dispatch({
@@ -38,7 +38,7 @@ export const getUser = async (dispatch) => {
 export const getUserProducts = async (dispatch) => {
   try {
     // Get the user products from the database
-    const res = await axios.get('http://localhost:5000/api/products/user');
+    const res = await axios.get('/api/products/user');
 
     dispatch({
       type: SET_USERS_PRODUCTS,
@@ -58,7 +58,7 @@ export const logout = (dispatch) => {
 export const login = async (dispatch, formData) => {
   try {
     // Login user to get an authorization token
-    const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+    const res = await axios.post('/api/auth/login', formData);
 
     // dispatch to reducer with token as payload
     dispatch({
@@ -78,7 +78,7 @@ export const login = async (dispatch, formData) => {
 
 export const register = async (dispatch, formData) => {
   try {
-    const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+    const res = await axios.post('/api/auth/register', formData);
     console.log(res.data);
 
     dispatch({

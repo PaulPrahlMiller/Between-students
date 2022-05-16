@@ -25,7 +25,7 @@ const SideNavBar = () => {
   };
 
   useEffect(() => {
-    axios('http://localhost:5000/api/user').then((response) => {
+    axios('/api/user').then((response) => {
       var user_data = response.data;
       // console.log('original data in first useEffect', user_data);
       setProfile(user_data);
@@ -35,7 +35,7 @@ const SideNavBar = () => {
   useEffect(() => {}, [profile]);
 
   return (
-    <div class=''>
+    <div>
       <MDBTabs className='mb-3 justify-content-md-center'>
         <MDBTabsItem>
           <MDBTabsLink

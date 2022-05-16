@@ -1,17 +1,13 @@
 import React, { Fragment, useState } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
-import useProducts from '../../../hooks/useProducts';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { logout } from '../../../context/auth/AuthState';
 import styles from './Navbar.module.css';
 import logo from '../../../assets/colorlogo.svg';
 
 const Navbar = () => {
-  const [ProductState, productDispatch] = useProducts();
   const [authState, authDispatch] = useAuth();
-  const { categories } = ProductState;
   const { isAuthenticated } = authState;
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (e) => {
@@ -40,9 +36,8 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar} onClick={handleClick}>
       <div className={styles.navBranding}>
-        <img class='img-fluid' height={55} width={80} src={logo} alt='...'></img>
+        <img className='img-fluid' height={55} width={80} src={logo} alt='...'></img>
       </div>
-      {/* <div className={styles.categoryToggle}>Categories</div> */}
       <div
         className={isMenuOpen ? `${styles.navMenu} ${styles.expanded}` : styles.navMenu}
       >
@@ -105,12 +100,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink
-                  to='/'
-                  className={styles.navLink}
-                  onClick={handleLogout}
-                  reloadDocument
-                >
+                <NavLink to='/' className={styles.navLink} onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>

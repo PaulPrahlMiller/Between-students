@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import {
   MDBBtn,
   MDBModal,
@@ -60,7 +59,7 @@ const AddProduct = () => {
     formData.append('cost', cost);
 
     await axios
-      .post('http://localhost:5000/api/products', formData)
+      .post('/api/products', formData)
       .then((res) => {
         setTitle('');
         setDescription('');
@@ -136,9 +135,9 @@ const AddProduct = () => {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option>Category</option>
-                {ProductState.categories.map((cat) => {
+                {ProductState.categories.map((cat, index) => {
                   return (
-                    <option value={cat} key={cat.id}>
+                    <option value={cat} key={index}>
                       {cat}
                     </option>
                   );
@@ -179,11 +178,7 @@ const AddProduct = () => {
           <MDBModalContent>
             <MDBModalHeader>
               <MDBModalTitle>Success</MDBModalTitle>
-              <MDBBtn
-                classNameName='btn-close'
-                color='none'
-                onClick={toggleShow}
-              ></MDBBtn>
+              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>New listing created!</MDBModalBody>
 

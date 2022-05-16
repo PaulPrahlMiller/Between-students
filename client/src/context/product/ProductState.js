@@ -18,7 +18,7 @@ import {
 
 export const getProducts = async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5000/api/products');
+    const res = await axios.get('/api/products');
     // Normally data will be retrieved from the database. Here we use the hardcoded data.
     dispatch({
       type: GET_PRODUCTS,

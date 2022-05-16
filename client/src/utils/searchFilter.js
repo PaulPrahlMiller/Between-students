@@ -7,7 +7,6 @@ const searchFilter = (products, query) => {
     const fields = [product.category, product.title, product.description];
 
     return fields.some((field) => {
-      console.log(field);
       let words = field
         .replace(regex, ' ')
         .split(' ')

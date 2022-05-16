@@ -1,5 +1,6 @@
 const signale = require('signale');
 const Product = require('../models/Product');
+const cloudinary = require('../middleware/uploadCloud')
 const { removeValidation } = require('../validation');
 
 exports.getProducts = async (req, res) => {
@@ -53,12 +54,13 @@ exports.addProduct = async (req, res) => {
   signale.pending('A user is trying to add a product!');
   try {
     // Create new product
+    const result = await cloudinary.uploader.upload(req.file.path)
     let product = new Product({
       title: req.body.title,
       category: req.body.category,
       owner_id: req.user.id,
       cost: req.body.cost,
-      productImage: req.file.filename,
+      productImage: result.secure_url,
       description: req.body.description
     });
     // Save the product in database
